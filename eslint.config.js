@@ -3,6 +3,7 @@ import astro from "eslint-plugin-astro";
 import * as astroParser from "astro-eslint-parser";
 import prettier from "eslint-plugin-prettier";
 import jsxA11y from "eslint-plugin-jsx-a11y";
+import tsParser from "@typescript-eslint/parser";
 
 export default [
   // JavaScript & TypeScript (including React)
@@ -11,7 +12,7 @@ export default [
     languageOptions: {
       ecmaVersion: "latest",
       sourceType: "module",
-      parser: "@typescript-eslint/parser",
+      parser: tsParser,
       parserOptions: {
         ecmaFeatures: {
           jsx: true,
