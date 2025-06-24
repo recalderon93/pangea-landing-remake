@@ -1,0 +1,53 @@
+{
+	// ✅ ESLint & Prettier Formatting
+	"editor.defaultFormatter": "esbenp.prettier-vscode",
+	"editor.formatOnSave": true,
+	"editor.codeActionsOnSave": {
+		"source.fixAll.eslint": "always"
+	},
+	// ✅ Tailwind support for cva() and other class utilities
+	"tailwindCSS.experimental.classRegex": [
+		[
+			"cva\\(([^)]*)\\)",
+			"[\"'`]([^\"'`]*).*?[\"'`]"
+		]
+	],
+	// ✅ ESLint Validation (Add .astro support here)
+	"eslint.validate": [
+		"javascript",
+		"javascriptreact",
+		"typescript",
+		"typescriptreact",
+		"astro"
+	],
+	// ✅ Tailwind Suggestions
+	"editor.quickSuggestions": {
+		"strings": true
+	},
+	// ✅ Tabs, newline, and cleanup
+	"editor.tabSize": 2,
+	"files.insertFinalNewline": true,
+	"files.trimTrailingWhitespace": true,
+	// ✅ Optimize TypeScript Performance
+	"typescript.tsserver.maxTsServerMemory": 4096,
+	"typescript.updateImportsOnFileMove.enabled": "always",
+	// ✅ Relative imports
+	"typescript.preferences.importModuleSpecifier": "relative",
+	"javascript.preferences.importModuleSpecifier": "relative",
+	// ✅ Format handlers by filetype
+	"[javascript]": {
+		"editor.defaultFormatter": "esbenp.prettier-vscode"
+	},
+	"[typescript]": {
+		"editor.defaultFormatter": "esbenp.prettier-vscode"
+	},
+	"[typescriptreact]": {
+		"editor.defaultFormatter": "esbenp.prettier-vscode"
+	},
+	"[jsonc]": {
+		"editor.defaultFormatter": "esbenp.prettier-vscode"
+	},
+	"[astro]": {
+		"editor.defaultFormatter": "esbenp.prettier-vscode"
+	}
+}
