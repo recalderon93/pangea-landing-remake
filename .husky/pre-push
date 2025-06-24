@@ -11,7 +11,7 @@ echo "\n Checking code with husky 🐺\n"
 # echo " --------------------------------------"
 echo ""
 
-env echo " ⏳ Lint check running...             "
+echo " ⏳ Lint check running...             "
 echo ""
 
 if ! npm run format &> /dev/null; then
@@ -27,7 +27,7 @@ fi
 echo ""
 echo ""
 
-env echo " ⏳ Lint check running...             "
+echo " ⏳ Lint check running...             "
 echo ""
 
 if ! npm run lint &> /dev/null; then
