@@ -8,6 +8,13 @@ import tsParser from "@typescript-eslint/parser";
 export default [
   // JavaScript & TypeScript (including React)
   {
+    ignores: [
+      "**/.astro/**", // ignore generated folder
+      "dist/**",
+      "node_modules/**",
+    ],
+  },
+  {
     files: ["**/*.{js,ts,jsx,tsx}"],
     languageOptions: {
       ecmaVersion: "latest",
