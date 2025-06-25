@@ -8,6 +8,7 @@
     "paths": {
       "@/*": ["./src/*"],
       "@components/*": ["./src/components/*"],
+      "@i18n/*": ["./src/i18n/*"],
       "@layouts/*": ["./src/layouts/*"],
       "@features/*": ["./src/features/*"],
       "@pages/*": ["./src/pages/*"],
