@@ -8,9 +8,9 @@ const astroConfig = getViteConfig({
   test: {
     globals: true,
     setupFiles: "./vitest.setup.ts",
-    include: ["src/**/*.spec.ts", "src/**/*.test.tsx"],
+    include: ["src/**/*.spec.ts", "src/**/*.test.{ts,tsx}"],
     environmentMatchGlobs: [
-      ["**/*.test.tsx", "jsdom"],
+      ["**/*.test.{ts|tsx}", "jsdom"],
       ["**/*.spec.ts", "node"],
     ],
   },
