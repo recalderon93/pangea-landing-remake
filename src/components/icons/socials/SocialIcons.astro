@@ -1,0 +1,22 @@
+---
+import InstagramIcon from "./Instagram.astro";
+import LinkedInIcon from "./LinkedIn.astro";
+
+export type SocialIconType = "instagram" | "linkedin";
+
+interface Props {
+  type: SocialIconType;
+  size?: number;
+}
+
+const { type, size = 22 } = Astro.props;
+
+const icons = {
+  instagram: InstagramIcon,
+  linkedin: LinkedInIcon,
+};
+
+const IconComponent = icons[type];
+---
+
+{IconComponent ? <IconComponent size={size} /> : null}

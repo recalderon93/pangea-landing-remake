@@ -1,14 +1,11 @@
+import EN from "@i18n/translations/en";
+import ES from "@i18n/translations/es";
+
 export type Locale = "en" | "es";
 
 const translations = {
-  en: {
-    greeting: "Hello, {name}!",
-    title: "Welcome to our application",
-  },
-  es: {
-    greeting: "¡Hola, {name}!",
-    title: "Welcome to our application",
-  },
+  en: EN,
+  es: ES,
 } as const;
 
 // 3. Type to extract nested keys from translation object
@@ -32,7 +29,7 @@ function getNested(obj: any, path: string): any {
 }
 
 export function t(
-  locale: Locale,
+  locale: Locale = "en",
   key: TranslationKey, // ej: "messages.unread"
   vars?: Record<string, string | number>,
 ): string {
