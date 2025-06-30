@@ -1,0 +1,91 @@
+---
+import Logo from "@components/icons/Logo.astro";
+import { t, type Locale } from "@/i18n";
+import type { SocialIconType } from "@/components/icons/socials/SocialIcons.astro";
+import SocialIcons from "@components/icons/socials/SocialIcons.astro";
+
+interface Props {
+  lang?: Locale;
+}
+
+const { lang = "en" } = Astro.props;
+
+const sections = [
+  {
+    title: t(lang, "footer.company.title"),
+    links: [
+      {
+        label: t(lang, "footer.company.about.label"),
+        href: t(lang, "footer.company.about.href"),
+      },
+      {
+        label: t(lang, "footer.company.solutions.label"),
+        href: "footer.company.solutions.href",
+      },
+    ],
+  },
+  {
+    title: t(lang, "footer.careers.title"),
+    links: [
+      {
+        label: t(lang, "footer.careers.jobs.label"),
+        href: t(lang, "footer.careers.jobs.href"),
+      },
+      {
+        label: t(lang, "footer.careers.referrals.label"),
+        href: t(lang, "footer.careers.referrals.href"),
+      },
+    ],
+  },
+];
+
+const socialLinks = [
+  { social: "linkedin", href: t(lang, "footer.social.linkedin.href") },
+  { social: "instagram", href: t(lang, "footer.social.instagram.href") },
+];
+---
+
+<footer class="flex flex-col gap-20 p-4 text-white">
+  <div
+    class="text-shade-600 relative flex flex-col justify-between gap-12 px-[10%] pt-10 sm:flex-row sm:flex-wrap sm:gap-8 sm:pt-24">
+    <div class="flex flex-col items-start gap-2 sm:gap-8">
+      <Logo color="brand" size="S" />
+      <p class="paragraph-2 w-70 sm:w-80">
+        {t(lang, "footer.caption")}
+      </p>
+    </div>
+    {
+      sections.map((item) => (
+        <div class="flex flex-col gap-6">
+          <h2 class="h5 bold">{item.title}</h2>
+          <ul class="flex flex-col gap-4">
+            {item.links.map((link) => (
+              <li>
+                <a href={link.href} class="paragraph-1">
+                  {link.label}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+      ))
+    }
+    <div class="flex flex-col gap-6">
+      <h2 class="h5 bold">{t(lang, "footer.social.title")}</h2>
+      <div class="flex gap-4">
+        {
+          socialLinks.map((link) => (
+            <a href={link.href}>
+              <SocialIcons type={link.social as SocialIconType} size={24} />
+            </a>
+          ))
+        }
+      </div>
+    </div>
+  </div>
+  <div class="border-t-shade-100 border-t-[1px] py-2">
+    <p class="text-shade-300 text-center">
+      Pangea Teck &copy; {new Date().getFullYear()}
+    </p>
+  </div>
+</footer>

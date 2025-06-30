@@ -1,0 +1,351 @@
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+  /* SHADES */
+  --shade-50: hsl(168, 8%, 92%);
+  --shade-100: hsl(168, 8%, 85%);
+  --shade-200: hsl(168, 8%, 70%);
+  --shade-300: hsl(168, 8%, 54%);
+  --shade-400: hsl(168, 8%, 44%);
+  --shade-500: hsl(168, 8%, 33%);
+  --shade-600: hsl(168, 8%, 22%);
+  /* TEAL */
+  --teal-50: hsl(171, 100%, 90%);
+  --teal-100: hsl(171, 100%, 72%);
+  --teal-200: hsl(171, 100%, 43%);
+  --teal-300: hsl(171, 100%, 34%);
+  --teal-400: hsl(171, 100%, 21%);
+  --teal-500: hsl(171, 100%, 16%);
+  --teal-600: hsl(171, 100%, 12%);
+  /* GREEN */
+  --green-50: hsl(133, 80%, 88%);
+  --green-100: hsl(133, 80%, 77%);
+  --green-200: hsl(133, 80%, 65%);
+  --green-300: hsl(133, 80%, 54%);
+  --green-400: hsl(133, 80%, 40%);
+  --green-500: hsl(133, 80%, 27%);
+  --green-600: hsl(133, 80%, 16%);
+  /* RED */
+  --red-50: hsl(0, 86%, 89%);
+  --red-100: hsl(0, 86%, 78%);
+  --red-200: hsl(0, 86%, 65%);
+  --red-300: hsl(0, 86%, 55%);
+  /* WHITE */
+  --white-50: hsl(0, 0%, 100%);
+  --white-100: hsl(0, 0%, 98%);
+  /* BLACK */
+  --black: hsl(0, 0%, 0%);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+  --color-shade-50: var(--shade-50);
+  --color-shade-100: var(--shade-100);
+  --color-shade-200: var(--shade-200);
+  --color-shade-300: var(--shade-300);
+  --color-shade-400: var(--shade-400);
+  --color-shade-500: var(--shade-500);
+  --color-shade-600: var(--shade-600);
+  /* TEAL */
+  --color-teal-50: var(--teal-50);
+  --color-teal-100: var(--teal-100);
+  --color-teal-200: var(--teal-200);
+  --color-teal-300: var(--teal-300);
+  --color-teal-400: var(--teal-400);
+  --color-teal-500: var(--teal-500);
+  --color-teal-600: var(--teal-600);
+  /* GREEN */
+  --color-green-50: var(--green-50);
+  --color-green-100: var(--green-100);
+  --color-green-200: var(--green-200);
+  --color-green-300: var(--green-300);
+  --color-green-400: var(--green-400);
+  --color-green-500: var(--green-500);
+  --color-green-600: var(--green-600);
+  /* RED */
+  --color-red-50: var(--red-50);
+  --color-red-100: var(--red-100);
+  --color-red-200: var(--red-200);
+  --color-red-300: var(--red-300);
+  --color-white-50: var(--white-50);
+  --color-white-100: var(--white-100);
+}
+
+/* Typography Styles */
+@layer components {
+  h1 {
+    @apply text-[44px] leading-[52px] font-semibold sm:text-[64px] sm:leading-[80px];
+  }
+  h1.bold {
+    @apply font-bold;
+  }
+  h1.bolder {
+    @apply font-extrabold;
+  }
+  h2 {
+    @apply text-[40px] leading-[52px] font-semibold sm:text-[56px] sm:leading-[72px];
+  }
+  h2.bold {
+    @apply font-bold;
+  }
+  h2.bolder {
+    @apply font-extrabold;
+  }
+  h3 {
+    @apply text-[36px] leading-[48px] font-semibold sm:text-[48px] sm:leading-[64px];
+  }
+  h3.bold {
+    @apply font-bold;
+  }
+  h3.bolder {
+    @apply font-extrabold;
+  }
+  h4 {
+    @apply text-[28px] leading-[36px] font-semibold sm:text-[32px] sm:leading-[44px];
+  }
+  h4.bold {
+    @apply font-bold;
+  }
+  h4.bolder {
+    @apply font-extrabold;
+  }
+  h5 {
+    @apply text-[20px] leading-[28px] font-medium sm:text-[24px] sm:leading-[32px];
+  }
+  h5.bold {
+    @apply font-semibold;
+  }
+  h5.bolder {
+    @apply font-bold;
+  }
+  .h1 {
+    @apply text-[48px] leading-[56px] font-semibold sm:text-[64px] sm:leading-[80px];
+  }
+  .h1.bold {
+    @apply font-bold;
+  }
+  .h1.bolder {
+    @apply font-extrabold;
+  }
+  .h2 {
+    @apply text-[40px] leading-[52px] font-semibold sm:text-[56px] sm:leading-[72px];
+  }
+  .h2.bold {
+    @apply font-bold;
+  }
+  .h2.bolder {
+    @apply font-extrabold;
+  }
+  .h3 {
+    @apply text-[36px] leading-[48px] font-semibold sm:text-[48px] sm:leading-[64px];
+  }
+  .h3.bold {
+    @apply font-bold;
+  }
+  .h3.bolder {
+    @apply font-extrabold;
+  }
+  .h4 {
+    @apply text-[28px] leading-[36px] font-semibold sm:text-[32px] sm:leading-[44px];
+  }
+  .h4.bold {
+    @apply font-bold;
+  }
+  .h4.bolder {
+    @apply font-extrabold;
+  }
+  .h5 {
+    @apply text-[20px] leading-[28px] font-medium sm:text-[24px] sm:leading-[32px];
+  }
+  .h5.bold {
+    @apply font-semibold;
+  }
+  .h5.bolder {
+    @apply font-bold;
+  }
+  .paragraph-1 {
+    @apply text-[16px] leading-[24px] font-normal sm:text-[20px] sm:leading-[32px];
+  }
+  .paragraph-1.bold {
+    @apply font-medium;
+  }
+  .paragraph-1.bolder {
+    @apply font-semibold;
+  }
+  .paragraph-2 {
+    @apply text-[12px] leading-[20px] font-normal sm:text-[16px] sm:leading-[24px];
+  }
+  .paragraph-2.bold {
+    @apply font-medium;
+  }
+  .paragraph-2.bolder {
+    @apply font-semibold;
+  }
+  .paragraph-3 {
+    @apply text-[10px] leading-[16px] font-normal sm:text-[14px] sm:leading-[20px];
+  }
+  .paragraph-3.bold {
+    @apply font-medium;
+  }
+  .paragraph-3.bolder {
+    @apply font-semibold;
+  }
+  .caption {
+    @apply text-[12px] leading-[14px] font-medium sm:text-[16px] sm:leading-[20px];
+  }
+  .caption.bold {
+    @apply font-semibold;
+  }
+  .caption.bolder {
+    @apply font-bold;
+  }
+  /* Elevation */
+  .elevation-0 {
+    box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0.12);
+  }
+  .elevation-1 {
+    box-shadow:
+      0px 1px 3px 0px rgba(0, 0, 0, 0.12),
+      0px 1px 2px 0px rgba(0, 0, 0, 0.24);
+  }
+  .elevation-2 {
+    box-shadow:
+      0px 3px 6px 0px rgba(0, 0, 0, 0.15),
+      0px 2px 4px 0px rgba(0, 0, 0, 0.12);
+  }
+  .elevation-3 {
+    box-shadow:
+      0px 10px 20px 0px rgba(0, 0, 0, 0.15),
+      0px 3px 6px 0px rgba(0, 0, 0, 0.1);
+  }
+  .elevation-4 {
+    box-shadow:
+      0px 15px 25px 0px rgba(0, 0, 0, 0.15),
+      0px 5px 10px 0px rgba(0, 0, 0, 0.05);
+  }
+  .elevation-5 {
+    box-shadow: 0px 20px 40px 0px rgba(0, 0, 0, 0.2);
+  }
+}
+
+@layer utilities {
+  /* Hide scrollbar for Chrome, Safari and Opera */
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  /* Hide scrollbar for IE, Edge and Firefox */
+  .no-scrollbar {
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+  }
+  @keyframes fade-in {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+
+  @keyframes fade-out {
+    0% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+    }
+  }
+
+  @keyframes slide-down {
+    0% {
+      transform: translateY(-100%);
+    }
+    100% {
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes slide-up {
+    0% {
+      transform: translateY(0);
+    }
+    100% {
+      transform: translateY(-100%);
+    }
+  }
+
+  @keyframes slide-in-left {
+    0% {
+      transform: translateX(100%);
+    }
+    100% {
+      transform: translateX(0);
+    }
+  }
+  @keyframes slide-out-left {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(100%);
+    }
+  }
+
+  @keyframes slide-left {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-100%);
+    }
+  }
+
+  .animate-fade-in {
+    animation: fade-in 0.2s ease-out forwards;
+  }
+
+  .animate-fade-out {
+    animation: fade-out 0.4s ease-in forwards;
+  }
+
+  .animate-slide-down {
+    animation: slide-down 0.3s ease-out forwards;
+  }
+
+  .animate-slide-up {
+    animation: slide-up 0.2s ease-in forwards;
+  }
+
+  .animate-slide-in-left {
+    animation: slide-in-left 0.3s ease-out forwards;
+  }
+
+  .animate-slide-out-left {
+    animation: slide-out-left 0.3s ease-out forwards;
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  @apply min-h-screen w-full bg-white text-gray-900 antialiased;
+}
+
+@theme {
+  --font-sans: "Poppins", "sans-serif";
+}
