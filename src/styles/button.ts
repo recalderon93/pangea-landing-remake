@@ -1,7 +1,7 @@
 import { cva } from "class-variance-authority";
 
 export const buttonStyles = cva(
-  "rounded-full disabled:bg-shade-200 px-4 py-3 sm:px-6 sm:py-4 elevation-1 active:shadow-none  caption bold shrink-0 grow-0 uppercase",
+  "rounded-full disabled:bg-shade-200 px-4 py-3 sm:px-6 sm:py-4 elevation-1 active:shadow-none  caption bold shrink-0 grow-0 uppercase flex items-center justify-center",
   {
     variants: {
       variant: {
