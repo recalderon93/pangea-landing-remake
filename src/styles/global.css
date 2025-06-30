@@ -330,19 +330,6 @@
   }
 }
 
-/* @media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-} */
-
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: var(--font-poppins), Arial, Helvetica, sans-serif;
-}
-
 html {
   scroll-behavior: smooth;
   -webkit-font-smoothing: antialiased;
@@ -357,21 +344,6 @@ html {
 
 body {
   @apply min-h-screen w-full bg-white text-gray-900 antialiased;
-}
-
-img,
-video,
-canvas,
-svg {
-  display: block;
-  max-width: 100%;
-}
-
-input,
-button,
-textarea,
-select {
-  font: inherit;
 }
 
 @theme {
