@@ -6,11 +6,15 @@ import Hero from "@features/Hero/Hero.astro";
 import GreatSolutionBanner from "@features/Banners/GreatSolutionBanner.astro";
 import KnowMoreBanner from "@features/Banners/KnowMoreBanner.astro";
 import UnlockPotentialBanner from "@features/Banners/UnlockPotentialBanner.astro";
+import Solutions from "@features/Solutions/Solutions.astro";
+import Testimonials from "@features/Testimonials/Testimonials";
 ---
 
 <MainLayout locale="en">
   <Hero locale="en" />
+  <Solutions locale="en" />
   <GreatSolutionBanner locale="en" />
   <KnowMoreBanner locale="en" />
+  <Testimonials client:load />
   <UnlockPotentialBanner locale="en" />
 </MainLayout>
