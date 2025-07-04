@@ -6,4 +6,17 @@ export default {
     tag: "Soluciones digitales integrales, impulsadas por talento LATAM",
     cta: "Trabajemos Juntos",
   },
+  testimonials: {
+    title: "La confianza lo es todo.\nY los empleadores\nconfían en nosotros",
+    cta: "Trabajemos Juntos",
+  },
+  drivenBy: {
+    title: "Impulsados por\nImpacto y Valor",
+  },
+  products: {
+    title: "Nuestras Obras\nMaestras Digitales",
+    caption:
+      "¡Echa un vistazo a nuestro trabajo!\nY descubre cómo desarrollamos soluciones digitales exitosas.",
+    cta: "VER MÁS",
+  },
 };

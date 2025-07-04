@@ -1,0 +1,17 @@
+---
+import { t, type Locale } from "@/i18n";
+import FAQsSection from "./FAQsSection";
+
+interface Props {
+  locale: Locale;
+}
+const { locale } = Astro.props as Props;
+---
+
+<div
+  class="md:py flex flex-col gap-10 px-8 py-14 sm:gap-12 sm:px-12 sm:py-16 md:gap-14 md:px-16 md:py-20 lg:gap-16 lg:px-20 lg:py-24">
+  <h2 class="h3 whitespace-pre-line text-teal-400">
+    {t(locale, "landing.faqs.title")}
+  </h2>
+  <FAQsSection client:load locale={locale} />
+</div>
