@@ -1,0 +1,37 @@
+---
+import { buttonStyles } from "@styles/button";
+import ProjectItem from "./ProjectItem";
+import { t, type Locale } from "@/i18n";
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props as Props;
+---
+
+<section
+  aria-labelledby="projects-header"
+  class="flex flex-col gap-y-8 px-4 py-8 sm:px-6 md:px-10 lg:px-14">
+  <div
+    class="flex flex-col items-baseline justify-between pt-8 whitespace-pre-line md:flex-row">
+    <h2 class="h3 pb-8 text-teal-400" id="projects-header">
+      {t(locale, "landing.products.title")}
+    </h2>
+    <p class="h5 text-shade-400 max-w-[340px] md:max-w-[420px] md:text-right">
+      {t(locale, "landing.products.caption")}
+    </p>
+  </div>
+  <div class="flex flex-col items-center gap-12 py-4 md:gap-16 md:py-0">
+    <div
+      class="grid w-full grid-cols-1 place-items-center gap-x-8 gap-y-6 sm:grid-cols-2 sm:gap-y-10">
+      <ProjectItem projectId="1" />
+      <ProjectItem projectId="2" />
+      <ProjectItem projectId="3" />
+      <ProjectItem projectId="4" />
+    </div>
+    <button class={buttonStyles({ variant: "brand" })}>
+      {t(locale, "landing.products.cta")}
+    </button>
+  </div>
+</section>
