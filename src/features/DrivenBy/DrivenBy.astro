@@ -1,0 +1,45 @@
+---
+import { t, type Locale } from "@/i18n";
+import drivenByImage from "@/images/driven-by-image.png";
+import { drivenByDataList } from "@/constants/drivenBy";
+import DrivenByItem from "./DrivenByItem.astro";
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+
+const column1 = drivenByDataList.slice(0, 3);
+const column2 = drivenByDataList.slice(3, 6);
+---
+
+<div
+  class="relative mt-20 overflow-hidden rounded-3xl bg-teal-400 px-8 pt-16 pb-20 whitespace-pre-line sm:rounded-[28px] sm:px-10 md:rounded-[32px] md:px-20 lg:rounded-[40px] lg:pt-30">
+  <h2 class="h2 mb-8 text-green-300">
+    {t(locale, "landing.drivenBy.title")}
+  </h2>
+  <img
+    class="top-34 right-0 hidden xl:absolute xl:block"
+    src={drivenByImage.src}
+    alt=""
+    width={300}
+    height={485}
+  />
+  <div class="flex flex-col gap-6 lg:flex-row xl:pr-56 2xl:gap-40">
+    <div class="flex flex-col items-center gap-6">
+      {
+        column1.map((item) => (
+          <DrivenByItem title={item.title} description={item.description} />
+        ))
+      }
+    </div>
+    <div class="flex flex-col items-center gap-6">
+      {
+        column2.map((item) => (
+          <DrivenByItem title={item.title} description={item.description} />
+        ))
+      }
+    </div>
+  </div>
+</div>

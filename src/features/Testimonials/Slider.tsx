@@ -13,7 +13,7 @@ const TestimonialsSlider = ({ locale, itemsRefs, containerRef }: Props) => (
     <div
       ref={containerRef}
       className="no-scrollbar snap-x snap-mandatory scroll-px-[cal(50vw-160px)] overflow-x-scroll scroll-smooth px-[calc(50vw-160px)] py-4 sm:scroll-px-[cal(50vw-232px)] sm:px-[calc(50vw-232px)] lg:scroll-px-[50vw] lg:px-[0]">
-      <div className="inline-flex w-max items-center gap-10">
+      <div className="inline-flex w-max items-center gap-10 py-3">
         <div className="w-0 shrink-0 lg:w-[50vw]" />
         {testimonialsData.map((item, i) => (
           <div
