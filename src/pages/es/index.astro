@@ -2,6 +2,15 @@
 import "@styles/global.css";
 import "@fontsource/poppins";
 import MainLayout from "@layouts/MainLayout.astro";
+import Hero from "@features/Hero/Hero.astro";
+import GreatSolutionBanner from "@features/Banners/GreatSolutionBanner.astro";
+import KnowMoreBanner from "@features/Banners/KnowMoreBanner.astro";
+import UnlockPotentialBanner from "@features/Banners/UnlockPotentialBanner.astro";
 ---
 
-<MainLayout locale="es" />
+<MainLayout locale="es">
+  <Hero locale="es" />
+  <GreatSolutionBanner locale="es" />
+  <KnowMoreBanner locale="es" />
+  <UnlockPotentialBanner locale="es" />
+</MainLayout>

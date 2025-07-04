@@ -1,0 +1,22 @@
+---
+import { t, type Locale } from "@/i18n";
+import { buttonStyles } from "@styles/button";
+
+export interface Props {
+  locale: Locale;
+}
+
+const { locale }: Props = Astro.props;
+---
+
+<div class="sm:12 px-8 py-10 md:px-0">
+  <div
+    class="flex items-center justify-between rounded-[24px] bg-teal-400 px-9 py-6 sm:py-8 md:px-12 lg:px-16">
+    <h2 class="paragraph-1 bold text-white-50">
+      {t(locale, "banners.know-more.title")}
+    </h2>
+    <button class={buttonStyles({ variant: "accent" })}>
+      {t(locale, "banners.know-more.cta")}
+    </button>
+  </div>
+</div>
