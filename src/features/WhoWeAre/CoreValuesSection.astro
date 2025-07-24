@@ -1,0 +1,74 @@
+---
+import { t, type Locale } from "@/i18n";
+import DrivenByItem from "@features/DrivenBy/DrivenByItem.astro";
+import ArrowIcon from "@components/icons/ArrowIcon";
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props as Props;
+
+const buttonStyle =
+  "bg-[linear-gradient(102deg,_rgba(251,251,251,0.2)_0%,_rgba(251,251,251,0.05)_100%)] shadow-[-2px_4px_4px_0_rgba(0,0,0,0.1)] backdrop-blur-[10px] rounded-2xl md:rounded-3xl active:shadow-none cursor-pointer px-8 py-6";
+---
+
+<div
+  class="relative flex flex-col overflow-hidden rounded-3xl bg-teal-400 px-8 py-16 whitespace-pre-line sm:rounded-[28px] sm:px-10 md:rounded-[32px] md:px-20 lg:rounded-[40px] lg:py-36 2xl:flex-row">
+  <div class="flex flex-col justify-between xl:w-[460px]">
+    <h2 class="h2 mb-8 whitespace-pre-line text-green-300">
+      {t(locale, "who-we-are.core-values.title")}
+    </h2>
+    <div class="hidden w-full flex-col pr-6 2xl:flex">
+      <button class={buttonStyle}>
+        <div class="flex items-center">
+          <span class="paragraph-1 bolder flex-1 text-justify text-white"
+            >{t(locale, "who-we-are.core-values.cta")}</span
+          >
+          <ArrowIcon className="size-7 fill-white" />
+        </div>
+      </button>
+    </div>
+  </div>
+  <div class="flex flex-col gap-6 lg:flex-row lg:gap-20 xl:pr-56 2xl:gap-14">
+    <div class="flex flex-col items-center gap-6">
+      <DrivenByItem
+        title={t(locale, "who-we-are.core-values.value-1.title")}
+        description={t(locale, "who-we-are.core-values.value-1.description")}
+      />
+      <DrivenByItem
+        title={t(locale, "who-we-are.core-values.value-2.title")}
+        description={t(locale, "who-we-are.core-values.value-2.description")}
+      />
+      <DrivenByItem
+        title={t(locale, "who-we-are.core-values.value-3.title")}
+        description={t(locale, "who-we-are.core-values.value-3.description")}
+      />
+    </div>
+    <div class="flex flex-col items-center gap-6">
+      <DrivenByItem
+        title={t(locale, "who-we-are.core-values.value-4.title")}
+        description={t(locale, "who-we-are.core-values.value-4.description")}
+      />
+      <DrivenByItem
+        title={t(locale, "who-we-are.core-values.value-5.title")}
+        description={t(locale, "who-we-are.core-values.value-5.description")}
+      />
+      <DrivenByItem
+        title={t(locale, "who-we-are.core-values.value-6.title")}
+        description={t(locale, "who-we-are.core-values.value-6.description")}
+      />
+    </div>
+  </div>
+  <div class="flex flex-col items-center pt-18 lg:items-start 2xl:hidden">
+    <button
+      class={`${buttonStyle} w-[80vw] sm:w-[60vw] max-w-[450px] lg:w-[40vw]`}>
+      <div class="flex items-center">
+        <span class="paragraph-1 bolder flex-1 text-justify text-white"
+          >{t(locale, "who-we-are.core-values.cta")}</span
+        >
+        <ArrowIcon className="size-7 fill-white" />
+      </div>
+    </button>
+  </div>
+</div>

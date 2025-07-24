@@ -1,0 +1,24 @@
+---
+import { t, type Locale } from "@/i18n";
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props as Props;
+---
+
+<div
+  class="flex h-[600px] w-full flex-col justify-center gap-12 rounded-b-[20px] bg-teal-400 px-10 md:rounded-b-[40px] md:px-20">
+  <h1
+    class="bold max-w-[1024px] text-center text-[36px] leading-[48px] font-semibold text-white lg:text-left lg:text-[64px] lg:leading-[80px]">
+    {t(locale, "who-we-are.hero.title-1")}
+    <span class="block text-green-300"
+      >{t(locale, "who-we-are.hero.title-2")}</span
+    >
+  </h1>
+  <p
+    class="max-w-[890px] text-center text-[16px] leading-[24px] font-medium text-white sm:text-[20px] sm:leading-[32px] lg:text-left">
+    {t(locale, "who-we-are.hero.caption")}
+  </p>
+</div>

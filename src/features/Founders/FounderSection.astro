@@ -1,0 +1,26 @@
+---
+import { t, type Locale } from "@/i18n";
+import FounderList from "./FounderList.tsx";
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props as Props;
+---
+
+<div class="px-8 py-20 md:px-20 md:py-30">
+  <h2 class="leading-16 whitespace-pre-line text-teal-400 md:whitespace-normal">
+    {t(locale, "who-we-are.founders.title")}
+  </h2>
+  <FounderList locale={locale} client:load />
+  <div class="flex flex-col gap-12">
+    <h2
+      class="max-w-[650px] leading-16 whitespace-pre-line text-teal-400 md:whitespace-normal">
+      {t(locale, "who-we-are.founders.secondary-title")}
+    </h2>
+    <p class="h4 text-shade-400 max-w-[582px] font-medium">
+      {t(locale, "who-we-are.founders.quote")}
+    </p>
+  </div>
+</div>

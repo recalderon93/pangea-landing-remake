@@ -46,12 +46,12 @@ const SliderButtons = ({
 };
 
 const buttonVariants = cva(
-  "flex w-14  h-14 items-center justify-center rounded-full border-[3px] pr-1 shadow hover:shadow-none disabled:opacity-70",
+  "flex w-14  h-14 items-center justify-center rounded-full border-[3px] pr-1 shadow hover:shadow-none disabled:opacity-70 cursor-pointer disabled:cursor-default",
   {
     variants: {
       color: {
         brand: "border-white-50 bg-teal-400",
-        accent: "border-teal-500 bg-white-50",
+        accent: "border-teal-400 bg-white-50",
       },
       direction: {
         left: "",

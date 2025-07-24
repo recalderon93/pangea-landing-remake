@@ -3,6 +3,7 @@ import header from "./header";
 import hero from "./hero";
 import banners from "./banners";
 import landing from "./landing";
+import whoWeAre from "./who-we-are";
 
 export default {
   greeting: "Hello, {name}!",
@@ -11,4 +12,5 @@ export default {
   hero,
   banners,
   landing,
+  "who-we-are": whoWeAre,
 };
