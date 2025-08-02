@@ -80,7 +80,7 @@ const Header = ({ lang = "en", fillHeader = false }: Props) => {
 };
 
 const styles = cva(
-  "sticky top-0 w-full h-18 sm:h-26 md:h-30 px-6 flex items-center sm:px-8 lg:px-20 transition-all duration-200 ease-in-out justify-between z-50",
+  "sticky top-0 w-full h-18 sm:h-26 md:h-30 px-6 flex items-center sm:px-8 lg:px-20 transition-all duration-200 ease-in-out justify-between z-50 max-w-[1536px] mx-auto",
   {
     variants: {
       isScrolled: {
