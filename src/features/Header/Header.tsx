@@ -16,14 +16,16 @@ import MobileNavigationMenu from "./NavigationMenu";
 
 type Props = {
   lang?: Locale;
+  fillHeader?: boolean; // Optional prop to control header fill
 };
 
-const Header = ({ lang = "en" }: Props) => {
+const Header = ({ lang = "en", fillHeader = false }: Props) => {
   const isScrolled = useIsScrolled("#sentinel");
   const { toggleSolutions, toggleMobileMenu } = useHeaderActions();
   const showSolutions = useShowSolutions();
   const showMobileMenu = useShowMobileMenu();
-  const showHeaderFrame = isScrolled || showSolutions || showMobileMenu;
+  const showHeaderFrame =
+    isScrolled || showSolutions || showMobileMenu || fillHeader;
   const color = showHeaderFrame ? "brand" : "accent";
 
   const navStyles = navItemStyles({ color });
@@ -33,6 +35,7 @@ const Header = ({ lang = "en" }: Props) => {
       <header
         className={styles({
           isScrolled: showHeaderFrame,
+          fillHeader,
         })}>
         <div className="sm:w-46">
           <Logo color={color} />
@@ -77,12 +80,16 @@ const Header = ({ lang = "en" }: Props) => {
 };
 
 const styles = cva(
-  "sticky top-0 w-full h-18 sm:h-26 md:h-30 px-6 flex items-center sm:px-8 lg:px-20 transition-all duration-200 ease-in-out justify-between z-50 -mb-18 sm:-mb-26 md:-mb-30 ",
+  "sticky top-0 w-full h-18 sm:h-26 md:h-30 px-6 flex items-center sm:px-8 lg:px-20 transition-all duration-200 ease-in-out justify-between z-50",
   {
     variants: {
       isScrolled: {
         true: "bg-white-100 elevation-1 backdrop-blur-md",
         false: "bg-transparent shadow-none",
+      },
+      fillHeader: {
+        true: "bg-white-100 elevation-1 backdrop-blur-md ",
+        false: "bg-transparent shadow-none -mb-18 sm:-mb-26 md:-mb-30",
       },
     },
   },

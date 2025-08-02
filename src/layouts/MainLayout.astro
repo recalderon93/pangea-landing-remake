@@ -7,9 +7,10 @@ import Footer from "@features/Footer/Footer.astro";
 
 export interface Props {
   locale: Locale;
+  fillHeader?: boolean;
   title?: string;
 }
-const { locale, title = "Pangea Landing" } = Astro.props;
+const { locale, title = "Pangea Landing", fillHeader = false } = Astro.props;
 ---
 
 <html lang={locale}>
@@ -21,7 +22,7 @@ const { locale, title = "Pangea Landing" } = Astro.props;
     <title>{title}</title>
   </head>
   <body class="relative flex flex-col">
-    <Header client:load lang={locale} />
+    <Header client:load lang={locale} fillHeader={fillHeader} />
     <div class="flex-grow">
       <slot />
     </div>
