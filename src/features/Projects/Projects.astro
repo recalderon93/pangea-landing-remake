@@ -5,9 +5,10 @@ import { t, type Locale } from "@/i18n";
 
 interface Props {
   locale: Locale;
+  showHeader?: boolean;
 }
 
-const { locale } = Astro.props as Props;
+const { locale, showHeader = true } = Astro.props as Props;
 ---
 
 <section
@@ -15,12 +16,24 @@ const { locale } = Astro.props as Props;
   class="flex flex-col gap-y-8 px-4 py-8 sm:px-6 md:px-10 lg:px-14">
   <div
     class="flex flex-col items-baseline justify-between pt-8 whitespace-pre-line md:flex-row">
-    <h2 class="h3 pb-8 text-teal-400" id="projects-header">
-      {t(locale, "landing.products.title")}
-    </h2>
-    <p class="h5 text-shade-400 max-w-[340px] md:max-w-[420px] md:text-right">
-      {t(locale, "landing.products.caption")}
-    </p>
+    {
+      showHeader ? (
+        <>
+          <h2 class="h3 pb-8 text-teal-400" id="projects-header">
+            {t(locale, "landing.products.title")}
+          </h2>
+          <p class="h5 text-shade-400 max-w-[340px] md:max-w-[420px] md:text-right">
+            {t(locale, "landing.products.caption")}
+          </p>
+        </>
+      ) : (
+        <div class="flex w-full justify-center py-16">
+          <div class="bg-shade-50 rounded-2xl px-12 py-5 text-[20px] leading-8 text-teal-400">
+            <p>{t(locale, "our-work.projects.latam-talent")}</p>
+          </div>
+        </div>
+      )
+    }
   </div>
   <div class="flex flex-col items-center gap-12 py-4 md:gap-16 md:py-0">
     <div

@@ -1,0 +1,18 @@
+---
+import "@styles/global.css";
+import "@fontsource/poppins";
+import HeroSection from "@features/OurWork/HeroSection.astro";
+import MainLayout from "@layouts/MainLayout.astro";
+import Projects from "@features/Projects/Projects.astro";
+import FAQs from "@features/FAQs/FAQs.astro";
+import Testimonials from "@features/Testimonials/Testimonials";
+import UnlockPotentialBanner from "@features/Banners/UnlockPotentialBanner.astro";
+---
+
+<MainLayout locale="en" fillHeader>
+  <HeroSection locale="en" />
+  <Projects locale="en" showHeader={false} />
+  <FAQs locale="en" />
+  <Testimonials client:load />
+  <UnlockPotentialBanner locale="en" />
+</MainLayout>
