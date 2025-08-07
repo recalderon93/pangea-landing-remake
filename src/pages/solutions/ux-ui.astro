@@ -1,0 +1,15 @@
+---
+import "@styles/global.css";
+import "@fontsource/poppins";
+import MainLayout from "@layouts/MainLayout.astro";
+import Hero from "@features/Solutions/Hero.astro";
+---
+
+<MainLayout locale="en" fillHeader>
+  <Hero
+    locale="en"
+    solution="ux-ui"
+    nextHref="/solutions/qa"
+    previousHref="/solutions/web-development"
+  />
+</MainLayout>
