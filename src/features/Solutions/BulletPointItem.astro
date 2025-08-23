@@ -1,0 +1,54 @@
+---
+import type { TileOption } from "./TileSection.astro";
+import { cva } from "class-variance-authority";
+import CheckIcon from "@components/icons/Check";
+
+export const captionStyle = cva(
+  "text-sm sm:text-base md:text-lg leading-[1.66] whitespace-pre-line max-w-[520px]",
+  {
+    variants: {
+      variant: {
+        default: "text-gray-500",
+        image: "text-white",
+      },
+    },
+  },
+);
+
+export const subtitleStyle = cva(
+  "text-lg font-semibold sm:text-xl md:text-2xl leading-[1.66]",
+  {
+    variants: {
+      variant: {
+        default: "text-teal-400",
+        image: "text-white",
+      },
+    },
+  },
+);
+
+const {
+  title,
+  description,
+  variant = "default",
+} = Astro.props as {
+  variant: "default" | "image";
+} & TileOption;
+---
+
+<div class="flex flex-col gap-1">
+  <div class="flex items-center gap-3">
+    <div class="size-5">
+      <CheckIcon color={variant === "image" ? "white" : "#006C5B"} size={20} />
+    </div>
+    <div class="flex-1">
+      <h3 class={subtitleStyle({ variant })}>{title}</h3>
+    </div>
+  </div>
+  <div class="flex gap-3">
+    <div class="size-5"></div>
+    <div class="flex-1">
+      <p class={captionStyle({ variant })}>{description}</p>
+    </div>
+  </div>
+</div>

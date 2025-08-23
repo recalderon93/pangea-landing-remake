@@ -1,0 +1,65 @@
+---
+import { t, type Locale } from "@/i18n";
+import type { Solutions } from "@/types/solutions";
+import NavButtons from "./NavButtons";
+import { cn } from "@styles/classNameMerge";
+import { buttonStyles } from "@styles/button";
+import HeroCaption from "./HeroCaption.astro";
+
+interface Props {
+  locale: Locale;
+  solution: Solutions;
+  nextHref?: string | null;
+  previousHref?: string | null;
+}
+
+const {
+  locale,
+  solution = "project-management",
+  nextHref,
+  previousHref,
+} = Astro.props as Props;
+---
+
+<>
+  <div
+    class="rounded-b-3xl bg-teal-400 px-8 pt-10 pb-14 md:rounded-b-[40px] md:px-20 md:pt-24 md:pb-22">
+    <div
+      class="flex items-center justify-between pt-8 pb-[46px] md:pt-24 md:pb-16">
+      <NavButtons client:load nextHref={nextHref} previousHref={previousHref} />
+      <a
+        href="/"
+        aria-label="Close solutions and Go back to homepage"
+        class="text-[18px] leading-[30px] font-medium text-[#EAEDEC80] md:text-[30px] md:leading-[40px]">
+        <p>{t(locale, "solutions.close")}</p>
+      </a>
+    </div>
+    <div class="flex flex-col justify-between gap-8 lg:flex-row lg:items-end">
+      <div class="flex flex-col items-start gap-8 pt-6">
+        <h1
+          class="bold text-[36px] leading-[48px] font-semibold whitespace-pre-line text-green-300 sm:text-left sm:text-[64px] sm:leading-[80px]">
+          {t(locale, `solutions.${solution}.hero.title`)}
+        </h1>
+        <p
+          class="text-base leading-6 font-normal whitespace-pre-line text-white lg:text-[20px] lg:leading-7 xl:text-[30px] xl:leading-10">
+          {t(locale, `solutions.${solution}.hero.caption-1`)}
+        </p>
+        <button class={cn(buttonStyles({ variant: "accent" }), "lg:hidden")}>
+          <p>{t(locale, "solutions.project-management.hero.cta")}</p>
+        </button>
+      </div>
+      <HeroCaption
+        solution={solution}
+        locale={locale}
+        className="hidden whitespace-pre-line text-white lg:block xl:text-end"
+      />
+    </div>
+  </div>
+  <div>
+    <HeroCaption
+      solution={solution}
+      locale={locale}
+      className="max-w-[480px] px-8 pt-8 lg:hidden"
+    />
+  </div>
+</>

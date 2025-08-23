@@ -12,7 +12,7 @@ const servicesItems = [
       es: "Gestión ágil transparente, colaborativa y orientada a resultados para el éxito de tu startup.",
     },
     image: service1IMG,
-    href: "/services/agile-project-management",
+    href: "/solutions/project-management",
   },
   {
     id: "service-2",
@@ -22,7 +22,7 @@ const servicesItems = [
       es: "Gestión ágil transparente, colaborativa y orientada a resultados para el éxito de tu startup.",
     },
     image: service2IMG,
-    href: "/services/web-development",
+    href: "/solutions/web-development",
   },
   {
     id: "service-3",
@@ -32,7 +32,7 @@ const servicesItems = [
       es: "Analizamos tu modelo de negocio en detalle y desarrollamos la aplicación ideal que necesitas.",
     },
     image: service3IMG,
-    href: "/services/apps-development",
+    href: "/solutions/qa",
   },
   {
     id: "service-4",
@@ -42,7 +42,7 @@ const servicesItems = [
       es: "Crearemos experiencias digitales intuitivas y atractivas que cautivarán a todos tus usuarios.",
     },
     image: service4IMG,
-    href: "/services/ux-ui-design",
+    href: "/solutions/ux-ui",
   },
 ];
 

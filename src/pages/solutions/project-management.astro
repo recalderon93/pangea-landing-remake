@@ -1,0 +1,83 @@
+---
+import "@styles/global.css";
+import "@fontsource/poppins";
+import MainLayout from "@layouts/MainLayout.astro";
+import Hero from "@features/Solutions/Hero.astro";
+import TileSection, {
+  type TileOption,
+} from "@features/Solutions/TileSection.astro";
+import tileImage from "@/images/solutions-1.jpg";
+import { t, type Locale } from "@/i18n";
+import BulletPointsSection from "@features/Solutions/BulletPointsSection.astro";
+import type { Solutions } from "@/types/solutions";
+
+export type Props = {
+  locale: Locale;
+  variant: Solutions;
+};
+
+const { locale = "en", variant = "project-management" } = Astro.props as Props;
+
+const section1 = [...new Array(3)].map((_, i) => ({
+  // @ts-expect-error Solutions type match with the translations keys
+  title: t(locale, `solutions.${variant}.section-1.bullet-${i + 1}.title`),
+  description: t(
+    locale,
+    // @ts-expect-error Solutions type match with the translations keys
+    `solutions.${variant}.section-1.bullet-${i + 1}.caption`,
+  ),
+})) as [TileOption, TileOption, TileOption];
+
+const section2 = [...new Array(3)].map((_, i) => ({
+  // @ts-expect-error Solutions type match with the translations keys
+  title: t(locale, `solutions.${variant}.section-2.bullet-${i + 1}.title`),
+  description: t(
+    locale,
+    // @ts-expect-error Solutions type match with the translations keys
+    `solutions.${variant}.section-2.bullet-${i + 1}.caption`,
+  ),
+})) as [TileOption, TileOption, TileOption];
+---
+
+<MainLayout locale="en" fillHeader>
+  <Hero
+    locale="en"
+    solution="project-management"
+    nextHref="/solutions/web-development"
+    previousHref="/solutions/chatbot"
+  />
+  <div class="flex flex-col gap-26 pt-26">
+    <TileSection
+      title={t("en", "solutions.project-management.section-1.title")}
+      subtitle={t("en", "solutions.project-management.section-1.subtitle")}
+      caption={t("en", "solutions.project-management.section-1.caption")}
+      tiles={section1}
+    />
+    <BulletPointsSection
+      title={t("en", "solutions.project-management.section-1.title")}
+      subtitle={t("en", "solutions.project-management.section-1.subtitle")}
+      caption={t("en", "solutions.project-management.section-1.caption")}
+      tiles={section1}
+    />
+    <TileSection
+      variant="image"
+      title={t("en", "solutions.project-management.section-2.title")}
+      image={tileImage.src}
+      imageCaption={t(
+        "en",
+        "solutions.project-management.section-2.image-caption",
+      )}
+      tiles={section2}
+    />
+    <BulletPointsSection
+      variant="image"
+      title={t("en", "solutions.project-management.section-2.title")}
+      image={tileImage.src}
+      imageCaption={t(
+        "en",
+        "solutions.project-management.section-2.image-caption",
+      )}
+      tiles={section2}
+    />
+  </div>
+</MainLayout>
