@@ -1,0 +1,76 @@
+---
+import TileItem from "./TileItem.astro";
+import { cn } from "@styles/classNameMerge";
+
+export interface TileOption {
+  title: string;
+  description: string;
+}
+
+export interface Props {
+  containerClass?: string;
+  image?: string;
+  imageCaption?: string;
+  title?: string;
+  subtitle?: string;
+  caption?: string;
+  tiles: [TileOption, TileOption, TileOption];
+  variant?: "default" | "image";
+}
+
+const {
+  containerClass,
+  image,
+  title,
+  subtitle,
+  caption,
+  tiles,
+  imageCaption,
+  variant,
+} = Astro.props as Props;
+---
+
+<div class={cn("flex-col px-20 hidden lg:flex", containerClass)}>
+  <div class="flex items-center justify-between">
+    <h2 class="leading-16 whitespace-pre-line text-teal-400">
+      {title}
+    </h2>
+    <div class="flex grow-1 flex-col">
+      <h3 class="xl:4xl text-end text-3xl leading-10 font-medium text-teal-400">
+        {subtitle}
+      </h3>
+      <p
+        class="text-end text-lg leading-7 whitespace-pre-line text-gray-400 xl:text-xl">
+        {caption}
+      </p>
+    </div>
+  </div>
+  <div class="grid grid-cols-3 gap-6 pt-20">
+    {
+      tiles.map((tile) => (
+        <TileItem
+          title={tile.title}
+          description={tile.description}
+          variant={variant}
+        />
+      ))
+    }
+  </div>
+  {
+    image ? (
+      <div class="mt-18 h-[380px] w-full gap-6 rounded-3xl bg-gray-400">
+        <img
+          src={image}
+          alt=""
+          class="h-full w-full rounded-3xl object-cover"
+        />
+      </div>
+    ) : null
+  }
+  <div class="flex w-full items-center justify-center">
+    <p
+      class="mt-14 text-center text-2xl leading-[1.33] whitespace-pre-line text-gray-500 xl:text-3xl">
+      {imageCaption}
+    </p>
+  </div>
+</div>
