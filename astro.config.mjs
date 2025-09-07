@@ -34,6 +34,5 @@ export default defineConfig({
   },
   redirects: {
     "/solutions": "/solutions/project-management",
-    "/solutions/": "/solutions/project-management",
   },
 });
