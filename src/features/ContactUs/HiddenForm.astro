@@ -1,0 +1,33 @@
+---
+
+---
+
+<form
+  name="contact-us"
+  data-netlify="true"
+  netlify-honeypot="bot-field"
+  method="POST"
+  action="/"
+  enctype="multipart/form-data"
+  hidden>
+  <input type="hidden" name="form-name" value="contact-us" />
+  <input type="text" name="fullName" />
+  <input type="email" name="email" />
+  <input type="text" name="companyName" />
+  <input type="text" name="sector" />
+  <input type="text" name="contactReason" />
+  <input type="text" name="projectType" />
+  <input type="text" name="timeline" />
+  <input type="text" name="needs" />
+  <input type="text" name="duration" />
+  <input type="text" name="teamFit" />
+  <input type="text" name="location" />
+  <!-- File Input  -->
+  <input type="file" name="attachments" multiple />
+  <!-- Honeypot field -->
+  <p class="hidden">
+    <label
+      >Don’t fill this out if you're human: <input name="bot-field" /></label
+    >
+  </p>
+</form>

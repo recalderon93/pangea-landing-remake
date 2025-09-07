@@ -1,0 +1,28 @@
+---
+import { cva } from "class-variance-authority";
+
+export interface Props {
+  title: string;
+  description: string;
+  variant?: "default" | "image";
+}
+
+const { title, description, variant = "default" } = Astro.props as Props;
+
+const titleStyle = cva("max-w-[80%] text-2xl leading-[1.33] xl:text-3xl", {
+  variants: {
+    variant: {
+      default: "",
+      image: "text-green-300",
+    },
+  },
+});
+---
+
+<div
+  class="flex min-h-66 flex-col gap-5 rounded-3xl bg-teal-400 p-9 text-white">
+  <h3 class={titleStyle({ variant })}>
+    {title}
+  </h3>
+  <p class="max-w-[92%] text-base">{description}</p>
+</div>

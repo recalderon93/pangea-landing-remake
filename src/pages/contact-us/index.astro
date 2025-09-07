@@ -1,0 +1,12 @@
+---
+import "@styles/global.css";
+import "@fontsource/poppins";
+import ContactUsForm from "@features/ContactUs/ContactUsForm";
+import MainLayout from "@layouts/MainLayout.astro";
+import ContactUsHiddenForm from "@features/ContactUs/HiddenForm.astro";
+---
+
+<MainLayout locale="en" fillHeader>
+  <ContactUsHiddenForm />
+  <ContactUsForm locale="en" client:load />
+</MainLayout>

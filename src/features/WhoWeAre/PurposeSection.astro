@@ -1,0 +1,24 @@
+---
+import { t, type Locale } from "@/i18n";
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props as Props;
+---
+
+<div
+  class="flex flex-col gap-8 px-8 pt-20 pb-18 md:gap-12 md:px-20 md:pt-26 md:pb-48">
+  <h2 class="leading-16 whitespace-pre-line text-teal-400">
+    {t(locale, "who-we-are.purpose.title")}
+  </h2>
+  <div class="flex flex-col gap-14 md:flex-row md:gap-[72px] xl:gap-[120px]">
+    <p class="paragraph-1 text-neutral-500">
+      {t(locale, "who-we-are.purpose.paragraph")}
+    </p>
+    <p class="h5 bold text-teal-400">
+      &ldquo;{t(locale, "who-we-are.purpose.quote")}&rdquo;
+    </p>
+  </div>
+</div>

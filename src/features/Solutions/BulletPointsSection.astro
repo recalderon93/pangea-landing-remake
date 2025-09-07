@@ -1,0 +1,103 @@
+---
+import { cva } from "class-variance-authority";
+import type { TileOption } from "./TileSection.astro";
+import { cn } from "@styles/classNameMerge";
+import BulletPointItem, {
+  captionStyle,
+  subtitleStyle,
+} from "./BulletPointItem.astro";
+
+export interface Props {
+  containerClass?: string;
+  image?: string;
+  imageCaption?: string;
+  title?: string;
+  subtitle?: string;
+  caption?: string;
+  tiles: [TileOption, TileOption, TileOption];
+  variant?: "default" | "image";
+}
+
+const {
+  containerClass,
+  image,
+  title,
+  subtitle,
+  caption,
+  tiles,
+  imageCaption,
+  variant = "default",
+} = Astro.props as Props;
+
+const containerStyle = cva("px-8 lg:hidden", {
+  variants: {
+    variant: {
+      default: "lg:hidden mb-22",
+      image: "lg:hidden bg-teal-400 rounded-3xl pt-14 pb-20 mb-0",
+    },
+  },
+  defaultVariants: {
+    variant: "default",
+  },
+});
+
+const titleStyle = cva(
+  "text-3xl leading-[1.33] font-semibold whitespace-pre-line sm:text-4xl md:text-5xl",
+  {
+    variants: {
+      variant: {
+        default: "text-teal-400",
+        image: "text-green-300",
+      },
+    },
+  },
+);
+---
+
+<div>
+  <div class={containerStyle({ variant })}>
+    <h2 class={titleStyle({ variant })}>
+      {title}
+    </h2>
+    {
+      variant === "image" && image ? (
+        <div class="mt-12 mb-0 h-52">
+          <img
+            src={image}
+            alt={imageCaption}
+            class="h-full w-full rounded-2xl object-cover"
+          />
+        </div>
+      ) : null
+    }
+    <div class="mt-7 mb-10 flex flex-col gap-1">
+      {
+        subtitle && subtitle !== "" ? (
+          <h3 class={cn(subtitleStyle({ variant }))}>{subtitle}</h3>
+        ) : null
+      }
+      {
+        caption && caption !== "" ? (
+          <p class={captionStyle({ variant })}>{caption}</p>
+        ) : null
+      }
+    </div>
+    <div class="flex flex-col gap-6">
+      {
+        tiles.map((tile) => (
+          <BulletPointItem
+            variant={variant}
+            title={tile.title}
+            description={tile.description}
+          />
+        ))
+      }
+    </div>
+  </div>
+  <div class="mx-8">
+    <p
+      class="mt-8 w-[70%] max-w-[520px] text-xl leading-[1.3] text-gray-400 italic">
+      {imageCaption}
+    </p>
+  </div>
+</div>

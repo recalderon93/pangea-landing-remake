@@ -1,0 +1,84 @@
+---
+import { t, type Locale } from "@/i18n";
+import type { Solutions } from "@/types/solutions";
+import { cn } from "@styles/classNameMerge";
+
+export interface Props {
+  solution: Solutions;
+  locale: Locale;
+  color?: string;
+  className?: string;
+}
+
+const {
+  solution = "project-management",
+  locale,
+  color,
+  className,
+} = Astro.props as Props;
+---
+
+<p
+  class={cn(
+    "text-lg leading-[30px] font-medium  text-[#83928F] lg:text-[20px] lg:leading-7 xl:text-[30px] xl:leading-10",
+    className,
+  )}
+  style={color ? { color } : undefined}>
+  {
+    solution === "project-management" ? (
+      <>
+        <span class="font-semibold italic">
+          {t(locale, `solutions.project-management.hero.caption-2.part-1`)}
+        </span>
+        {t(locale, `solutions.project-management.hero.caption-2.part-2`)}
+        <span class="font-semibold italic">
+          {t(locale, `solutions.project-management.hero.caption-2.part-3`)}
+        </span>
+      </>
+    ) : null
+  }
+  {
+    solution === "qa" ? (
+      <>
+        <span class="font-semibold italic">
+          {t(locale, `solutions.qa.hero.caption-2.part-1`)}
+        </span>
+        {t(locale, `solutions.qa.hero.caption-2.part-2`)}
+      </>
+    ) : null
+  }
+  {
+    solution === "ux-ui" ? (
+      <>
+        <span class="font-semibold italic">
+          {t(locale, `solutions.ux-ui.hero.caption-2.part-1`)}
+        </span>
+        {t(locale, `solutions.ux-ui.hero.caption-2.part-2`)}
+      </>
+    ) : null
+  }
+  {
+    solution === "chatbot" ? (
+      <>
+        <span class="block font-semibold italic">
+          {t(locale, `solutions.chatbot.hero.caption-2.part-1`)}
+        </span>
+        {t(locale, `solutions.chatbot.hero.caption-2.part-2`)}
+      </>
+    ) : null
+  }
+  {
+    solution === "web-development" ? (
+      <>
+        {t(locale, `solutions.web-development.hero.caption-2.part-1`)}
+        <span class="font-semibold italic">
+          {t(locale, `solutions.web-development.hero.caption-2.part-2`)}
+        </span>
+        {t(locale, `solutions.web-development.hero.caption-2.part-3`)}
+        <span class="font-semibold italic">
+          {t(locale, `solutions.web-development.hero.caption-2.part-4`)}
+        </span>
+      </>
+    ) : null
+  }
+</p>

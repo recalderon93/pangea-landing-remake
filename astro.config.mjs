@@ -32,4 +32,7 @@ export default defineConfig({
       prefixDefaultLocale: false,
     },
   },
+  redirects: {
+    "/solutions": "/solutions/project-management",
+  },
 });

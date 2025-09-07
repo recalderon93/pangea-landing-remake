@@ -5,6 +5,8 @@ export const buttonStyles = cva(
   {
     variants: {
       variant: {
+        "accent-2":
+          "bg-green-400 hover:bg-green-500 active:bg-green-500 text-white-50",
         brand: "bg-teal-400 hover:bg-teal-500 active:bg-teal-500 text-white-50",
         accent: "bg-white-100 hover:bg-shade-100 text-teal-400",
       },
