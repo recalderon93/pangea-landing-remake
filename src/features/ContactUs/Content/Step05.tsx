@@ -4,26 +4,30 @@ import TextAreaInput from "@components/Inputs/TextAreaInput";
 import { buttonStyles } from "@styles/button";
 import { useController, useFormContext } from "react-hook-form";
 import type { ContactUsFormType } from "@features/ContactUs/validations";
+import useHandleContactUsSubmit from "@features/ContactUs/hooks/useHandleContactUsSubmit";
+import { useMemo } from "react";
 
 const ContactUsFormStep05 = ({ locale, setCurrentStep }: FormStepProps) => {
-  const { control, watch, trigger, formState, getValues } =
-    useFormContext<ContactUsFormType>();
+  const { control, watch } = useFormContext<ContactUsFormType>();
   const { field, fieldState } = useController({
     name: "needs",
     control,
   });
 
-  const handleSubmit = async () => {
-    const isValid = await trigger(["needs"]);
-    if (isValid) {
-      // Submit the form
-      setCurrentStep?.(6);
-    }
-  };
+  const contactReason = watch("contactReason");
+
+  const { onSubmit } = useHandleContactUsSubmit(5, setCurrentStep);
 
   const goBack = () => {
     setCurrentStep?.(4);
   };
+
+  const submitTitle = useMemo(() => {
+    if (contactReason !== "build-something") {
+      return t(locale, "contact-us.step-05.submit");
+    }
+    return t(locale, "contact-us.step-05.next");
+  }, []);
 
   return (
     <div className="mt-10 mb-10 flex w-[280px] flex-col gap-9 md:w-[682px]">
@@ -39,8 +43,8 @@ const ContactUsFormStep05 = ({ locale, setCurrentStep }: FormStepProps) => {
         </button>
         <button
           className={buttonStyles({ variant: "accent-2" })}
-          onClick={handleSubmit}>
-          {t(locale, "contact-us.step-05.submit")}
+          onClick={onSubmit}>
+          {submitTitle}
         </button>
       </div>
     </div>

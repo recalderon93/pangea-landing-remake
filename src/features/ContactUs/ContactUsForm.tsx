@@ -19,12 +19,12 @@ const ContactUsForm = ({ locale }: Props) => {
   });
 
   const [formStep, setFormStep] = useState<ContactUsFormStepsType>(0);
-  const [totalSteps, setTotalSteps] = useState<number>(6);
+  const [totalSteps, setTotalSteps] = useState<number>(5);
 
   const formCurrentStep = useMemo(() => {
-    if (totalSteps === 6 && formStep === 6) {
-      return 7;
-    }
+    // if (totalSteps === 6 && formStep === 6) {
+    //   return 7;
+    // }
     return formStep;
   }, [formStep, totalSteps]);
 

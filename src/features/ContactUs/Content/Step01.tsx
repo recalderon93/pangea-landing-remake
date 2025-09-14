@@ -7,8 +7,7 @@ import SelectInput from "@components/Inputs/SelectInput";
 import { buttonStyles } from "@styles/button";
 
 const ContactUsFormStep01 = ({ locale, setCurrentStep }: FormStepProps) => {
-  const { control, trigger, formState, getValues } =
-    useFormContext<ContactUsFormType>();
+  const { control, trigger } = useFormContext<ContactUsFormType>();
 
   const handleSubmit = async () => {
     const isValidated = await trigger([
@@ -18,9 +17,6 @@ const ContactUsFormStep01 = ({ locale, setCurrentStep }: FormStepProps) => {
       "sector",
     ]);
     if (isValidated) {
-      // Submit the form
-      const formData = getValues();
-      console.log("Form submitted successfully:", formData);
       setCurrentStep?.(2);
     }
   };

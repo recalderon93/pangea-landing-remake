@@ -5,6 +5,7 @@ import { buttonStyles } from "@styles/button";
 import { useController, useForm, useFormContext } from "react-hook-form";
 import SelectInput from "@components/Inputs/SelectInput";
 import type { ContactUsFormType } from "@features/ContactUs/validations";
+import useHandleContactUsSubmit from "@features/ContactUs/hooks/useHandleContactUsSubmit";
 
 const ContactUsFormStep06 = ({ locale, setCurrentStep }: FormStepProps) => {
   const { control } = useFormContext<ContactUsFormType>();
@@ -52,6 +53,8 @@ const ContactUsFormStep06 = ({ locale, setCurrentStep }: FormStepProps) => {
       value: "freelance",
     },
   ];
+
+  const { onSubmit } = useHandleContactUsSubmit(6, setCurrentStep);
 
   return (
     <div className="mt-10 mb-10 flex w-[280px] flex-col gap-6 md:w-[682px]">
@@ -132,7 +135,7 @@ const ContactUsFormStep06 = ({ locale, setCurrentStep }: FormStepProps) => {
         </button>
         <button
           className={buttonStyles({ variant: "accent-2" })}
-          onClick={() => setCurrentStep?.(7)}>
+          onClick={onSubmit}>
           {t(locale, "contact-us.step-06.submit")}
         </button>
       </div>

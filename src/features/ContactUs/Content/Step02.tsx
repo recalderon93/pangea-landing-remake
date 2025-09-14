@@ -11,8 +11,7 @@ const ContactUsFormStep02 = ({
   setCurrentStep,
   setTotalSteps,
 }: FormStepProps) => {
-  const { control, watch, trigger, formState, getValues } =
-    useFormContext<ContactUsFormType>();
+  const { control, watch, trigger } = useFormContext<ContactUsFormType>();
   const {
     field: { onChange, value },
     fieldState,
@@ -26,9 +25,9 @@ const ContactUsFormStep02 = ({
     if (isValid) {
       // Submit the form
       if (value === "build-something") {
-        setTotalSteps?.(7);
-      } else {
         setTotalSteps?.(6);
+      } else {
+        setTotalSteps?.(5);
       }
       setCurrentStep?.(3);
     }

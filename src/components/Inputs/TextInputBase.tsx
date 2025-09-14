@@ -12,11 +12,12 @@ export default function TextInputBase({
   className = "",
   showError = false,
   variant = "brand",
+  value = "",
   ...props
 }: Props) {
   const styles = cn([baseStyles({ error: showError }), className]);
 
-  return <input className={styles} {...props} />;
+  return <input className={styles} value={value} {...props} />;
 }
 
 const baseStyles = cva(

@@ -68,7 +68,8 @@ export default {
     title: "5. Tell us more about your needs",
     question:
       "What problem are you trying to solve? Any ideas, goals, or expectations you'd like to share?",
-    submit: "NEXT",
+    submit: "SEND FORM",
+    next: "NEXT",
   },
   "step-06": {
     title: "6. Talent Needs",
@@ -102,7 +103,7 @@ export default {
       },
     },
     back: "BACK",
-    submit: "NEXT",
+    submit: "SEND FORM",
   },
   "step-07": {
     title: "7. Attachments (optional)",

@@ -20,9 +20,9 @@ export default function useContactUsFormTitle(
     7: t(locale, "contact-us.step-07.title"),
   };
 
-  if (step === 6 && variant !== "hire-talent") {
-    return t(locale, "contact-us.step-07.title-variant");
-  }
+  // if (step === 6 && variant !== "hire-talent") {
+  //   return t(locale, "contact-us.step-07.title-variant");
+  // }
 
   return FormTitleMapKey[step] || "";
 }

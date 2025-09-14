@@ -10,13 +10,9 @@ const ContactUsFormStep07 = ({ locale, setCurrentStep }: FormStepProps) => {
   const { control, trigger, getValues } = useFormContext<ContactUsFormType>();
 
   const handleSubmit = async () => {
-    console.log("isValid");
     const isValid = await trigger(["attachments"]);
-    console.log("isValid", isValid);
-    alert("isValid: " + isValid);
     if (isValid) {
       const formData = getValues();
-      console.log("Form Data to submit:", formData);
 
       await submitToNetlify("contact-us", formData, "/contact-us/thank-you");
     }
@@ -31,7 +27,7 @@ const ContactUsFormStep07 = ({ locale, setCurrentStep }: FormStepProps) => {
     }
   }
 
-  const { field, fieldState } = useController({
+  const { field } = useController({
     control,
     name: "attachments",
   });
@@ -54,7 +50,6 @@ const ContactUsFormStep07 = ({ locale, setCurrentStep }: FormStepProps) => {
         </button>
         <button
           className={buttonStyles({ variant: "accent-2" })}
-          // onClick={handleSubmit}
           onClick={handleSubmit}>
           {t(locale, "contact-us.step-07.submit")}
         </button>
