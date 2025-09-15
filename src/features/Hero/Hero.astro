@@ -1,6 +1,7 @@
 ---
 import { t, type Locale } from "@/i18n";
 import HeroTextInput from "@features/Hero/HeroTextInput";
+import HeroTextInputWrapper from "./HeroTextInputWrapper";
 
 interface Props {
   locale: Locale;
@@ -25,10 +26,6 @@ const { locale }: Props = Astro.props;
       data-testid="hero-description">
       {t(locale, "hero.caption")}
     </p>
-    <HeroTextInput
-      buttonTitle={t(locale, "hero.cta")}
-      variant="accent"
-      placeholder={t(locale, "hero.text-input-placeholder")}
-    />
+    <HeroTextInputWrapper locale={locale} client:load />
   </div>
 </div>

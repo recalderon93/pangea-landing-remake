@@ -1,4 +1,4 @@
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import FormWrapper from "./FormWrapper";
 import { t, type Locale } from "@/i18n";
 import { cva } from "class-variance-authority";
@@ -33,6 +33,25 @@ const ContactUsForm = ({ locale }: Props) => {
     formStep,
     totalSteps === 7 ? "hire-talent" : "build-something",
   );
+
+  useEffect(() => {
+    const urlParams = new URLSearchParams(window.location.search);
+    const emailParam = urlParams.get("email");
+
+    if (emailParam) {
+      // Set the email value in the form
+      methods.setValue("email", emailParam);
+
+      // Move to step 1 (contact information step)
+      setFormStep(1);
+
+      // Optional: Clean up the URL to remove the query parameter
+      const url = new URL(window.location.href);
+      url.searchParams.delete("email");
+
+      window.history.replaceState({}, "", url.pathname);
+    }
+  }, []);
 
   return (
     <FormProvider {...methods}>
