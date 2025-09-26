@@ -1,5 +1,6 @@
 import EN from "@i18n/translations/en";
 import ES from "@i18n/translations/es";
+import type { DeepTranslationsKeys, NestedKeys } from "@/types/i18n";
 
 export type Locale = "en" | "es";
 
@@ -8,21 +9,10 @@ const translations = {
   es: ES,
 } as const;
 
-// 3. Type to extract nested keys from translation object
-type Join<K, P> = K extends string | number
-  ? P extends string | number
-    ? `${K}.${P}`
-    : never
-  : never;
-
-type NestedKeys<T> = {
-  [K in keyof T]: T[K] extends object
-    ? Join<K & string, NestedKeys<T[K]>>
-    : K & string;
-}[keyof T];
-
 // 4. Extract keys from ONE locale (assume en/es have the same structure)
-type TranslationKey = NestedKeys<(typeof translations)["en"]>;
+type TranslationKey =
+  | NestedKeys<(typeof translations)["en"]>
+  | DeepTranslationsKeys;
 
 function getNested(obj: any, path: string): any {
   return path.split(".").reduce((acc, part) => acc?.[part], obj);

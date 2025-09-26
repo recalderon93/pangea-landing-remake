@@ -9,6 +9,8 @@ import type { TileOption } from "@features/Solutions/TileSection.astro";
 import BulletPointsSection from "@features/Solutions/BulletPointsSection.astro";
 import TileSection from "@features/Solutions/TileSection.astro";
 import tileImage from "@/images/solutions-1.jpg";
+import FAQsSection from "@features/FAQs/FAQsSolutionsSection";
+import SolutionsBanner from "@features/Solutions/SolutionsBanner.astro";
 
 export type Props = {
   locale: Locale;
@@ -78,5 +80,7 @@ const section2 = [...new Array(3)].map((_, i) => ({
       )}
       tiles={section2}
     />
+    <FAQsSection locale="en" solution="web-development" client:load />
+    <SolutionsBanner locale="en" />
   </div>
 </MainLayout>

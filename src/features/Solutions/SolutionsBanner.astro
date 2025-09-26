@@ -1,0 +1,35 @@
+---
+import bgImage from "@/images/background.png";
+import { buttonStyles } from "@styles/button";
+import { t, type Locale } from "@/i18n";
+
+interface Props {
+  locale?: Locale;
+}
+
+const { locale = "en" } = Astro.props as Props;
+---
+
+<div
+  style={`background-image: url(${bgImage.src});`}
+  class="flex min-h-[400px] w-full flex-col rounded-2xl bg-teal-400 bg-cover [background-position:center_50%] px-10 py-[60px] lg:rounded-3xl lg:px-20">
+  <div class="flex w-full justify-center lg:justify-start">
+    <div
+      class="rounded-full bg-gradient-to-r from-[rgba(251,251,251,0.30)] to-[rgba(251,251,251,0.20)] px-6 py-2 text-xs leading-[150%] text-white shadow-[-2px_4px_4px_0_rgba(0,0,0,0.10)] backdrop-blur-[1px] lg:text-base">
+      {t(locale, "solutions.banner.badge")}
+    </div>
+  </div>
+  <div
+    class="flex flex-col items-center justify-between gap-10 pt-8 lg:flex-row lg:items-end">
+    <h2
+      class="max-w-[852px] text-[32px] leading-[125%] text-white md:text-[40px] lg:w-[75%] lg:text-[56px]">
+      {t(locale, "solutions.banner.title-1")}
+      <strong class="text-green-300">
+        {t(locale, "solutions.banner.title-2")}
+      </strong>
+    </h2>
+    <button class={buttonStyles({ variant: "accent" })}>
+      {t(locale, "solutions.banner.cta")}
+    </button>
+  </div>
+</div>

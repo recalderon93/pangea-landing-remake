@@ -1,0 +1,77 @@
+type Join<K, P> = K extends string | number
+  ? P extends string | number
+    ? `${K}.${P}`
+    : never
+  : never;
+
+export type NestedKeys<T> = {
+  [K in keyof T]: T[K] extends object
+    ? Join<K & string, NestedKeys<T[K]>>
+    : K & string;
+}[keyof T];
+
+export type DeepTranslationsKeys =
+  | "faqs.project-management.1.q"
+  | "faqs.project-management.1.a"
+  | "faqs.project-management.2.q"
+  | "faqs.project-management.2.a"
+  | "faqs.project-management.3.q"
+  | "faqs.project-management.3.a"
+  | "faqs.project-management.4.q"
+  | "faqs.project-management.4.a"
+  | "faqs.ux-ui.1.q"
+  | "faqs.ux-ui.1.a"
+  | "faqs.ux-ui.2.q"
+  | "faqs.ux-ui.2.a"
+  | "faqs.ux-ui.3.q"
+  | "faqs.ux-ui.3.a"
+  | "faqs.ux-ui.4.q"
+  | "faqs.ux-ui.4.a"
+  | "faqs.qa.1.q"
+  | "faqs.qa.1.a"
+  | "faqs.qa.2.q"
+  | "faqs.qa.2.a"
+  | "faqs.qa.3.q"
+  | "faqs.qa.3.a"
+  | "faqs.qa.4.q"
+  | "faqs.qa.4.a"
+  | "faqs.chatbot.1.q"
+  | "faqs.chatbot.1.a"
+  | "faqs.chatbot.2.q"
+  | "faqs.chatbot.2.a"
+  | "faqs.chatbot.3.q"
+  | "faqs.chatbot.3.a"
+  | "faqs.chatbot.4.q"
+  | "faqs.chatbot.4.a"
+  | "faqs.project-management.1.q"
+  | "faqs.project-management.1.a"
+  | "faqs.project-management.2.q"
+  | "faqs.project-management.2.a"
+  | "faqs.project-management.3.q"
+  | "faqs.project-management.3.a"
+  | "faqs.project-management.4.q"
+  | "faqs.project-management.4.a"
+  | "faqs.ux-ui.1.q"
+  | "faqs.ux-ui.1.a"
+  | "faqs.ux-ui.2.q"
+  | "faqs.ux-ui.2.a"
+  | "faqs.ux-ui.3.q"
+  | "faqs.ux-ui.3.a"
+  | "faqs.ux-ui.4.q"
+  | "faqs.ux-ui.4.a"
+  | "faqs.qa.1.q"
+  | "faqs.qa.1.a"
+  | "faqs.qa.2.q"
+  | "faqs.qa.2.a"
+  | "faqs.qa.3.q"
+  | "faqs.qa.3.a"
+  | "faqs.qa.4.q"
+  | "faqs.qa.4.a"
+  | "faqs.web-development.1.q"
+  | "faqs.web-development.1.a"
+  | "faqs.web-development.2.q"
+  | "faqs.web-development.2.a"
+  | "faqs.web-development.3.q"
+  | "faqs.web-development.3.a"
+  | "faqs.web-development.4.q"
+  | "faqs.web-development.4.a";

@@ -1,4 +1,11 @@
 export default {
+  banner: {
+    badge: "Customized Design and Development",
+    "title-1": "Let’s turn your ideas into reality —",
+    "title-2":
+      "with expert talent, real collaboration, and pricing that makes sense.",
+    cta: "GET STARTED",
+  },
   close: "Close",
   "project-management": {
     hero: {

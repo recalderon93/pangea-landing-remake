@@ -1,5 +1,3 @@
-import { pl } from "zod/v4/locales";
-
 export default {
   name: "Contact Us",
   title: "Let’s build something meaningful together",

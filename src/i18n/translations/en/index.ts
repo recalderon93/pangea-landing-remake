@@ -7,6 +7,7 @@ import whoWeAre from "./who-we-are";
 import ourWork from "./our-work";
 import solutions from "./solutions";
 import contactUs from "./contact-us";
+import faqs from "./faqs";
 
 export default {
   "contact-us": contactUs,
@@ -19,4 +20,5 @@ export default {
   "who-we-are": whoWeAre,
   "our-work": ourWork,
   solutions,
+  faqs,
 };
