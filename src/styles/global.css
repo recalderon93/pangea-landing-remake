@@ -204,6 +204,12 @@
   .caption.bolder {
     @apply font-bold;
   }
+  .section-title {
+    @apply text-[40px] leading-[48px] font-semibold sm:text-[48px] sm:leading-[56px];
+  }
+  .section-side-subtitle {
+    @apply text-[16px] leading-[24px] font-normal sm:text-[20px] sm:leading-[32px];
+  }
   /* Elevation */
   .elevation-0 {
     box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0.12);

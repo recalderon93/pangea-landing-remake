@@ -44,6 +44,16 @@ const servicesItems = [
     image: service4IMG,
     href: "/solutions/ux-ui",
   },
+  {
+    id: "service-5",
+    title: "AI\nChatbots",
+    description: {
+      en: "We will create intuitive and engaging digital experiences that will captivate all your users.",
+      es: "Crearemos experiencias digitales intuitivas y atractivas que cautivarán a todos tus usuarios.",
+    },
+    image: service4IMG,
+    href: "/solutions/ux-ui",
+  },
 ];
 
 export default servicesItems;

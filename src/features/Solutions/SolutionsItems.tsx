@@ -1,4 +1,5 @@
 import { cva } from "class-variance-authority";
+import bgImage from "@/images/background-pattern.svg";
 
 type Props = {
   title: string;
@@ -19,9 +20,11 @@ const SolutionItem = ({
     role="button"
     className="group elevation-2 bg-white-50 relative flex h-[560px] w-[320px] shrink-0 cursor-pointer snap-center flex-col justify-end overflow-hidden rounded-2xl lg:h-[672px] lg:w-[384px]"
     onClick={onClick}>
-    <div className={captionWrapper({ isSelected })}>
-      <h3 className={titleStyles({ isSelected })}>{title}</h3>
-      <p className={captionStyles({ isSelected })}>{description}</p>
+    <div
+      style={{ backgroundImage: `url(${bgImage.src})` }}
+      className={captionWrapper({ isSelected })}>
+      <h3 className={titleStyles({ isSelected: true })}>{title}</h3>
+      <p className={captionStyles({ isSelected: true })}>{description}</p>
     </div>
     <div className="relative h-[65%] overflow-hidden">
       <img src={image} alt={title} className={imageStyles({ isSelected })} />
@@ -30,7 +33,7 @@ const SolutionItem = ({
 );
 
 const captionWrapper = cva(
-  "elevation-1 absolute top-0 right-0 left-0 z-10 min-h-[240px] rounded-2xl bg-gray-100 px-8 lg:px-9 py-10 transition-colors duration-300 ease-in-out group-hover:bg-teal-400",
+  "elevation-1 bg-cover [background-position:center_50%] absolute top-0 right-0 left-0 z-10 min-h-[240px] rounded-2xl bg-gray-100 px-8 lg:px-9 py-10 transition-colors duration-300 ease-in-out group-hover:bg-teal-400",
   {
     variants: {
       isSelected: {

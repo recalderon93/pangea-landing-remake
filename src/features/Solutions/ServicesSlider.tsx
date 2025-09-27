@@ -73,7 +73,7 @@ const SolutionsSlider = ({ locale }: Props) => {
 };
 
 const containerStyles = cva(
-  "no-scrollbar w-full px-4 py-6 sm:px-6 md:px-10 lg:px-14",
+  "no-scrollbar w-full px-4 py-6 pt-12 sm:pt-[68px] sm:px-6 md:px-10 lg:px-14",
   {
     variants: {
       isScrollable: {

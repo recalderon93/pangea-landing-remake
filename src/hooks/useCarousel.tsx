@@ -74,7 +74,7 @@ export default function useCarousel({ numberOfItems = 0 }: Props) {
     itemRefs,
     selectedIndex,
     setSelectedIndex,
-    isScrollable,
+    isScrollable: true,
     goNext,
     goPrev,
   };

@@ -1,6 +1,6 @@
 export default {
   solutions: {
-    title: "High-level Talent\nInside Your\nBusiness",
+    title: "High-level Talent Inside Your Business Budget",
     caption:
       "Imagine what your startup could achieve with access to world-class talent - we make it possible!",
     tag: "Comprehensive Digital Solutions, Powered by LATAM Talent",
