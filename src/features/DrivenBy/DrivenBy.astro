@@ -1,5 +1,6 @@
 ---
 import { t, type Locale } from "@/i18n";
+import bgImage from "@/images/background-pattern.svg";
 import drivenByImage from "@/images/driven-by-image.png";
 import { drivenByDataList } from "@/constants/drivenBy";
 import DrivenByItem from "./DrivenByItem.astro";
@@ -15,8 +16,10 @@ const column2 = drivenByDataList.slice(3, 6);
 ---
 
 <div
-  class="relative mt-20 overflow-hidden rounded-3xl bg-teal-400 px-8 pt-16 pb-20 whitespace-pre-line sm:rounded-[28px] sm:px-10 md:rounded-[32px] md:px-20 lg:rounded-[40px] lg:pt-30">
-  <h2 class="h2 mb-8 text-green-300">
+  style={`background-image: url(${bgImage.src});`}
+  class="relative mt-20 overflow-hidden rounded-3xl bg-teal-400 bg-cover [background-position:center_50%] px-8 pt-16 pb-20 whitespace-pre-line sm:rounded-[28px] sm:px-10 md:rounded-[32px] md:px-20 lg:rounded-[40px] lg:pt-30">
+  <h2
+    class="mb-8 text-[30px] leading-10 font-semibold text-green-200 sm:text-[56px] sm:leading-[64px]">
     {t(locale, "landing.drivenBy.title")}
   </h2>
   <img
