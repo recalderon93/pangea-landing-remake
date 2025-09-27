@@ -19,10 +19,12 @@ const { locale, showHeader = true } = Astro.props as Props;
     {
       showHeader ? (
         <>
-          <h2 class="h3 pb-8 text-teal-400" id="projects-header">
+          <h2
+            class="pb-8 text-[30px] leading-10 text-teal-400 sm:text-[56px] sm:leading-[64px]"
+            id="projects-header">
             {t(locale, "landing.products.title")}
           </h2>
-          <p class="h5 text-shade-400 max-w-[340px] md:max-w-[420px] md:text-right">
+          <p class="section-side-subtitle text-shade-400 max-w-[400px] lg:max-w-[380px] lg:text-right">
             {t(locale, "landing.products.caption")}
           </p>
         </>
@@ -35,7 +37,7 @@ const { locale, showHeader = true } = Astro.props as Props;
       )
     }
   </div>
-  <div class="flex flex-col items-center gap-12 py-4 md:gap-16 md:py-0">
+  <div class="flex flex-col items-center gap-12 py-4 md:gap-16 md:py-6">
     <div
       class="grid w-full grid-cols-1 place-items-center gap-x-8 gap-y-6 sm:grid-cols-2 sm:gap-y-10">
       <ProjectItem projectId="1" />

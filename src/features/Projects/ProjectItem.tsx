@@ -20,7 +20,9 @@ const ProjectItem = ({ isSquare = true, image, className = "" }: Props) => (
       className="object-fill"
     />
     <button className={buttonStyle}>
-      <p className="caption bold text-white-50">View Project</p>
+      <p className="text-white-50 text-[12px] leading-5 font-semibold sm:text-[16px] sm:leading-6">
+        View Project
+      </p>
       <div className="bg-white-100 flex aspect-square w-8 items-center justify-center rounded-full">
         <ArrowIcon className="fill-shade-200 size-4" />
       </div>
