@@ -1,6 +1,6 @@
 ---
 import { t, type Locale } from "@/i18n";
-import HeroTextInput from "@features/Hero/HeroTextInput";
+import bgImage from "@/images/background-pattern.svg";
 import HeroTextInputWrapper from "./HeroTextInputWrapper";
 
 interface Props {
@@ -9,23 +9,21 @@ interface Props {
 const { locale }: Props = Astro.props;
 ---
 
-<div class="relative h-screen min-h-[540px] w-full md:min-h-[680px]">
-  <div
-    class="absolute inset-0 z-0 h-[95%] w-full overflow-hidden rounded-b-[20px] bg-teal-400 md:rounded-b-[40px]">
-  </div>
-  <div
-    class="relative flex h-full w-full flex-col items-center justify-center gap-16 pt-16 md:gap-14 lg:pt-20">
-    <h1 class="w-[85%] text-center text-white lg:max-w-[800px]">
-      {t(locale, "hero.title-1")}<br class="hidden sm:block" />
-      <span class="text-green-300">{t(locale, "hero.title-2")}</span>{
-        t(locale, "hero.title-3")
-      }
-    </h1>
-    <p
-      class="text-white-50 paragraph-1 w-[70%] text-center lg:max-w-[580px]"
-      data-testid="hero-description">
-      {t(locale, "hero.caption")}
-    </p>
+<div
+  style={`background-image: url(${bgImage.src});`}
+  class="flex h-screen max-h-[720px] min-h-[540px] w-full flex-col items-center gap-10 rounded-b-3xl bg-teal-400 bg-cover [background-position:center_50%] pt-28 sm:pt-36 md:pt-40">
+  <h1 class="w-[85%] text-center text-white lg:max-w-[800px]">
+    {t(locale, "hero.title-1")}<br class="hidden sm:block" />
+    <span class="text-green-200">{t(locale, "hero.title-2")}</span>{
+      t(locale, "hero.title-3")
+    }
+  </h1>
+  <p
+    class="text-white-50 paragraph-1 w-[70%] text-center lg:max-w-[580px]"
+    data-testid="hero-description">
+    {t(locale, "hero.caption")}
+  </p>
+  <div class="pt-4">
     <HeroTextInputWrapper locale={locale} client:load />
   </div>
 </div>

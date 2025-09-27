@@ -96,7 +96,7 @@ const styles = cva(
 );
 
 const navItemStyles = cva(
-  "flex items-center gap-2 paragraph-1 bold cursor-pointer",
+  "flex items-center gap-2 text-xl leading-6 font-semibold cursor-pointer",
   {
     variants: {
       color: {
