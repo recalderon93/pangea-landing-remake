@@ -1,7 +1,7 @@
 import { cva } from "class-variance-authority";
 
 export const wrapper = cva(
-  "group flex py-5 sm:h-20 w-full cursor-pointer rounded-lg sm:rounded-xl items-center justify-between lg:rounded-2xl xl:rounded-3xl px-3 sm:px-6 md:px-9 hover:bg-teal-700 xl:h-22",
+  "group flex py-4 sm:h-20 w-full cursor-pointer rounded-lg sm:rounded-xl items-center justify-between lg:rounded-2xl  px-3 sm:px-6 md:px-9 hover:bg-teal-700 ",
   {
     variants: {
       isSelected: {
@@ -13,7 +13,7 @@ export const wrapper = cva(
 );
 
 export const text = cva(
-  "group-hover:text-white-50 group-aria-selected:text-white-50 font-semibold text-teal-700 text-[24px] leading-[32px] lg:text-[28px] lg:leading-[40px] xl:text-[40px] xl:leading-[48px]",
+  "group-hover:text-white-50 group-aria-selected:text-white-50 font-semibold text-teal-700 text-[24px] leading-[32px] lg:text-[28px] lg:leading-[40px]",
   {
     variants: {
       isSelected: {

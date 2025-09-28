@@ -7,7 +7,7 @@ type Props = {
 
 const SolutionsMenuFooter = ({ lang = "en" }: Props) => {
   return (
-    <div className="border-t-shade-50 flex w-full items-center justify-between border-t-3 lg:h-40">
+    <div className="border-t-shade-50 flex w-full items-center justify-between border-t-3 pt-12 lg:h-40">
       <h2 className="text-shade-100 text-[40px] leading-[48px] xl:text-[56px] xl:leading-[64px]">
         {t(lang, "header.solutions")}
       </h2>

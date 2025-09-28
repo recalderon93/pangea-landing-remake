@@ -16,23 +16,13 @@ const servicesItems = [
   },
   {
     id: "service-2",
-    title: "Web\nDevelopment",
+    title: "Web & App\nDevelopment",
     description: {
       en: "Transparent, collaborative, and results-driven Agile management for your startup's success.",
       es: "Gestión ágil transparente, colaborativa y orientada a resultados para el éxito de tu startup.",
     },
     image: service2IMG,
     href: "/solutions/web-development",
-  },
-  {
-    id: "service-3",
-    title: "Apps\n Development",
-    description: {
-      en: "We analyze your business model in detail, and develop the ideal application you need.",
-      es: "Analizamos tu modelo de negocio en detalle y desarrollamos la aplicación ideal que necesitas.",
-    },
-    image: service3IMG,
-    href: "/solutions/qa",
   },
   {
     id: "service-4",
@@ -46,13 +36,23 @@ const servicesItems = [
   },
   {
     id: "service-5",
-    title: "AI\nChatbots",
+    title: "QA & Software Testing",
     description: {
       en: "We will create intuitive and engaging digital experiences that will captivate all your users.",
       es: "Crearemos experiencias digitales intuitivas y atractivas que cautivarán a todos tus usuarios.",
     },
     image: service4IMG,
-    href: "/solutions/ux-ui",
+    href: "/solutions/qa",
+  },
+  {
+    id: "service-5",
+    title: "AI\nChatbots & Automated Messaging",
+    description: {
+      en: "We will create intuitive and engaging digital experiences that will captivate all your users.",
+      es: "Crearemos experiencias digitales intuitivas y atractivas que cautivarán a todos tus usuarios.",
+    },
+    image: service4IMG,
+    href: "/solutions/chatbot",
   },
 ];
 

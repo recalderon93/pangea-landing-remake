@@ -1,5 +1,6 @@
 import ArrowIcon from "@components/icons/ArrowIcon";
 import { wrapper, text, arrow } from "./styles";
+import { cn } from "@styles/classNameMerge";
 
 type Props = {
   title: string;
@@ -7,6 +8,7 @@ type Props = {
   onMouseEnter?: () => void;
   isSelected?: boolean;
   showArrow?: boolean;
+  className?: string;
 };
 
 const LinkOptionItem = ({
@@ -15,10 +17,11 @@ const LinkOptionItem = ({
   onMouseEnter,
   isSelected = false,
   showArrow = false,
+  className = "",
 }: Props) => (
   <a
     href={href}
-    className={wrapper({ isSelected })}
+    className={cn([wrapper({ isSelected }), className])}
     onMouseEnter={onMouseEnter}>
     <p key={title} className={text({ isSelected })}>
       {title}
