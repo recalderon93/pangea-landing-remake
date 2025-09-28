@@ -29,7 +29,8 @@ const TestimonialsSlider = ({ locale, itemsRefs, containerRef }: Props) => (
               role={item.role}
               company={item.company}
               testimonials={item.testimonials}
-              color={i % 2 !== 0 ? "brand" : "accent"}
+              color={i % 2 === 0 ? "brand" : "accent"}
+              className={i % 2 === 0 ? "bg-pattern" : ""}
             />
           </div>
         ))}

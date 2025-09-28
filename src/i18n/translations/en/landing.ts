@@ -7,14 +7,14 @@ export default {
     cta: "Let's Work Together",
   },
   testimonials: {
-    title: "Trust is everything.\nAnd employers\ntrust us",
+    title: "Trust is everything.\nAnd employers\ntrust us.",
     cta: "Let's Work Together",
   },
   drivenBy: {
     title: "Driven by\nImpact and Value",
   },
   faqs: {
-    title: "Get Clarity.\nWe Answer Your\nQuestions",
+    title: "Get Clarity.\nWe Answer Your Questions",
   },
   products: {
     title: "Our Digital\nMasterpieces",

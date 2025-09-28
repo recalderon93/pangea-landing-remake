@@ -18,7 +18,7 @@ const TestimonialsCaptions = ({
   selectedIndex,
   totalItems = 0,
 }: Props) => (
-  <div className="z-20 flex flex-col justify-center gap-10 px-8 py-10 sm:px-12 md:px-16 lg:absolute lg:top-0 lg:bottom-0 lg:left-0 lg:flex lg:w-[45vw] lg:flex-col lg:bg-white/80 lg:pr-4 lg:pl-20 lg:backdrop-blur-3xl">
+  <div className="z-20 flex max-w-[720px] flex-col justify-center gap-10 px-8 py-10 sm:px-12 md:px-16 lg:absolute lg:top-0 lg:bottom-0 lg:left-0 lg:flex lg:w-[45vw] lg:flex-col lg:bg-white/80 lg:pr-4 lg:pl-20 lg:backdrop-blur-3xl">
     <h2 className="h3 whitespace-pre-line text-teal-400">
       {t(locale, "landing.testimonials.title")}
     </h2>

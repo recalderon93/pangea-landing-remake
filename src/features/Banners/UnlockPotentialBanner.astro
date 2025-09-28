@@ -11,11 +11,13 @@ const { locale }: Props = Astro.props;
 
 <div class="sm:12 px-8 py-20 md:px-0">
   <div
-    class="flex flex-col items-center justify-center gap-y-8 rounded-[24px] bg-teal-400 px-10 py-10 sm:py-16 md:py-24 lg:py-30">
-    <h2 class="text-white-50 h4 text-center">
+    class="bg-pattern flex flex-col items-center justify-center gap-y-8 rounded-[24px] bg-teal-400 px-10 py-10 sm:py-16 md:py-24 lg:py-30">
+    <h2
+      class="text-white-50 max-w-[600px] text-center text-[30px] leading-10 sm:text-[56px] sm:leading-[64px]">
       {t(locale, "banners.unlock-potential.title")}
     </h2>
-    <p class="text-white-50 paragraph-2 text-center">
+    <p
+      class="text-white-50 text-center text-base font-medium sm:text-[20px] sm:leading-8">
       {t(locale, "banners.unlock-potential.caption-1")}
       <br />
       {t(locale, "banners.unlock-potential.caption-2")}

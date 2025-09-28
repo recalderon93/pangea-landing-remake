@@ -1,6 +1,5 @@
 ---
 import { t, type Locale } from "@/i18n";
-import bgImage from "@/images/background-pattern.svg";
 import HeroTextInputWrapper from "./HeroTextInputWrapper";
 
 interface Props {
@@ -10,8 +9,7 @@ const { locale }: Props = Astro.props;
 ---
 
 <div
-  style={`background-image: url(${bgImage.src});`}
-  class="flex h-screen max-h-[720px] min-h-[540px] w-full flex-col items-center gap-10 rounded-b-3xl bg-teal-400 bg-cover [background-position:center_50%] pt-28 sm:pt-36 md:pt-40">
+  class="bg-pattern flex h-screen max-h-[720px] min-h-[540px] w-full flex-col items-center gap-10 rounded-b-3xl bg-teal-400 pt-28 sm:pt-36 md:pt-40">
   <h1 class="w-[85%] text-center text-white lg:max-w-[800px]">
     {t(locale, "hero.title-1")}<br class="hidden sm:block" />
     <span class="text-green-200">{t(locale, "hero.title-2")}</span>{

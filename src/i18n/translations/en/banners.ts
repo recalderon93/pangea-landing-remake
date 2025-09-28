@@ -10,9 +10,10 @@ export default {
     cta: "Book a call",
   },
   "unlock-potential": {
-    title: "Unlock Your StartUp's Potential",
+    title: "Unlock Your Startup's Potential",
     "caption-1": "Don't let technology get in the way of your growth.",
-    "caption-2": "Our team will take care of your development needs.",
+    "caption-2":
+      "Our team will take care of developing what your startup needs.",
     cta: "Get Started",
   },
 };

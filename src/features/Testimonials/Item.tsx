@@ -1,9 +1,11 @@
 import { cva } from "class-variance-authority";
 import type { TestimonialType } from "@/constants/testimonials";
 import TestimonialUserBubble from "./TestimonialUserBubble";
+import { cn } from "@styles/classNameMerge";
 
 type Props = TestimonialType & {
   color: "brand" | "accent";
+  className?: string;
 };
 
 const TestimonialItem = ({
@@ -13,8 +15,9 @@ const TestimonialItem = ({
   testimonials,
   username,
   role,
+  className = "",
 }: Props) => (
-  <div className={wrapperStyle({ color })}>
+  <div className={cn(wrapperStyle({ color }), className)}>
     <div className="flex grow-1 flex-col items-start gap-5">
       {testimonials.map((item, index) => (
         <div
