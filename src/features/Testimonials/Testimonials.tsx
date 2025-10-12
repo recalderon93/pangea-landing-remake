@@ -66,14 +66,16 @@ const Testimonials = () => {
           containerRef={containerRef}
         />
       </div>
-      <div className="flex flex-1 lg:pl-[50vw]">
-        <div className="flex flex-1 items-center justify-center lg:w-116">
-          <StepIndicators
-            currentIndex={currentIndex}
-            onGoToItem={setCurrentIndex}
-            numberOfItems={5}
-            showControls
-          />
+      <div className="flex flex-1 justify-center lg:pl-[50vw] 2xl:pl-[768px]">
+        <div className="flex w-full justify-center lg:justify-start lg:pl-[232px]">
+          <div className="lg:-translate-x-1/2">
+            <StepIndicators
+              currentIndex={currentIndex}
+              onGoToItem={setCurrentIndex}
+              numberOfItems={5}
+              showControls
+            />
+          </div>
         </div>
       </div>
     </div>
