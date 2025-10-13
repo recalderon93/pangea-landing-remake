@@ -2,8 +2,9 @@ export default {
   hero: {
     "title-1": "We build global impact with",
     "title-2": "Latin American excellence.",
-    caption:
-      "We bridge continents to connect your business with top LATAM talent. We deliver practical digital solutions, outstanding value, and a smooth collaboration experience to help you succeed.",
+    "caption-1":
+      "We connect ambitious teams with top LATAM talent — developers, designers, and creative minds who turn ideas into real solutions. We’re not just a vendor, we’re your growth ally.",
+    "caption-2": "Let’s build something meaningful.",
   },
   purpose: {
     title: "More than code.\nA real mission.",
@@ -13,7 +14,7 @@ export default {
       "At Pangea, purpose isn’t a tagline — it’s how we operate. We connect bold ideas with the talent they need to grow, scale, and make a difference. We bridge ambition and action to help businesses move forward with clarity and confidence.",
   },
   "core-values": {
-    title: "Pangea's\nCore Values",
+    title: "Our\n Values",
     "value-1": {
       title: "Empowering Talent",
       description: "We help LATAM professionals grow careers with purpose.",

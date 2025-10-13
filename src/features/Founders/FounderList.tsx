@@ -1,7 +1,7 @@
 import { t, type Locale } from "@/i18n";
 import FounderItem from "./FounderItem";
 import FounderModal, { type Founder } from "./FounderModal";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import getFoundersData from "./data";
 
 type Props = {
@@ -16,12 +16,13 @@ const FounderList = ({ locale }: Props) => {
 
   const onCloseModal = () => setFounder(null);
 
-  const onGoNext = () => founders[1] ?? setFounder(founders[1]);
-  const onGoPrevious = () => founders[0] ?? setFounder(founders[0]);
+  const onGoNext = () => setFounder(founders[1]);
+
+  const onGoPrevious = () => setFounder(founders[0]);
 
   return (
     <>
-      <div className="flex flex-col items-center gap-20 pt-24 pb-30">
+      <div className="flex flex-col items-center gap-20 pt-14 pb-16 md:pt-24 md:pb-30">
         {founders.map((founderData) => (
           <FounderItem
             key={founderData.id}

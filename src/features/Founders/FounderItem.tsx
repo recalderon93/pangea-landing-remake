@@ -30,7 +30,7 @@ const FounderItem = ({
           className="h-full w-full object-cover"
         />
       </div>
-      <div className="flex w-full flex-col items-start gap-5 rounded-b-3xl bg-teal-400 px-9 py-4">
+      <div className="bg-pattern flex w-full flex-col items-start gap-5 rounded-b-3xl bg-teal-400 px-9 py-4">
         <div className="flex w-full flex-col items-start">
           <h3 className="text-xl leading-8 font-extrabold text-white">
             {name}
@@ -39,7 +39,7 @@ const FounderItem = ({
         </div>
         <div className="flex items-center gap-2">
           <p className="text-base leading-6 font-semibold text-white">
-            {t(locale, "who-we-are.founders.close")}
+            {t(locale, "who-we-are.founders.view-bio")}
           </p>
           <ArrowIcon className="size-4 fill-white" />
         </div>
@@ -55,13 +55,13 @@ const FounderItem = ({
       </div>
       <div className="hidden lg:flex lg:flex-col">
         <div className="flex flex-col gap-10">
-          <div>
+          <div className="flex flex-col gap-2">
             <h3 className="text-[30px] leading-10 font-semibold text-teal-400">
               {name}
             </h3>
             <p className="paragraph-2 text-[16px] text-teal-400">{role}</p>
           </div>
-          <p className="paragraph-1 text-shade-400 leading-8 font-normal">
+          <p className="paragraph-1 text-shade-400 max-w-[958px] leading-8 font-normal">
             {description}
           </p>
         </div>
