@@ -13,33 +13,32 @@ const { locale, showHeader = true } = Astro.props as Props;
 
 <section
   aria-labelledby="projects-header"
-  class="flex flex-col gap-y-8 px-4 py-8 sm:px-6 md:px-10 lg:px-14">
-  <div
-    class="flex flex-col items-baseline justify-between pt-8 whitespace-pre-line md:flex-row">
-    {
-      showHeader ? (
-        <>
-          <h2
-            class="pb-8 text-[30px] leading-10 text-teal-400 sm:text-[56px] sm:leading-[64px]"
-            id="projects-header">
-            {t(locale, "landing.products.title")}
-          </h2>
-          <p class="section-side-subtitle text-shade-400 max-w-[400px] lg:max-w-[380px] lg:text-right">
-            {t(locale, "landing.products.caption")}
+  class="flex flex-col px-4 sm:px-6 md:px-10 lg:px-14">
+  {
+    showHeader ? (
+      <div class="flex flex-col items-baseline justify-between pt-8 whitespace-pre-line md:flex-row">
+        <h2
+          class="pb-8 text-[30px] leading-10 text-teal-400 sm:text-[56px] sm:leading-[64px]"
+          id="projects-header">
+          {t(locale, "landing.products.title")}
+        </h2>
+        <p class="section-side-subtitle text-shade-400 max-w-[400px] lg:max-w-[380px] lg:text-right">
+          {t(locale, "landing.products.caption")}
+        </p>
+      </div>
+    ) : (
+      <div class="flex w-full justify-center py-12 md:py-24">
+        <div class="bg-shade-50 max-w-[72vw] rounded-2xl px-12 py-5 text-teal-400">
+          <p class="text-center text-[12px] leading-5 md:text-[20px] md:leading-8">
+            {t(locale, "our-work.projects.latam-talent")}
           </p>
-        </>
-      ) : (
-        <div class="flex w-full justify-center py-16">
-          <div class="bg-shade-50 rounded-2xl px-12 py-5 text-[20px] leading-8 text-teal-400">
-            <p>{t(locale, "our-work.projects.latam-talent")}</p>
-          </div>
         </div>
-      )
-    }
-  </div>
-  <div class="flex flex-col items-center gap-12 py-4 md:gap-16 md:py-6">
+      </div>
+    )
+  }
+  <div class="flex flex-col items-center gap-12 md:gap-16">
     <div
-      class="grid w-full grid-cols-1 place-items-center gap-x-8 gap-y-6 sm:grid-cols-2 sm:gap-y-10">
+      class="grid w-full grid-cols-1 place-items-center gap-x-8 gap-y-10 sm:grid-cols-2 sm:gap-y-10">
       <ProjectItem projectId="1" />
       <ProjectItem projectId="2" />
       <ProjectItem projectId="3" />
