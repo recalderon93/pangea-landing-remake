@@ -1,13 +1,14 @@
 import { useShowSolutions } from "@/store/header/store";
 import { cn } from "@/styles/classNameMerge";
 import useFreezeScrollbar from "@hooks/useFreezeScrollbar";
-import servicesItems from "@/constants/services";
 import type { Locale } from "@/i18n";
 import SolutionsMenuFooter from "./SolutionsFooter";
 import SolutionsHeader from "./SolutionsHeader";
 import SolutionsMenuThumbnail from "./SolutionsThumbnail";
 import LinkOptionItem from "@components/OptionItem/LinkOptionItem";
 import { useState } from "react";
+import { cva } from "class-variance-authority";
+import { getSolutionsByLocale } from "@/constants/services";
 
 type Props = {
   lang?: Locale;
@@ -15,6 +16,7 @@ type Props = {
 };
 
 const SolutionsMenu = ({ lang = "en", onClose }: Props) => {
+  const servicesItems = getSolutionsByLocale(lang);
   const [selectedService, setSelectedService] = useState<
     (typeof servicesItems)[0]
   >(servicesItems[0]);
@@ -22,11 +24,20 @@ const SolutionsMenu = ({ lang = "en", onClose }: Props) => {
 
   useFreezeScrollbar(show);
 
+  const backdrop = cva("", {
+    variants: {
+      show: {
+        true: "fixed top-0 left-0 z-30 h-screen w-screen bg-black/20 backdrop-blur-sm",
+        false: "hidden",
+      },
+    },
+  });
+
   return (
-    <>
+    <div className={backdrop({ show })} onClick={onClose}>
       <div
         className={cn([
-          "fixed top-0 left-0 z-40 h-[90vh] min-h-[780px] w-screen min-w-[620px] overflow-hidden rounded-b-[40px] bg-white/0 pt-18 shadow-xl sm:pt-26 md:pt-30 2xl:left-[50%] 2xl:w-[1536px] 2xl:translate-x-[-50%]",
+          "fixed top-0 left-0 z-40 min-h-[780px] w-screen min-w-[620px] overflow-hidden rounded-b-[40px] bg-white/0 pt-18 shadow-xl sm:pt-26 md:pt-30 2xl:left-[50%] 2xl:w-[1536px] 2xl:translate-x-[-50%]",
           show ? "hidden lg:flex" : "hidden",
         ])}>
         <div className="mx-auto flex h-full w-full flex-col overflow-y-auto rounded-b-[40px] bg-gray-50 p-12 2xl:w-[1536px]">
@@ -35,7 +46,7 @@ const SolutionsMenu = ({ lang = "en", onClose }: Props) => {
             <div className="flex flex-1/3 flex-col gap-7">
               <SolutionsMenuThumbnail
                 src={selectedService.image.src}
-                description={selectedService.description[lang]}
+                description={selectedService.description}
               />
             </div>
             <div className="flex flex-2/3 pl-10">
@@ -56,7 +67,7 @@ const SolutionsMenu = ({ lang = "en", onClose }: Props) => {
           <SolutionsMenuFooter />
         </div>
       </div>
-    </>
+    </div>
   );
 };
 

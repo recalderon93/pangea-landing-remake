@@ -21,7 +21,7 @@ export default function TextInputBase({
 }
 
 const baseStyles = cva(
-  " bg-white rounded-full h-10 sm:h-14 paragraph-1 px-6 sm:px-8 min-w-66 sm:min-w-86 text-teal-400 placeholder:text-teal-400/70 outline-teal-300 text-lg leading-8 ",
+  "bg-white rounded-full text-[12px] leading-5 sm:leading-8 sm:text-[20px] h-10 sm:h-14 paragraph-1 px-6 sm:px-8 min-w-66 sm:min-w-86 text-teal-400 placeholder:text-teal-400/70 outline-teal-300",
   {
     variants: {
       error: {

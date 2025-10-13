@@ -9,7 +9,7 @@ export interface Props {
 
 const { title, description, variant = "default" } = Astro.props as Props;
 
-const titleStyle = cva("max-w-[80%] text-2xl leading-[1.33] xl:text-3xl", {
+const titleStyle = cva("max-w-[75%] text-2xl leading-[1.33] xl:text-3xl", {
   variants: {
     variant: {
       default: "",
@@ -20,7 +20,7 @@ const titleStyle = cva("max-w-[80%] text-2xl leading-[1.33] xl:text-3xl", {
 ---
 
 <div
-  class="flex min-h-66 flex-col gap-5 rounded-3xl bg-teal-400 p-9 text-white">
+  class="bg-pattern flex min-h-66 flex-col gap-5 rounded-3xl bg-teal-400 p-9 text-white">
   <h3 class={titleStyle({ variant })}>
     {title}
   </h3>

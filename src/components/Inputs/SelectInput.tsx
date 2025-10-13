@@ -64,7 +64,7 @@ const SelectInput = ({
 };
 
 const select = cva(
-  "relative w-full min-w-66 appearance-none rounded-full bg-white px-8 py-3 text-lg leading-8 text-teal-500 sm:min-w-86",
+  "relative w-full min-w-66 appearance-none rounded-full bg-white px-8 py-3 text-[14px] leading-5 sm:text-lg sm:leading-8 text-teal-500 sm:min-w-86",
   {
     variants: {
       error: {

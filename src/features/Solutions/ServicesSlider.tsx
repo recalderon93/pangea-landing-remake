@@ -1,17 +1,18 @@
 import SolutionItem from "./SolutionsItems";
-import solutionsData from "@/constants/services";
 import SliderButtons from "@components/slider/Buttons";
 import { buttonStyles } from "@styles/button";
 import StepIndicators from "@components/slider/StepIndicator";
 import useCarousel from "@hooks/useCarousel";
 import { t, type Locale } from "@/i18n";
 import { cva } from "class-variance-authority";
+import { getSolutionsByLocale } from "@/constants/services";
 
 type Props = {
   locale?: Locale;
 };
 
 const SolutionsSlider = ({ locale }: Props) => {
+  const solutionsData = getSolutionsByLocale(locale || "en");
   const {
     itemRefs,
     containerRef,
@@ -51,7 +52,7 @@ const SolutionsSlider = ({ locale }: Props) => {
               }}>
               <SolutionItem
                 title={solution.title}
-                description={solution.description.en}
+                description={solution.description}
                 image={solution.image.src}
                 isSelected={i === selectedIndex}
                 onClick={() => setSelectedIndex(i)}

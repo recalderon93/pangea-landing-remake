@@ -28,7 +28,7 @@ const TextAreaInput = ({ errorMessage, ...props }: Props) => {
 };
 
 const textarea = cva(
-  "min-h-[144px] rounded-3xl border-[3px] bg-white px-6 py-4 text-teal-400 placeholder:text-teal-400/70",
+  "min-h-[144px] rounded-3xl border-2 border-white  bg-white px-6 py-4 text-teal-400 placeholder:text-teal-400/70",
   {
     variants: {
       error: {

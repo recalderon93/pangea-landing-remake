@@ -16,10 +16,10 @@ const FormWrapper = ({
   totalSteps,
   currentStep = 0,
 }: Props) => (
-  <div className="px-4 pt-3 md:px-10">
+  <div className="px-4 pt-6 md:px-10 md:pt-10">
     <div
       className={cn(
-        "mx-auto flex min-h-[495px] flex-col items-center rounded-4xl bg-teal-400 pt-5 pb-16 md:min-h-[612px] md:pt-8 md:pb-24",
+        "bg-pattern mx-auto flex min-h-[495px] flex-col items-center rounded-4xl pt-5 pb-16 md:min-h-[612px] md:pt-8 md:pb-24",
         containerClassName,
       )}>
       {currentStep > 0 ? (

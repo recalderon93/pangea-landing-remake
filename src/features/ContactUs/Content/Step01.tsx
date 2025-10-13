@@ -69,7 +69,7 @@ const ContactUsFormStep01 = ({ locale, setCurrentStep }: FormStepProps) => {
   ];
 
   return (
-    <div className="mt-10 mb-10 flex w-[280px] flex-col gap-6 md:w-[398px]">
+    <div className="mx-auto mt-10 mb-10 flex w-[280px] flex-col gap-6 md:w-[398px]">
       <TextInput
         {...fullName.field}
         placeholder={t(locale, "contact-us.step-01.full-name-placeholder")}

@@ -64,7 +64,7 @@ const ContactUsForm = ({ locale }: Props) => {
         })}>
         {formTitle ? (
           <div className="">
-            <h1 className="text-xl leading-[1.2] text-white md:text-[32px]">
+            <h1 className="w-[280px] text-center text-xl leading-[1.2] text-white md:w-[682px] md:text-[32px]">
               {formTitle}
             </h1>
           </div>

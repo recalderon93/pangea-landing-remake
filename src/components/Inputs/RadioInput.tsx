@@ -57,7 +57,7 @@ const RadioInput = ({
       </div>
       <label
         htmlFor={id}
-        className={`cursor-pointer text-lg font-medium text-teal-500 transition-colors duration-200 select-none ${disabled ? "cursor-not-allowed text-gray-400" : ""}`}>
+        className={`cursor-pointer text-xs leading-4 font-medium text-teal-500 transition-colors duration-200 select-none sm:text-[18px] sm:leading-8 ${disabled ? "cursor-not-allowed text-gray-400" : ""}`}>
         {label}
       </label>
     </div>

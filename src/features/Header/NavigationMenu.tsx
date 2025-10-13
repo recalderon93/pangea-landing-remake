@@ -3,7 +3,7 @@ import { t, type Locale } from "@/i18n";
 import useFreezeScrollbar from "@hooks/useFreezeScrollbar";
 import LinkOptionItem from "@components/OptionItem/LinkOptionItem";
 import ButtonOptionItem from "@components/OptionItem/ButtonOptionItem";
-import servicesItems from "@/constants/services";
+import { getSolutionsByLocale } from "@/constants/services";
 import { useId, useState } from "react";
 import NavigationMenuFooter from "./NavigationMenuFooter";
 
@@ -17,6 +17,7 @@ const MobileNavigationMenu = ({ lang = "en" }: Props) => {
 
   useFreezeScrollbar(show);
   const menuId = useId();
+  const servicesItems = getSolutionsByLocale(lang);
 
   return (
     <div

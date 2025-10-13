@@ -32,8 +32,8 @@ const {
 const containerStyle = cva("px-8 lg:hidden", {
   variants: {
     variant: {
-      default: "lg:hidden mb-22",
-      image: "lg:hidden bg-teal-400 rounded-3xl pt-14 pb-20 mb-0",
+      default: "lg:hidden",
+      image: "lg:hidden bg-teal-400 bg-pattern rounded-3xl pt-14 pb-20 mb-0",
     },
   },
   defaultVariants: {
@@ -94,7 +94,7 @@ const titleStyle = cva(
       }
     </div>
   </div>
-  <div class="mx-8">
+  <div class="mx-8 lg:hidden">
     <p
       class="mt-8 w-[70%] max-w-[520px] text-xl leading-[1.3] text-gray-400 italic">
       {imageCaption}

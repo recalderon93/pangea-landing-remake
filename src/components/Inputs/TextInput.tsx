@@ -37,7 +37,7 @@ const TextInput = ({
 };
 
 const wrapper = cva(
-  "border-[2px] placeholder-teal-400/70 text-lg leading-8 rounded-full h-10 sm:h-14 paragraph-1 px-6 sm:px-8 border-white-100 text-teal-500 outline-shade-50 bg-white w-full",
+  "border-[2px] placeholder-teal-400/70 text-[14px] leading-5 sm:text-lg sm:leading-8 rounded-full h-10 sm:h-14 paragraph-1 px-6 sm:px-8 border-white-100 text-teal-500 outline-shade-50 bg-white w-full",
   {
     variants: {
       error: {
