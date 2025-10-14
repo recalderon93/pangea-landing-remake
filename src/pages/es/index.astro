@@ -1,16 +1,24 @@
 ---
 import "@styles/global.css";
 import "@fontsource/poppins";
-import MainLayout from "@layouts/MainLayout.astro";
-import Hero from "@features/Hero/Hero.astro";
+import DrivenBy from "@features/DrivenBy/DrivenBy.astro";
+import FAQs from "@features/FAQs/FAQs.astro";
 import GreatSolutionBanner from "@features/Banners/GreatSolutionBanner.astro";
-import KnowMoreBanner from "@features/Banners/KnowMoreBanner.astro";
+import Hero from "@features/Hero/Hero.astro";
+import MainLayout from "@layouts/MainLayout.astro";
+import Projects from "@features/Projects/Projects.astro";
+import Solutions from "@features/Solutions/Solutions.astro";
+import Testimonials from "@features/Testimonials/Testimonials";
 import UnlockPotentialBanner from "@features/Banners/UnlockPotentialBanner.astro";
 ---
 
 <MainLayout locale="es">
   <Hero locale="es" />
+  <Solutions locale="es" />
+  <DrivenBy locale="es" />
+  <Projects locale="es" />
   <GreatSolutionBanner locale="es" />
-  <KnowMoreBanner locale="es" />
+  <FAQs locale="es" />
+  <Testimonials client:load />
   <UnlockPotentialBanner locale="es" />
 </MainLayout>
