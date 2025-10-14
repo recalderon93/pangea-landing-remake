@@ -13,6 +13,7 @@ import {
   useShowSolutions,
 } from "@store/header/store";
 import MobileNavigationMenu from "./NavigationMenu";
+import useGetUrl from "@hooks/useGetUrl";
 
 type Props = {
   lang?: Locale;
@@ -30,6 +31,8 @@ const Header = ({ lang = "en", fillHeader = false }: Props) => {
 
   const navStyles = navItemStyles({ color });
 
+  const currentPath = useGetUrl();
+
   return (
     <>
       <header
@@ -38,7 +41,9 @@ const Header = ({ lang = "en", fillHeader = false }: Props) => {
           fillHeader,
         })}>
         <div className="sm:w-46">
-          <Logo color={color} />
+          <a href="/">
+            <Logo color={color} />
+          </a>
         </div>
         <nav
           className="hidden h-full grow items-center justify-center gap-8 lg:flex xl:gap-14"
@@ -63,13 +68,16 @@ const Header = ({ lang = "en", fillHeader = false }: Props) => {
             className="lg:hidden"
             onClick={toggleMobileMenu}
           />
-          <button
-            className={cn([
-              buttonStyles({ variant: showHeaderFrame ? "brand" : "accent" }),
-              "hidden lg:block",
-            ])}>
-            {t(lang, "header.cta")}
-          </button>
+          {currentPath !== "/contact-us" ? (
+            <a
+              href="/contact-us"
+              className={cn([
+                buttonStyles({ variant: showHeaderFrame ? "brand" : "accent" }),
+                "hidden lg:block",
+              ])}>
+              {t(lang, "header.cta")}
+            </a>
+          ) : null}
         </div>
       </header>
       <div id="sentinel" className="absolute h-1 w-full"></div>

@@ -27,9 +27,11 @@ const { locale }: Props = Astro.props;
         </span>
       </h2>
 
-      <button class={cn([buttonStyles({ variant: "accent" }), "flex-none"])}
-        >{t(locale, "banners.great-solution.cta")}</button
-      >
+      <a
+        href="/contact-us"
+        class={cn([buttonStyles({ variant: "accent" }), "flex-none"])}
+        >{t(locale, "banners.great-solution.cta")}
+      </a>
     </div>
   </div>
 </div>

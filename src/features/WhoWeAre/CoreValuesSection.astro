@@ -49,14 +49,14 @@ const items = [
       {t(locale, "who-we-are.core-values.title")}
     </h2>
     <div class="hidden w-full flex-col pr-6 2xl:flex">
-      <button class={cn(buttonStyle, "min-w-[277px]")}>
+      <a href="/contact-us" class={cn(buttonStyle, "min-w-[277px]")}>
         <div class="flex items-center gap-3">
           <span class="paragraph-1 bolder flex-1 text-left text-white"
             >{t(locale, "who-we-are.core-values.cta")}</span
           >
           <ArrowIcon className="size-7 fill-white" />
         </div>
-      </button>
+      </a>
     </div>
   </div>
   <div class="flex flex-col gap-6 lg:flex-row lg:gap-20 xl:pr-56 2xl:gap-14">
@@ -80,13 +80,15 @@ const items = [
     </div>
   </div>
   <div class="flex flex-col items-start pt-18 lg:items-start 2xl:hidden">
-    <button class={`${buttonStyle} w-[80vw] sm:w-[60vw] max-w-[300px] `}>
+    <a
+      href="/contact-us"
+      class={`${buttonStyle} w-[80vw] sm:w-[60vw] max-w-[300px] `}>
       <div class="flex items-center">
         <span class="paragraph-1 bolder text- flex-1 text-white"
           >{t(locale, "who-we-are.core-values.cta")}</span
         >
         <ArrowIcon className="size-7 fill-white" />
       </div>
-    </button>
+    </a>
   </div>
 </div>

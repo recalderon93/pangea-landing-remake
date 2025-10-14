@@ -22,8 +22,8 @@ const { locale }: Props = Astro.props;
       <br />
       {t(locale, "banners.unlock-potential.caption-2")}
     </p>
-    <button class={buttonStyles({ variant: "accent" })}>
+    <a href="/contact-us" class={buttonStyles({ variant: "accent" })}>
       {t(locale, "banners.unlock-potential.cta")}
-    </button>
+    </a>
   </div>
 </div>

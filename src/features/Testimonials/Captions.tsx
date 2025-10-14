@@ -23,9 +23,9 @@ const TestimonialsCaptions = ({
       {t(locale, "landing.testimonials.title")}
     </h2>
     <div className="flex flex-row items-center justify-between gap-10 lg:justify-start lg:gap-y-10">
-      <button className={buttonStyles({ variant: "accent" })}>
+      <a href="/contact-us" className={buttonStyles({ variant: "accent" })}>
         {t(locale, "landing.testimonials.cta")}
-      </button>
+      </a>
       <div className="flex items-center gap-10 lg:justify-between lg:gap-6">
         <SliderButtons
           color="accent"

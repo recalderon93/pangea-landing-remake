@@ -13,9 +13,9 @@ const SolutionsMenuFooter = ({ lang = "en" }: Props) => {
       </h2>
       <div className="flex items-center gap-6">
         <p className="h5 text-teal-700">{t(lang, "header.know-more")}</p>
-        <button className={buttonStyles({ variant: "brand" })}>
+        <a href="/contact-us" className={buttonStyles({ variant: "brand" })}>
           {t(lang, "header.book-a-call")}
-        </button>
+        </a>
       </div>
     </div>
   );

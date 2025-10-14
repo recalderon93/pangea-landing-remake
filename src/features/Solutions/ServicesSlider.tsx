@@ -28,9 +28,9 @@ const SolutionsSlider = ({ locale }: Props) => {
   return (
     <div className="relative">
       <div className="flex items-center justify-between px-4 sm:px-6 md:px-10 lg:px-14">
-        <button className={buttonStyles({ variant: "brand" })}>
+        <a href="/contact-us" className={buttonStyles({ variant: "brand" })}>
           {t(locale, "landing.solutions.cta")}
-        </button>
+        </a>
         {/* Slider Controls */}
         <SliderButtons
           onGoNext={goNext}
