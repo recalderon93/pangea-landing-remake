@@ -225,7 +225,7 @@ export default {
     hero: {
       title: "AI Chatbots &\nAutomated Messaging",
       "caption-1":
-        "AI Chatbots & Automated Messaging\nWe design intelligent chatbots that book\nappointments, answer questions, and\nsupport your customers — instantly, 24/7.",
+        "We design intelligent chatbots that book\nappointments, answer questions, and\nsupport your customers — instantly, 24/7.",
       "caption-2": {
         "part-1": "Fast answers. Better\nservice. Less workload.\n",
         "part-2":
@@ -245,7 +245,7 @@ export default {
       "bullet-2": {
         title: "Appointment booking made easy",
         caption:
-          "Never miss a message — our bots respond instantly, even outside business hours.",
+          "Let customers schedule visits or calls without back-and-forth.",
       },
       "bullet-3": {
         title: "Smart and human-like",

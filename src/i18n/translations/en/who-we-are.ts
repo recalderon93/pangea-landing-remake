@@ -23,7 +23,6 @@ export default {
       title: "Global Impact",
       description: "We connect bold companies with bold talent across borders.",
     },
-
     "value-3": {
       title: "Real Innovation",
       description: "We value creativity, clarity, and smart execution.",
