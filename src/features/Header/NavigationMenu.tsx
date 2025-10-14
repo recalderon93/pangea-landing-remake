@@ -21,7 +21,7 @@ const MobileNavigationMenu = ({ lang = "en" }: Props) => {
 
   return (
     <div
-      className={`fixed top-0 left-0 z-40 flex h-screen w-full flex-col overflow-y-auto bg-gray-50 px-8 pt-18 pb-12 transition-all duration-300 sm:pt-26 md:px-10 md:pt-30 ${
+      className={`fixed top-0 left-0 z-40 flex h-screen w-full flex-col overflow-y-auto bg-gray-50 px-8 pt-18 pb-12 transition-all duration-300 sm:pt-26 md:px-10 md:pt-30 lg:hidden ${
         show ? "block" : "hidden"
       }`}>
       <div className="flex h-full min-h-[720px] flex-col">
@@ -51,7 +51,7 @@ const MobileNavigationMenu = ({ lang = "en" }: Props) => {
             </ul>
           ) : null}
           <LinkOptionItem
-            className="mt-6"
+            className={`${showSolutions ? "mt-6" : "mt-0"}`}
             title={t(lang, "header.who-we-are")}
             href={t(lang, "header.url.who-we-are")}
           />
