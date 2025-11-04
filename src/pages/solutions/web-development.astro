@@ -11,6 +11,7 @@ import TileSection from "@features/Solutions/TileSection.astro";
 import tileImage from "@/images/solutions-1.jpg";
 import FAQsSection from "@features/FAQs/FAQsSolutionsSection";
 import SolutionsBanner from "@features/Solutions/SolutionsBanner.astro";
+import { Routes } from "@constants/routes";
 
 export type Props = {
   locale: Locale;
@@ -44,8 +45,8 @@ const section2 = [...new Array(3)].map((_, i) => ({
   <Hero
     locale="en"
     solution="web-development"
-    previousHref="/solutions/project-management"
-    nextHref="/solutions/ux-ui"
+    previousHref={Routes.en.projectManagement}
+    nextHref={Routes.en.uxUi}
   />
   <div class="flex flex-col gap-12 pt-12 md:gap-16 md:pt-16 lg:gap-10 lg:pt-20">
     <TileSection

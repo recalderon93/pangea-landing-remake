@@ -1,6 +1,7 @@
 import SliderButtons from "@components/slider/Buttons";
 import { t, type Locale } from "@/i18n";
 import { buttonStyles } from "@styles/button";
+import { Routes } from "@constants/routes";
 
 type Props = {
   locale?: Locale;
@@ -12,7 +13,7 @@ type Props = {
 };
 
 const TestimonialsCaptions = ({
-  locale,
+  locale = "en",
   goNext,
   goPrev,
   selectedIndex,
@@ -23,7 +24,9 @@ const TestimonialsCaptions = ({
       {t(locale, "landing.testimonials.title")}
     </h2>
     <div className="flex flex-row items-center justify-between gap-10 lg:justify-start lg:gap-y-10">
-      <a href="/contact-us" className={buttonStyles({ variant: "accent" })}>
+      <a
+        href={Routes[locale].contactUs}
+        className={buttonStyles({ variant: "accent" })}>
         {t(locale, "landing.testimonials.cta")}
       </a>
       <div className="flex items-center gap-10 lg:justify-between lg:gap-6">

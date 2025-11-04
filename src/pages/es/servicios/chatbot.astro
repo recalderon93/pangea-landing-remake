@@ -11,6 +11,7 @@ import BulletPointsSection from "@features/Solutions/BulletPointsSection.astro";
 import TileSection from "@features/Solutions/TileSection.astro";
 import FAQsSection from "@features/FAQs/FAQsSolutionsSection";
 import SolutionsBanner from "@features/Solutions/SolutionsBanner.astro";
+import { Routes } from "@constants/routes";
 
 export type Props = {
   locale: Locale;
@@ -40,12 +41,12 @@ const section2 = [...new Array(3)].map((_, i) => ({
 })) as [TileOption, TileOption, TileOption];
 ---
 
-<MainLayout locale="es" fillHeader>
+<MainLayout locale={locale} fillHeader>
   <Hero
-    locale="es"
+    locale={locale}
     solution="chatbot"
-    nextHref="/solutions/project-management"
-    previousHref="/solutions/qa"
+    nextHref={Routes[locale].projectManagement}
+    previousHref={Routes[locale].qa}
   />
   <div class="flex flex-col gap-12 pt-12 md:gap-16 md:pt-16 lg:gap-10 lg:pt-20">
     <TileSection

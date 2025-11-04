@@ -1,5 +1,6 @@
 import { buttonStyles } from "@styles/button";
 import { t, type Locale } from "@/i18n";
+import { Routes } from "@constants/routes";
 
 type Props = {
   lang?: Locale;
@@ -13,7 +14,9 @@ const SolutionsMenuFooter = ({ lang = "en" }: Props) => {
       </h2>
       <div className="flex items-center gap-6">
         <p className="h5 text-teal-700">{t(lang, "header.know-more")}</p>
-        <a href="/contact-us" className={buttonStyles({ variant: "brand" })}>
+        <a
+          href={Routes[lang].contactUs}
+          className={buttonStyles({ variant: "brand" })}>
           {t(lang, "header.book-a-call")}
         </a>
       </div>

@@ -6,12 +6,13 @@ import useCarousel from "@hooks/useCarousel";
 import { t, type Locale } from "@/i18n";
 import { cva } from "class-variance-authority";
 import { getSolutionsByLocale } from "@/constants/services";
+import { Routes } from "@constants/routes";
 
 type Props = {
   locale?: Locale;
 };
 
-const SolutionsSlider = ({ locale }: Props) => {
+const SolutionsSlider = ({ locale = "en" }: Props) => {
   const solutionsData = getSolutionsByLocale(locale || "en");
   const {
     itemRefs,
@@ -28,7 +29,9 @@ const SolutionsSlider = ({ locale }: Props) => {
   return (
     <div className="relative">
       <div className="flex items-center justify-between px-4 sm:px-6 md:px-10 lg:px-14">
-        <a href="/contact-us" className={buttonStyles({ variant: "brand" })}>
+        <a
+          href={Routes[locale].contactUs}
+          className={buttonStyles({ variant: "brand" })}>
           {t(locale, "landing.solutions.cta")}
         </a>
         {/* Slider Controls */}

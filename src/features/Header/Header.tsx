@@ -56,10 +56,10 @@ const Header = ({ lang = "en", fillHeader = false }: Props) => {
               direction={showSolutions ? "up" : "down"}
             />
           </button>
-          <a href={t(lang, "header.url.who-we-are")} className={navStyles}>
+          <a href={Routes[lang].whoWeAre} className={navStyles}>
             {t(lang, "header.who-we-are")}
           </a>
-          <a href={t(lang, "header.url.our-work")} className={navStyles}>
+          <a href={Routes[lang].ourWork} className={navStyles}>
             {t(lang, "header.our-work")}
           </a>
         </nav>
@@ -69,9 +69,9 @@ const Header = ({ lang = "en", fillHeader = false }: Props) => {
             className="lg:hidden"
             onClick={toggleMobileMenu}
           />
-          {currentPath !== "/contact-us" ? (
+          {currentPath !== Routes[lang].contactUs ? (
             <a
-              href="/contact-us"
+              href={Routes[lang].contactUs}
               className={cn([
                 buttonStyles({ variant: showHeaderFrame ? "brand" : "accent" }),
                 "hidden lg:block",

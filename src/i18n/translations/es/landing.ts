@@ -13,6 +13,9 @@ export default {
   drivenBy: {
     title: "Impulsados por\nImpacto y Valor",
   },
+  faqs: {
+    title: "Aclara tus dudas.\nRespondemos tus preguntas",
+  },
   products: {
     title: "Nuestras Obras\nMaestras Digitales",
     caption:

@@ -6,6 +6,7 @@ import ButtonOptionItem from "@components/OptionItem/ButtonOptionItem";
 import { getSolutionsByLocale } from "@/constants/services";
 import { useId, useState } from "react";
 import NavigationMenuFooter from "./NavigationMenuFooter";
+import { Routes } from "@constants/routes";
 
 type Props = {
   lang?: Locale;
@@ -53,11 +54,11 @@ const MobileNavigationMenu = ({ lang = "en" }: Props) => {
           <LinkOptionItem
             className={`${showSolutions ? "mt-6" : "mt-0"}`}
             title={t(lang, "header.who-we-are")}
-            href={t(lang, "header.url.who-we-are")}
+            href={Routes[lang].whoWeAre}
           />
           <LinkOptionItem
             title={t(lang, "header.our-work")}
-            href={t(lang, "header.url.our-work")}
+            href={Routes[lang].ourWork}
           />
         </nav>
         <NavigationMenuFooter lang={lang} />

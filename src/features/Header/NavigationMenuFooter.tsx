@@ -1,11 +1,12 @@
 import { buttonStyles } from "@styles/button";
 import { t, type Locale } from "@/i18n";
+import { Routes } from "@constants/routes";
 
 type Props = {
   lang?: Locale;
 };
 
-const NavigationMenuFooter = ({ lang }: Props) => (
+const NavigationMenuFooter = ({ lang = "en" }: Props) => (
   <div
     className="bg-pattern flex w-full flex-col items-start gap-8 rounded-2xl bg-teal-400 p-7 sm:flex-row sm:items-center sm:justify-between"
     onMouseDown={(e) => e.stopPropagation()}
@@ -16,7 +17,9 @@ const NavigationMenuFooter = ({ lang }: Props) => (
         {t(lang, "header.nav-menu-banner-2")}
       </span>
     </p>
-    <a href="/contact-us" className={buttonStyles({ variant: "accent" })}>
+    <a
+      href={Routes[lang].contactUs}
+      className={buttonStyles({ variant: "accent" })}>
       {t(lang, "header.book-a-call")}
     </a>
   </div>

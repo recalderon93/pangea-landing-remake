@@ -12,6 +12,7 @@ import BulletPointsSection from "@features/Solutions/BulletPointsSection.astro";
 import type { Solutions } from "@/types/solutions";
 import FAQsSection from "@features/FAQs/FAQsSolutionsSection";
 import SolutionsBanner from "@features/Solutions/SolutionsBanner.astro";
+import { Routes } from "@constants/routes";
 
 export type Props = {
   locale: Locale;
@@ -45,8 +46,8 @@ const section2 = [...new Array(3)].map((_, i) => ({
   <Hero
     locale="es"
     solution="project-management"
-    nextHref="/solutions/web-development"
-    previousHref="/solutions/chatbot"
+    nextHref={Routes.es.webDevelopment}
+    previousHref={Routes.es.chatbot}
   />
   <div class="flex flex-col gap-12 pt-12 md:gap-16 md:pt-16 lg:gap-10 lg:pt-20">
     <TileSection

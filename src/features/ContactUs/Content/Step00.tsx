@@ -40,7 +40,7 @@ const FormInitialStep = ({ locale, setCurrentStep }: FormStepProps) => {
         <HeroTextInput
           variant="accent"
           buttonTitle="GO"
-          placeholder="Your Email"
+          placeholder={t(locale, "hero.text-input-placeholder")}
           autoComplete="email"
           onButtonClick={handleSubmit}
           {...field}

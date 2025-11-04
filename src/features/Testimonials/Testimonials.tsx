@@ -2,8 +2,13 @@ import { useEffect, useRef, useState } from "react";
 import TestimonialsCaptions from "@features/Testimonials/Captions";
 import TestimonialsSlider from "@features/Testimonials/Slider";
 import StepIndicators from "@components/slider/StepIndicator";
+import type { Locale } from "@/i18n";
 
-const Testimonials = () => {
+type Props = {
+  locale: Locale;
+};
+
+const Testimonials = ({ locale }: Props) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const containerRef = useRef<HTMLDivElement>(null);
   const itemRefs = useRef<(HTMLDivElement | null)[]>([]);
@@ -55,13 +60,14 @@ const Testimonials = () => {
     <div className="flex flex-col py-14 sm:py-16 md:py-20 lg:gap-2 lg:py-24">
       <div className="relative">
         <TestimonialsCaptions
+          locale={locale}
           goNext={goNext}
           goPrev={goPrev}
           selectedIndex={currentIndex}
           totalItems={itemRefs.current.length}
         />
         <TestimonialsSlider
-          locale="en"
+          locale={locale}
           itemsRefs={itemRefs}
           containerRef={containerRef}
         />
