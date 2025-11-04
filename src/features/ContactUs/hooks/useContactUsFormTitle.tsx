@@ -7,7 +7,7 @@ import { t, type Locale } from "@/i18n";
 export default function useContactUsFormTitle(
   locale: Locale,
   step: ContactUsFormStepsType,
-  variant: ContactUsFormVariantsType,
+  _variant: ContactUsFormVariantsType,
 ) {
   const FormTitleMapKey = {
     0: "",

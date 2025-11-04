@@ -6,8 +6,7 @@ import RadioInput from "@components/Inputs/RadioInput";
 import { buttonStyles } from "@/styles/button";
 
 const ContactUsFormStep04 = ({ locale, setCurrentStep }: FormStepProps) => {
-  const { control, watch, trigger, formState, getValues } =
-    useFormContext<ContactUsFormType>();
+  const { control, trigger } = useFormContext<ContactUsFormType>();
   const {
     field: { onChange, value },
     fieldState,
@@ -20,7 +19,6 @@ const ContactUsFormStep04 = ({ locale, setCurrentStep }: FormStepProps) => {
     const isValid = await trigger("timeline");
     if (!isValid) return;
 
-    const formData = getValues();
     setCurrentStep?.(5);
   };
 

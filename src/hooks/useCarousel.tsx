@@ -8,7 +8,7 @@ export default function useCarousel({ numberOfItems = 0 }: Props) {
   const containerRef = useRef<HTMLDivElement>(null);
   const itemRefs = useRef<(HTMLDivElement | null)[]>([]);
   const [selectedIndex, setSelectedIndex] = useState(0);
-  const [isScrollable, setIsScrollable] = useState(false);
+  // const [isScrollable, setIsScrollable] = useState(false);
 
   // useEffect(() => {
   //   const container = containerRef.current;
@@ -41,21 +41,21 @@ export default function useCarousel({ numberOfItems = 0 }: Props) {
     }
   }, [selectedIndex]);
 
-  useEffect(() => {
-    if (!containerRef.current) return;
+  // useEffect(() => {
+  //   if (!containerRef.current) return;
 
-    const observer = new ResizeObserver(() => {
-      const container = containerRef.current!;
-      const totalContentWidth = itemRefs.current.reduce(
-        (acc, el) => acc + (el?.offsetWidth ?? 0),
-        0,
-      );
-      setIsScrollable(totalContentWidth > container.clientWidth);
-    });
+  //   const observer = new ResizeObserver(() => {
+  //     const container = containerRef.current!;
+  //     const totalContentWidth = itemRefs.current.reduce(
+  //       (acc, el) => acc + (el?.offsetWidth ?? 0),
+  //       0,
+  //     );
+  //     // setIsScrollable(totalContentWidth > container.clientWidth);
+  //   });
 
-    observer.observe(containerRef.current);
-    return () => observer.disconnect();
-  }, []);
+  //   observer.observe(containerRef.current);
+  //   return () => observer.disconnect();
+  // }, []);
 
   const goNext = () => {
     if (selectedIndex < numberOfItems - 1) {

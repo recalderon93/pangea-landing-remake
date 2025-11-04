@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useState } from "react";
 import FormWrapper from "./FormWrapper";
-import { t, type Locale } from "@/i18n";
+import { type Locale } from "@/i18n";
 import { cva } from "class-variance-authority";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { type ContactUsFormStepsType } from "@/types/forms";

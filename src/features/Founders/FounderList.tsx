@@ -1,7 +1,7 @@
-import { t, type Locale } from "@/i18n";
+import { type Locale } from "@/i18n";
 import FounderItem from "./FounderItem";
 import FounderModal, { type Founder } from "./FounderModal";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import getFoundersData from "./data";
 
 type Props = {

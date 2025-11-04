@@ -1,6 +1,6 @@
 import type { Locale } from "@/i18n";
 
-export type FormStepProps<T extends object = any> = {
+export type FormStepProps = {
   locale: Locale;
   setCurrentStep?: (step?: ContactUsFormStepsType) => void;
   setTotalSteps?: (steps: number) => void;

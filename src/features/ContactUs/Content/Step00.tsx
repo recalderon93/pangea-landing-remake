@@ -4,7 +4,7 @@ import HeroTextInput from "@features/Hero/HeroTextInput";
 import { useController, useFormContext } from "react-hook-form";
 
 const FormInitialStep = ({ locale, setCurrentStep }: FormStepProps) => {
-  const { control, trigger, formState, getValues } = useFormContext();
+  const { control, trigger, getValues } = useFormContext();
 
   const {
     field,

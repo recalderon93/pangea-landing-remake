@@ -5,7 +5,7 @@ import { useMemo } from "react";
 
 type Props = {
   locale?: Locale;
-  itemsRefs: React.MutableRefObject<(HTMLDivElement | null)[]>;
+  itemsRefs: React.RefObject<(HTMLDivElement | null)[]>;
   containerRef: React.RefObject<HTMLDivElement | null>;
 };
 

@@ -2,7 +2,7 @@ import { t } from "@/i18n";
 import type { FormStepProps } from "@/types/forms";
 import RadioInput from "@components/Inputs/RadioInput";
 import { buttonStyles } from "@styles/button";
-import { useController, useForm, useFormContext } from "react-hook-form";
+import { useController, useFormContext } from "react-hook-form";
 import SelectInput from "@components/Inputs/SelectInput";
 import type { ContactUsFormType } from "@features/ContactUs/validations";
 import useHandleContactUsSubmit from "@features/ContactUs/hooks/useHandleContactUsSubmit";
