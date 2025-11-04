@@ -14,6 +14,7 @@ import {
 } from "@store/header/store";
 import MobileNavigationMenu from "./NavigationMenu";
 import useGetUrl from "@hooks/useGetUrl";
+import { Routes } from "@constants/routes";
 
 type Props = {
   lang?: Locale;
@@ -41,7 +42,7 @@ const Header = ({ lang = "en", fillHeader = false }: Props) => {
           fillHeader,
         })}>
         <div className="sm:w-46">
-          <a href="/">
+          <a href={Routes[lang].home} aria-label="Pangea Logo">
             <Logo color={color} />
           </a>
         </div>

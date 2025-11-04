@@ -2,6 +2,7 @@
 import { buttonStyles } from "@styles/button";
 import { cn } from "@styles/classNameMerge";
 import { t, type Locale } from "@/i18n";
+import { Routes } from "@/constants/routes";
 
 export interface Props {
   locale: Locale;
@@ -28,7 +29,7 @@ const { locale }: Props = Astro.props;
       </h2>
 
       <a
-        href="/contact-us"
+        href={Routes[locale].contactUs}
         class={cn([buttonStyles({ variant: "accent" }), "flex-none"])}
         >{t(locale, "banners.great-solution.cta")}
       </a>

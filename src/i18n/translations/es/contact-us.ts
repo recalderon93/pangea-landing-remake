@@ -139,4 +139,10 @@ export default {
     "files-count": "Puedes subir hasta 3 archivos",
     "file-size": "Cada archivo debe ser de 10MB o menos",
   },
+  success: {
+    title: "¡Gracias por contactarnos!",
+    caption:
+      "Agradecemos que te hayas puesto en contacto con nosotros. Un miembro de nuestro equipo se comunicará contigo pronto.",
+    "back-home": "Volver al inicio",
+  },
 };

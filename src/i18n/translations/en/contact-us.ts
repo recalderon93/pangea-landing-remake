@@ -137,4 +137,10 @@ export default {
     "files-count": "You can upload up to 3 files",
     "file-size": "Each file must be 10MB or smaller",
   },
+  success: {
+    title: "Thank you for reaching out!",
+    caption:
+      "We appreciate you contacting us. One of our team members will get back to you shortly.",
+    "back-home": "Back to home",
+  },
 };
