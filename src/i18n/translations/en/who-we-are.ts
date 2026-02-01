@@ -3,42 +3,41 @@ export default {
     "title-1": "We build global impact with",
     "title-2": "Latin American excellence.",
     "caption-1":
-      "We connect ambitious teams with top LATAM talent — developers, designers, and creative minds who turn ideas into real solutions. We’re not just a vendor, we’re your growth ally.",
-    "caption-2": "Let’s build something meaningful.",
+      "We partner with ambitious teams to design, build, and scale digital products alongside top LATAM talent. We believe in merit, long-term growth, and creating real opportunities — for our clients and for our people.",
+    "caption-2": "Let's build something meaningful.",
   },
   purpose: {
     title: "More than code.\nA real mission.",
-    quote:
-      "By tapping into LATAM’s rich talent pool, we help businesses scale, reduce costs, and foster innovation—while driving social impact",
     paragraph:
-      "At Pangea, purpose isn’t a tagline — it’s how we operate. We connect bold ideas with the talent they need to grow, scale, and make a difference. We bridge ambition and action to help businesses move forward with clarity and confidence.",
+      "We work with top Latin American talent because we believe opportunity should be driven by skill and merit. By growing businesses the right way, we help professionals build real careers — and create digital products that truly matter.",
   },
   "core-values": {
     title: "Our\n Values",
     "value-1": {
       title: "Empowering Talent",
-      description: "We help LATAM professionals grow careers with purpose.",
+      description:
+        "We help LATAM professionals grow real careers, not just get jobs.",
     },
     "value-2": {
       title: "Global Impact",
-      description: "We connect bold companies with bold talent across borders.",
+      description:
+        "We connect ambitious teams across borders to build products that matter.",
     },
     "value-3": {
       title: "Real Innovation",
-      description: "We value creativity, clarity, and smart execution.",
+      description: "We turn ideas into smart, well-executed digital solutions.",
     },
     "value-4": {
       title: "Work–Life Balance",
-      description:
-        "We support well-being, flexibility, and time for what matters.",
+      description: "We believe great work only happens when life is respected.",
     },
     "value-5": {
       title: "Trust & Transparency",
-      description: "Clear communication, fair service, no fine print.",
+      description: "We build meaningful partnerships that create real change.",
     },
     "value-6": {
       title: "Connection & Purpose",
-      description: "We build digital bridges that make a difference.",
+      description: "We build meaningful partnerships that create real change.",
     },
     cta: "Learn More About\nUs in a Call",
   },
@@ -54,7 +53,7 @@ export default {
       "description-1":
         "From startups to semiconductors, Luis has over 10 years of experience leading global teams.",
       "description-2":
-        "He’s a certified Scrum Master, former ASML engineer, and expert in innovation and execution. He’s worked across Latin America, the US, and Europe, giving him a unique perspective on global product delivery.",
+        "He's a certified Scrum Master, former ASML engineer, and expert in innovation and execution. He's worked across Latin America, the US, and Europe, giving him a unique perspective on global product delivery.",
       "description-3":
         "Now based in the Netherlands, he connects bold ideas with real-world results, always betting on LATAM talent.",
     },
@@ -62,16 +61,16 @@ export default {
       name: "Rafael Calderon",
       role: "Chief Technology Officer",
       description:
-        "Originally a mechanical engineer, Rafael transitioned from the oil industry into tech during LATAM’s digital transformation. He built his skills across frontend, backend, and UX, and now leads high-performing teams delivering products used across the US and Europe. From Venezuela, he blends creativity with precision to build solutions that work and inspire.",
+        "Originally a mechanical engineer, Rafael transitioned from the oil industry into tech during LATAM's digital transformation. He built his skills across frontend, backend, and UX, and now leads high-performing teams delivering products used across the US and Europe. From Venezuela, he blends creativity with precision to build solutions that work and inspire.",
       "description-1":
-        "Originally a mechanical engineer, Rafael transitioned from the oil industry into tech during LATAM’s digital transformation.",
+        "Originally a mechanical engineer, Rafael transitioned from the oil industry into tech during LATAM's digital transformation.",
       "description-2":
         "He built his skills across frontend, backend, and UX, and now leads high-performing teams delivering products used across the US and Europe.",
       "description-3":
         "From Venezuela, he blends creativity with precision to build solutions that work and inspire.",
     },
     quote:
-      "LATAM talent shouldn’t have borders. Their mission is to build digital bridges that unlock potential and deliver results that truly matter.",
+      "LATAM talent shouldn't have borders. Their mission is to build digital bridges that unlock potential and deliver results that truly matter.",
     close: "Close",
     "view-bio": "View Bio",
     "img-alt": "'s profile photo",

@@ -3,42 +3,45 @@ export default {
     "title-1": "Creamos impacto global con el ",
     "title-2": "talento latinoamericano.",
     "caption-1":
-      "Conectamos empresas con el mejor talento digital de LATAM: desarrolladores, diseñadores y mentes creativas que convierten ideas en soluciones reales. Más que un proveedor, somos tu socio de crecimiento.",
+      "Trabajamos junto a equipos ambiciosos para diseñar, construir y escalar productos digitales con el mejor talento de LATAM. Creemos en el mérito, el crecimiento real y en crear oportunidades que impacten tanto a nuestros clientes como a nuestra gente.",
     "caption-2": "Construyamos algo que valga la pena",
   },
   purpose: {
     title: "Más que código.\nUna misión con propósito.",
-    quote:
-      "Al aprovechar el gran talento de LATAM, ayudamos a las empresas a escalar, reducir costos e impulsar la innovación, generando al mismo tiempo un impacto social positivo.",
     paragraph:
-      "En Pangea, el propósito no es una frase: es nuestra forma de trabajar. Conectamos ideas ambiciosas con el talento necesario para crecer, escalar y generar impacto. Somos el puente entre la visión y la acción, para que tu negocio avance con claridad y confianza.",
+      "Trabajamos con talento latinoamericano de primer nivel porque creemos que las oportunidades deben construirse a partir del mérito y las habilidades. Al hacer crecer negocios de la forma correcta, ayudamos a las personas a construir carreras reales y a crear productos digitales que realmente importan.",
   },
   "core-values": {
     title: "Nuestros\n Valores",
     "value-1": {
       title: "Impulsamos el talento",
-      description: "Ayudamos a profesionales LATAM a crecer con propósito.",
+      description:
+        "Ayudamos a profesionales de LATAM a construir carreras reales, no solo a conseguir un empleo.",
     },
     "value-2": {
       title: "Impacto global",
-      description: "Conectamos empresas valientes con talento sin fronteras.",
+      description:
+        "Conectamos equipos ambiciosos más allá de fronteras para crear productos que realmente importan.",
     },
     "value-3": {
       title: "Innovación real",
       description:
-        "Valoramos la creatividad, la claridad y la ejecución inteligente.",
+        "Convertimos ideas en soluciones digitales claras, bien pensadas y bien ejecutadas.",
     },
     "value-4": {
       title: "Balance y bienestar",
-      description: "Apoyamos la flexibilidad y el tiempo para lo que importa.",
+      description:
+        "Creemos que el gran trabajo solo es posible cuando la vida también importa.",
     },
     "value-5": {
       title: "Confianza y transparencia",
-      description: "Comunicamos claro, servimos justo, sin letras pequeñas.",
+      description:
+        "Comunicación clara, trabajo justo y cero letra pequeña. Siempre.",
     },
     "value-6": {
       title: "Conexión con propósito",
-      description: "Creamos puentes digitales que marcan la diferencia.",
+      description:
+        "Construimos alianzas con sentido, que generan un impacto real.",
     },
     cta: "Conoce más sobre\n nosotros en una llamada",
   },
