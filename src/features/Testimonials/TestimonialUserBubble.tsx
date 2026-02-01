@@ -1,7 +1,8 @@
 import { cva } from "class-variance-authority";
+import UserIcon from "@components/icons/UserIcon";
 
 type Props = {
-  avatar: string;
+  avatar?: string;
   username: string;
   company: string;
   role?: string;
@@ -16,13 +17,9 @@ const TestimonialUserBubble = ({
   color,
 }: Props) => (
   <div className={wrapperStyle({ color })}>
-    <img
-      src={avatar}
-      alt={username}
-      width={40}
-      height={40}
-      className="aspect-square rounded-full object-cover"
-    />
+    <div className={iconWrapperStyle({ color })}>
+      <UserIcon size={32} className={iconStyle({ color })} />
+    </div>
     <span
       className={labelStyle({
         color,
@@ -33,7 +30,7 @@ const TestimonialUserBubble = ({
 );
 
 const labelStyle = cva(
-  "px-2 caption truncate overflow-hidden whitespace-nowrap",
+  "px-2 caption truncate overflow-hidden whitespace-nowrap flex-1 min-w-0",
   {
     variants: {
       color: {
@@ -43,6 +40,27 @@ const labelStyle = cva(
     },
   },
 );
+
+const iconWrapperStyle = cva(
+  "flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-full",
+  {
+    variants: {
+      color: {
+        brand: "bg-teal-400",
+        accent: "bg-white-50",
+      },
+    },
+  },
+);
+
+const iconStyle = cva("", {
+  variants: {
+    color: {
+      brand: "text-white-50",
+      accent: "text-teal-400",
+    },
+  },
+});
 
 export const wrapperStyle = cva(
   "h-12 rounded-[24px] elevation-2 w-60 flex items-center px-[6px] sm:w-78 ",

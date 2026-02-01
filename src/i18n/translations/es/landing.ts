@@ -7,7 +7,7 @@ export default {
     cta: "Trabajemos Juntos",
   },
   testimonials: {
-    title: "La confianza lo es todo.\nY los empleadores\nconfían en nosotros",
+    title: "La confianza lo es todo.\nLos equipos confían en nosotros.",
     cta: "Trabajemos Juntos",
   },
   drivenBy: {

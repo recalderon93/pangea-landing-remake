@@ -7,7 +7,7 @@ export default {
     cta: "Let's Work Together",
   },
   testimonials: {
-    title: "Trust is everything.\nAnd employers\ntrust us.",
+    title: "Trust is everything.\nTeams trust us.",
     cta: "Let's Work Together",
   },
   drivenBy: {
