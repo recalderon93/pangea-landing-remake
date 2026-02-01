@@ -22,7 +22,7 @@ const FAQsSection = ({ locale }: Props) => {
   return (
     <div className="flex flex-col gap-6 lg:flex-row">
       <div className="flex flex-1 flex-col gap-6">
-        {FAQList.slice(0, 3).map((item, index) => (
+        {FAQList.slice(0, 4).map((item, index) => (
           <FAQItem
             key={index}
             question={item.question}
@@ -33,13 +33,13 @@ const FAQsSection = ({ locale }: Props) => {
         ))}
       </div>
       <div className="flex flex-1 flex-col gap-6">
-        {FAQList.slice(3, 6).map((item, index) => (
+        {FAQList.slice(4, 7).map((item, index) => (
           <FAQItem
             key={index}
             question={item.question}
             answer={item.answer}
-            onToggle={() => toggleQuestion(index + 3)}
-            isOpen={selectedQuestion === index + 3}
+            onToggle={() => toggleQuestion(index + 4)}
+            isOpen={selectedQuestion === index + 4}
           />
         ))}
       </div>

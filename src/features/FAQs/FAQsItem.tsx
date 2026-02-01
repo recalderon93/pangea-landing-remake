@@ -41,8 +41,16 @@ const FAQItem = ({ question, answer, isOpen = false, onToggle }: Props) => {
         ref={contentRef}
         style={{ height }}
         className="overflow-hidden transition-all duration-500">
-        <div className="text-shade-400 paragraph-2 mt-4 mr-10 flex pt-2 text-left sm:mt-6 lg:mt-8">
-          {answer}
+        <div className="text-shade-400 paragraph-2 mt-4 mr-10 pt-2 text-left sm:mt-6 lg:mt-8">
+          {answer.split("\n").map((line, idx) => (
+            <div
+              key={idx}
+              style={{
+                paddingLeft: line.trim().startsWith("•") ? "1rem" : "0",
+              }}>
+              {line || "\u00A0"}
+            </div>
+          ))}
         </div>
       </div>
     </button>
