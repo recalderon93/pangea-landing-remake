@@ -47,7 +47,7 @@ const Header = ({ lang = "en", fillHeader = false }: Props) => {
           </a>
         </div>
         <nav
-          className="hidden h-full grow items-center justify-center gap-8 lg:flex xl:gap-14"
+          className="hidden h-full grow items-center justify-center gap-8 xl:flex xl:gap-14"
           data-testid="desktop-navigation">
           <button
             type="button"
@@ -71,7 +71,7 @@ const Header = ({ lang = "en", fillHeader = false }: Props) => {
         <div className="flex justify-end sm:w-44">
           <BurgerMenu
             color={showHeaderFrame ? "brand" : "accent"}
-            className="lg:hidden"
+            className="xl:hidden"
             onClick={toggleMobileMenu}
             aria-label={t(lang, "header.menu")}
           />
@@ -80,7 +80,7 @@ const Header = ({ lang = "en", fillHeader = false }: Props) => {
               href={Routes[lang].contactUs}
               className={cn([
                 buttonStyles({ variant: showHeaderFrame ? "brand" : "accent" }),
-                "hidden lg:block",
+                "hidden xl:block",
               ])}>
               {t(lang, "header.cta")}
             </a>
