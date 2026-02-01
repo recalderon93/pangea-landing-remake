@@ -11,7 +11,7 @@ export default {
     hero: {
       title: "Agile Project\nManagement",
       "caption-1":
-        "We turn your ideas into\nresults - with speed, clarity\nand expert execution.",
+        "We turn ideas into results — with fast execution, clear communication, and expert delivery.",
       "caption-2": {
         "part-1": "Smart processes. Real outcomes.\n",
         "part-2": "We simplify complexity and ",
@@ -66,7 +66,7 @@ export default {
     hero: {
       title: "Web & App\nDevelopment",
       "caption-1":
-        "We design and build digital products\nthat perform — websites, web apps,\nmobile apps, and everything in between.",
+        "We design and build digital products that perform — websites, web apps, mobile apps, and more.",
       "caption-2": {
         "part-1": "Smart development. ",
         "part-2": "Real results.\n",
@@ -120,7 +120,7 @@ export default {
     hero: {
       title: "QA & Software\nTesting",
       "caption-1":
-        "We help you ship with confidence through\nrigorous, human-led testing that finds\nbugs before your users do.",
+        "We help you launch with confidence through rigorous, human-led testing that finds issues before your users do.",
       "caption-2": {
         "part-1": "Less guesswork. More peace of mind.\n",
         "part-2":
@@ -173,7 +173,7 @@ export default {
     hero: {
       title: "UX & UI\nDesign Service",
       "caption-1":
-        "We design user experiences that feel\nsimple, intuitive, and human — because\ngreat design is invisible, but impact is not.",
+        "We craft intuitive, seamless experiences that feel simple to use — because great design is invisible, but impactful.",
       "caption-2": {
         "part-1": "User-focused. Impact-driven.\n",
         "part-2":
@@ -225,7 +225,7 @@ export default {
     hero: {
       title: "AI Chatbots &\nAutomated Messaging",
       "caption-1":
-        "We design intelligent chatbots that book\nappointments, answer questions, and\nsupport your customers — instantly, 24/7.",
+        "We build intelligent chatbots that handle support, book appointments, and respond instantly — 24/7.",
       "caption-2": {
         "part-1": "Fast answers. Better\nservice. Less workload.\n",
         "part-2":

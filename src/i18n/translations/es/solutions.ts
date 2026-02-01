@@ -11,7 +11,7 @@ export default {
     hero: {
       title: "Gestión Ágil\nde Proyectos",
       "caption-1":
-        "Convertimos tus ideas en\nresultados - con velocidad, claridad\ny ejecución experta.",
+        "Convertimos tus ideas en resultados — con ejecución rápida, comunicación clara y entrega experta.",
       "caption-2": {
         "part-1": "Proceso inteligentes. Resultados reales.\n",
         "part-2": "Simplificamos lo complejo y ",
@@ -67,7 +67,7 @@ export default {
     hero: {
       title: "Desarrollo Web y\nde Aplicaciones",
       "caption-1":
-        "Diseñamos y desarrollamos productos digitales\nque funcionan: sitios web,\nplataformas, apps móviles y más.",
+        "Diseñamos y desarrollamos productos digitales que funcionan — sitios web, web apps, apps móviles y más.",
       "caption-2": {
         "part-1": "Desarrollo inteligente. ",
         "part-2": "Resultados reales.\n",
@@ -122,7 +122,7 @@ export default {
     hero: {
       title: "QA y Pruebas\nde Software",
       "caption-1":
-        "Te ayudamos a lanzar con confianza a través\nde pruebas rigurosas, hechas por personas reales,\nque detectan errores antes que tus usuarios.",
+        "Te ayudamos a lanzar con confianza mediante pruebas rigurosas que detectan fallos antes que tus usuarios.",
       "caption-2": {
         "part-1": "Menos suposiciones. Más tranquilidad.\n",
         "part-2":
@@ -175,7 +175,7 @@ export default {
     hero: {
       title: "Servicio de Diseño\nUX & UI",
       "caption-1":
-        "Diseñamos experiencias que se sienten\nsimples, intuitivas y humanas — porque el\nbuen diseño no se nota, pero su impacto sí.",
+        "Creamos experiencias intuitivas y fluidas que se sienten simples — porque el gran diseño no se ve, se siente.",
       "caption-2": {
         "part-1": "Centrado en el usuario. Impulsado por resultados.",
         "part-2":
@@ -228,7 +228,7 @@ export default {
     hero: {
       title: "Chatbots con IA y\nAutomatización de Mensajes",
       "caption-1":
-        "Creamos asistentes inteligentes que agendan\ncitas, responden consultas y\natienden a tus clientes — al instante y 24/7",
+        "Construimos chatbots inteligentes que atienden, responden y agendan automáticamente — disponibles 24/7.",
       "caption-2": {
         "part-1":
           "Respuestas rápidas. Mejor\nservicio. Menos carga de trabajo.\n",
