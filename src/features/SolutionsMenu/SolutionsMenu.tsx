@@ -34,14 +34,24 @@ const SolutionsMenu = ({ lang = "en", onClose }: Props) => {
   });
 
   return (
-    <div className={backdrop({ show })} onClick={onClose}>
+    <div
+      className={backdrop({ show })}
+      onClick={onClose}
+      onKeyDown={(e) => {
+        if (e.key === "Escape") {
+          onClose?.();
+        }
+      }}
+      role="presentation">
       <div
+        role="presentation"
         className={cn([
           "fixed top-0 left-0 z-40 min-h-[780px] w-screen min-w-[620px] overflow-hidden rounded-b-[40px] bg-white/0 pt-18 shadow-xl sm:pt-26 md:pt-30 2xl:left-[50%] 2xl:w-[1536px] 2xl:translate-x-[-50%]",
           show ? "hidden lg:flex" : "hidden",
         ])}
         onClick={(e) => e.stopPropagation()}
-        onMouseDown={(e) => e.stopPropagation()}>
+        onMouseDown={(e) => e.stopPropagation()}
+        onKeyDown={(e) => e.stopPropagation()}>
         <div className="absolute top-0 left-0 h-18 w-full bg-white/70 sm:h-26 md:h-30"></div>
         <div className="mx-auto flex h-full w-full flex-col overflow-y-auto rounded-b-[40px] bg-gray-50 p-12 2xl:w-[1536px]">
           <SolutionsHeader onClose={onClose} />

@@ -129,11 +129,13 @@ const ContactUsFormStep06 = ({ locale, setCurrentStep }: FormStepProps) => {
       </div>
       <div className="mt-4 flex w-full justify-center gap-6">
         <button
+          type="button"
           className={buttonStyles({ variant: "accent" })}
           onClick={() => setCurrentStep?.(5)}>
           {t(locale, "contact-us.back")}
         </button>
         <button
+          type="button"
           className={buttonStyles({ variant: "accent-2" })}
           onClick={onSubmit}>
           {t(locale, "contact-us.step-06.submit")}

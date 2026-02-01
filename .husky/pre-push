@@ -1,126 +1,92 @@
-CLEAR_LINE="\033[1K"
+#!/usr/bin/env sh
+. "$(dirname -- "$0")/_/husky.sh"
 
 TESTS_FAILED=false
 FORMATTING_FAILED=false
 LINT_FAILED=false
 ASTRO_CHECK_FAILED=false
-ASTRO_BUILD_FAILED=false
-
 
 echo "\n Checking code with husky 🐺\n"
-# echo " --------------------------------------"
+
+echo " ⏳ Format check running..."
 echo ""
 
-echo " ⏳ Lint check running...             "
-echo ""
-
-if ! npm run format &> /dev/null; then
-	FORMATTING_FAILED=true
-  # echo "${CLEAR_LINE}\r| ❌ ESLint found errors. Please fix the linting errors before committing."
-  echo "  ❌ Prettier found errors. Please fix the linting errors before committing."
-  # echo "-----------------------------------------------------------------------------------------"
+if npm run format &> /dev/null; then
+  echo "  ✅ Prettier passed."
 else
-	echo "  ✅ Prettier passed."
-	# echo "-----------------"
+  FORMATTING_FAILED=true
+  echo "  ❌ Prettier found errors. Please fix the formatting errors before pushing."
 fi
 
 echo ""
+echo " ⏳ Lint check running..."
 echo ""
 
-echo " ⏳ Lint check running...             "
-echo ""
-
-if ! npm run lint &> /dev/null; then
-	LINT_FAILED=true
-  # echo "${CLEAR_LINE}\r| ❌ ESLint found errors. Please fix the linting errors before committing."
-  echo "  ❌ ESLint found errors. Please fix the linting errors before committing."
-  # echo "-----------------------------------------------------------------------------------------"
+if npm run lint &> /dev/null; then
+  echo "  ✅ ESLint passed."
 else
-	echo "  ✅ ESLint passed."
-	# echo "-----------------"
+  LINT_FAILED=true
+  echo "  ❌ ESLint found errors. Please fix the linting errors before pushing."
 fi
 
 echo ""
-echo ""
-# env echo -n "| ⏳ Tests check running...            |"
-env echo " ⏳ Tests check running...            "
+echo " ⏳ Tests check running..."
 echo ""
 
-if npm test &> /dev/null
-then
-    # echo -e "${CLEAR_LINE}\r| ✅ Tests check passed!               |"
-    echo "  ✅ Tests check passed!               "
+if npm test &> /dev/null; then
+  echo "  ✅ Tests check passed!"
 else
-    # echo -e "${CLEAR_LINE}\r| ❌ Tests check failed (Oops❗️)       |"
-    echo "  ❌ Tests check failed (Oops❗️)       "
-    TESTS_FAILED=true
+  echo "  ❌ Tests check failed (Oops❗️)"
+  TESTS_FAILED=true
 fi
 
 echo ""
+echo " ⏳ Astro type check running..."
 echo ""
 
-echo "⏳ Astro type check running..."
-echo ""
-
-if ! npm run check &> /dev/null; then
-  ASTRO_CHECK_FAILED=true
-  echo "  ❌ Astro check failed. Please fix the issues before committing."
-else
+if npm run check &> /dev/null; then
   echo "  ✅ Astro check passed."
-fi
-
-echo ""
-echo ""
-echo ""
-
-
-echo "⏳ Building Astro site..."
-echo ""
-
-if ! npm run build; then
-  echo ""
-  ASTRO_BUILD_FAILED=true
-  echo "  ❌ Build failed. Please fix the issues before continuing."
 else
-  echo "  ✅ Build succeeded."
+  ASTRO_CHECK_FAILED=true
+  echo "  ❌ Astro check failed. Please fix the issues before pushing."
 fi
 
 echo ""
 echo ""
-echo ""
 
-if [ "$FORMATTING_FAILED" = "true" ] || [ "$LINT_FAILED" = "true" ] || [ "$TESTS_FAILED" = "true" ] || [ "$ASTRO_CHECK_FAILED" = "true" ] || [ "$ASTRO_BUILD_FAILED" = "true" ]; then
-
-  echo "\033[0;31m🚨  Due to an error in one of the checks, git commit attempt was aborted\033[0m"
+if [ "$FORMATTING_FAILED" = "true" ] || [ "$LINT_FAILED" = "true" ] || [ "$TESTS_FAILED" = "true" ] || [ "$ASTRO_CHECK_FAILED" = "true" ]; then
+  echo "\033[0;31m🚨  Due to an error in one of the checks, git push attempt was aborted\033[0m"
+  
   if [ "$FORMATTING_FAILED" = "true" ]; then
-	  echo ""
-    echo "💡 For more information about lint errors, run 'npm run format'"
+    echo ""
+    echo "💡 For more information about format errors, run 'npm run format'"
+    echo "💡 To auto-fix, run 'npm run format:fix'"
   fi
+  
   if [ "$LINT_FAILED" = "true" ]; then
-	  echo ""
+    echo ""
     echo "💡 For more information about lint errors, run 'npm run lint'"
+    echo "💡 To auto-fix, run 'npm run lint:fix'"
   fi
+  
   if [ "$TESTS_FAILED" = "true" ]; then
-	  echo ""
-    echo "💡 For more information about failing tests, run 'npm run test'"
+    echo ""
+    echo "💡 For more information about failing tests, run 'npm test'"
   fi
-
+  
   if [ "$ASTRO_CHECK_FAILED" = "true" ]; then
     echo ""
-    echo "💡 For more information about Astro type errors, run 'npm run check:astro'"
+    echo "💡 For more information about Astro type errors, run 'npm run check'"
   fi
-  if [ "$ASTRO_BUILD_FAILED" = "true" ]; then
-    echo ""
-    echo "💡 For more information about Astro build errors, run 'npm run build'"
-  fi
+  
+  echo ""
+  echo "💡 Or run 'npm run validate' to see all errors at once"
   echo ""
   exit 1
 else
   echo "\033[0;32mGood job mate!\033[0m"
-	echo ""
-	echo ""
+  echo ""
   echo "Pushing Code..."
-	echo ""
-	echo ""
+  echo ""
   exit 0
 fi

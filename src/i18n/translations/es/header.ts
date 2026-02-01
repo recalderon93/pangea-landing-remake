@@ -6,6 +6,7 @@ export default {
   "book-a-call": "Agendar",
   "learn-more": "Aprender Más",
   close: "Cerrar",
+  menu: "Menú",
   "know-more": "¿Quieres saber más sobre nuestros precios?",
   url: {
     solutions: "/es/solutions",

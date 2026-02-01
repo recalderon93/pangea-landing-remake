@@ -23,14 +23,27 @@ const RadioInput = ({
     }
   };
 
+  const handleClick = () => {
+    if (!disabled && onChange) {
+      onChange(value);
+    }
+  };
+
+  const handleKeyDown = (event: React.KeyboardEvent) => {
+    if (event.key === "Enter" || event.key === " ") {
+      event.preventDefault();
+      handleClick();
+    }
+  };
+
   return (
     <div
+      role="radio"
+      aria-checked={checked}
+      tabIndex={disabled ? -1 : 0}
       className={`group flex min-h-12 cursor-pointer items-center gap-3 rounded-full bg-white py-3 pr-6 pl-3 text-sm font-normal text-teal-500 transition-all duration-200 ease-in-out hover:bg-gray-50 hover:shadow-sm ${checked ? "ring-opacity-50 bg-teal-50 ring-2 ring-teal-500" : ""} ${disabled ? "cursor-not-allowed opacity-50" : ""}`}
-      onClick={() => {
-        if (!disabled && onChange) {
-          onChange(value);
-        }
-      }}>
+      onClick={handleClick}
+      onKeyDown={handleKeyDown}>
       <div className="relative">
         <input
           type="radio"

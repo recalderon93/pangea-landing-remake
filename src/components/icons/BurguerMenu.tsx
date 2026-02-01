@@ -6,6 +6,7 @@ type Props = {
   className?: string;
   onClick?: () => void;
   isActive?: boolean;
+  "aria-label"?: string;
 };
 
 export default function BurgerMenu({
@@ -13,6 +14,7 @@ export default function BurgerMenu({
   className = "",
   isActive,
   onClick,
+  "aria-label": ariaLabel = "Toggle menu",
 }: Props) {
   const activeClass = {
     brand: "bg-shade-50 inset-shadow-sm",
@@ -21,7 +23,8 @@ export default function BurgerMenu({
 
   return (
     <button
-      aria-label="burger-menu"
+      type="button"
+      aria-label={ariaLabel}
       className={cn([
         "flex aspect-square w-12 items-center justify-center rounded-full active:inset-shadow-sm sm:w-16",
         color === "brand" ? "hover:bg-shade-50" : "hover:bg-teal-500",

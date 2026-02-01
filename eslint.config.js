@@ -32,10 +32,19 @@ export default [
     },
     rules: {
       "prettier/prettier": "error",
+      // Accessibility rules (jsx-a11y)
       "jsx-a11y/alt-text": "warn",
       "jsx-a11y/aria-props": "warn",
+      "jsx-a11y/aria-proptypes": "warn",
+      "jsx-a11y/aria-unsupported-elements": "warn",
       "jsx-a11y/role-has-required-aria-props": "warn",
       "jsx-a11y/role-supports-aria-props": "warn",
+      "jsx-a11y/anchor-is-valid": "warn",
+      "jsx-a11y/click-events-have-key-events": "warn",
+      "jsx-a11y/no-static-element-interactions": "warn",
+      "jsx-a11y/label-has-associated-control": "warn",
+      "jsx-a11y/no-noninteractive-element-interactions": "warn",
+      "jsx-a11y/no-autofocus": "warn",
     },
   },
 

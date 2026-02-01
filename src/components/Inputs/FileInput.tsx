@@ -158,9 +158,20 @@ const CustomFileInput = ({
       />
 
       <div
+        role="button"
+        tabIndex={!files.length || multiple ? 0 : -1}
         onDragOver={handleDragOver}
         onDragLeave={handleDragLeave}
         onDrop={handleDrop}
+        onKeyDown={(e) => {
+          if (
+            (e.key === "Enter" || e.key === " ") &&
+            (!files.length || multiple)
+          ) {
+            e.preventDefault();
+            handleBrowseClick();
+          }
+        }}
         className={`relative rounded-[28px] p-8 text-center transition-all duration-200 ${
           files.length
             ? "rounded-3xl border-none bg-white py-4"

@@ -45,7 +45,11 @@ const FounderModal = ({
             nextDisabled={disabledNext}
             previousDisabled={disabledPrevious}
           />
-          <button className="cursor-pointer px-2 py-1" onClick={onClose}>
+          <button
+            type="button"
+            className="cursor-pointer px-2 py-1"
+            onClick={onClose}
+            aria-label={t(locale, "who-we-are.founders.close")}>
             <p className="paragraph-1 bold text-shade-300">
               {t(locale, "who-we-are.founders.close")}
             </p>

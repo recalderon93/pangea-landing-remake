@@ -11,12 +11,17 @@
     "preview": "astro preview",
     "astro": "astro",
     "check": "astro check",
+    "typecheck": "astro check",
     "test:watch": "vitest",
     "test": "vitest run --reporter=verbose",
+    "test:ci": "vitest run --reporter=verbose --coverage",
+    "test:coverage": "vitest run --coverage",
+    "test:unit": "vitest run --reporter=verbose src/**/*.test.ts",
     "format": "prettier --check .",
     "format:fix": "prettier --write .",
     "lint": "eslint . --ext .js,.jsx,.ts,.tsx,.astro",
     "lint:fix": "eslint . --ext .js,.jsx,.ts,.tsx,.astro --fix",
+    "validate": "npm run format && npm run lint && npm run typecheck && npm test",
     "prepare": "husky",
     "nuke": "rm -rf node_modules && rm package-lock.json && npm install"
   },
@@ -52,9 +57,19 @@
     "eslint-plugin-prettier": "5.5.0",
     "husky": "^9.1.7",
     "jsdom": "^26.1.0",
+    "lint-staged": "^15.2.11",
     "prettier": "3.5.3",
     "prettier-plugin-astro": "0.14.1",
     "prettier-plugin-tailwindcss": "0.6.13",
     "vitest": "3.2.4"
+  },
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx,astro}": [
+      "prettier --write",
+      "eslint --fix"
+    ],
+    "*.{json,md,css}": [
+      "prettier --write"
+    ]
   }
 }

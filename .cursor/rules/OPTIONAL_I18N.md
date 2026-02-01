@@ -1,0 +1,488 @@
+# Internationalization Rules (Optional)
+
+Load this rule when working on translations or i18n-related features.
+
+## Supported Locales
+
+- **English (en)**: Default locale, no URL prefix
+- **Spanish (es)**: URL prefix `/es`
+
+## Translation Function
+
+### Basic Usage
+
+```typescript
+import { t, type Locale } from "@/i18n";
+
+// Simple translation
+const text = t("en", "header.cta");
+// Returns: "Contact Us"
+
+// With locale variable
+const locale: Locale = "es";
+const text = t(locale, "header.cta");
+// Returns: "Contáctanos"
+```
+
+### With Variables
+
+```typescript
+// Translation with variables
+const greeting = t("en", "greeting", { name: "John" });
+// Returns: "Hello, John!"
+
+// Multiple variables
+const message = t("en", "welcome.message", {
+  name: "John",
+  count: 5,
+});
+// Returns: "Welcome, John! You have 5 new messages."
+```
+
+### With Pluralization
+
+```typescript
+// Pluralization (singular)
+const text = t("en", "items.count", { count: 1 });
+// Returns: "1 item"
+
+// Pluralization (plural)
+const text = t("en", "items.count", { count: 5 });
+// Returns: "5 items"
+```
+
+## Adding Translations
+
+### Step 1: Add to English
+
+```typescript
+// src/i18n/translations/en/header.ts
+export default {
+  solutions: "Solutions",
+  "who-we-are": "Who We Are",
+  "our-work": "Our Work",
+  cta: "Contact Us",
+  "new-key": "New Translation", // ← Add here
+} as const;
+```
+
+### Step 2: Add to Spanish
+
+```typescript
+// src/i18n/translations/es/header.ts
+export default {
+  solutions: "Soluciones",
+  "who-we-are": "Quiénes Somos",
+  "our-work": "Nuestro Trabajo",
+  cta: "Contáctanos",
+  "new-key": "Nueva Traducción", // ← Add here
+} as const;
+```
+
+### Step 3: Use in Code
+
+```typescript
+import { t } from "@/i18n";
+
+const text = t(locale, "header.new-key");
+```
+
+**IMPORTANT**: Keep the structure identical between `en/` and `es/` to maintain type safety.
+
+## Translation Patterns
+
+### Nested Objects
+
+Organize related translations in nested objects:
+
+```typescript
+export default {
+  form: {
+    labels: {
+      email: "Email",
+      password: "Password",
+    },
+    errors: {
+      required: "This field is required",
+      invalid: "Invalid value",
+    },
+    buttons: {
+      submit: "Submit",
+      cancel: "Cancel",
+    },
+  },
+} as const;
+
+// Usage
+t(locale, "form.labels.email");
+t(locale, "form.errors.required");
+```
+
+### Variables
+
+Use `{variableName}` syntax in translations:
+
+```typescript
+export default {
+  greeting: "Hello, {name}!",
+  welcome: "Welcome back, {name}. You have {count} new messages.",
+} as const;
+
+// Usage
+t(locale, "greeting", { name: "John" });
+t(locale, "welcome", { name: "John", count: 5 });
+```
+
+### Pluralization
+
+Use `one` and `other` keys for pluralization:
+
+```typescript
+export default {
+  items: {
+    count: {
+      one: "{count} item",
+      other: "{count} items",
+    },
+  },
+} as const;
+
+// Usage
+t(locale, "items.count", { count: 1 }); // "1 item"
+t(locale, "items.count", { count: 5 }); // "5 items"
+```
+
+### Long Text
+
+For long text, use template literals:
+
+```typescript
+export default {
+  about: `
+    This is a long paragraph about our company.
+    It spans multiple lines and contains detailed information.
+    We can use template literals to make it more readable.
+  `.trim(),
+} as const;
+```
+
+## Using i18n in Components
+
+### React Components
+
+```typescript
+import { t, type Locale } from "@/i18n";
+
+type Props = {
+  locale: Locale;
+};
+
+export default function Header({ locale }: Props) {
+  return (
+    <header>
+      <nav>
+        <a href="#">{t(locale, "header.solutions")}</a>
+        <a href="#">{t(locale, "header.who-we-are")}</a>
+        <a href="#">{t(locale, "header.our-work")}</a>
+      </nav>
+      <button>{t(locale, "header.cta")}</button>
+    </header>
+  );
+}
+```
+
+### Astro Components
+
+```astro
+---
+import { t, type Locale } from "@/i18n";
+
+type Props = {
+  lang: Locale;
+};
+
+const { lang } = Astro.props;
+---
+
+<footer>
+  <p>{t(lang, "footer.copyright", { year: new Date().getFullYear() })}</p>
+  <a href="#">{t(lang, "footer.privacy")}</a>
+  <a href="#">{t(lang, "footer.terms")}</a>
+</footer>
+```
+
+### Form Validation
+
+Use i18n for validation error messages:
+
+```typescript
+import { z } from "zod";
+import { t, type Locale } from "@/i18n";
+
+export const getContactUsFormValidator = (locale: Locale) =>
+  z.object({
+    email: z
+      .string({
+        message: t(locale, "contact-us.errors.required.email"),
+      })
+      .email(t(locale, "contact-us.errors.email-format")),
+    name: z
+      .string({
+        message: t(locale, "contact-us.errors.required.name"),
+      })
+      .min(2, t(locale, "contact-us.errors.name-length")),
+  });
+```
+
+## File Organization
+
+```
+src/i18n/
+├── index.ts              # Main exports
+├── t.ts                  # Translation function
+├── t.test.ts             # Tests
+└── translations/
+    ├── en/               # English translations
+    │   ├── index.ts      # Exports all English translations
+    │   ├── header.ts
+    │   ├── footer.ts
+    │   ├── landing.ts
+    │   └── ...
+    └── es/               # Spanish translations
+        ├── index.ts      # Exports all Spanish translations
+        ├── header.ts
+        ├── footer.ts
+        └── ...
+```
+
+## Routing
+
+### Route Constants
+
+Define routes in `src/constants/routes.ts`:
+
+```typescript
+export const Routes = {
+  en: {
+    home: "/",
+    whoWeAre: "/who-we-are",
+    ourWork: "/our-work",
+    contactUs: "/contact-us",
+  },
+  es: {
+    home: "/es",
+    whoWeAre: "/es/quienes-somos",
+    ourWork: "/es/nuestro-trabajo",
+    contactUs: "/es/contactanos",
+  },
+} as const;
+
+// Usage
+<a href={Routes[locale].whoWeAre}>
+  {t(locale, "header.who-we-are")}
+</a>
+```
+
+### Page Structure
+
+```
+src/pages/
+├── index.astro                    # /
+├── who-we-are.astro              # /who-we-are
+└── es/                           # Spanish routes
+    ├── index.astro               # /es
+    └── quienes-somos.astro       # /es/quienes-somos
+```
+
+## Best Practices
+
+### 1. Always Use t() for User-Facing Text
+
+```typescript
+// ❌ Bad: Hardcoded string
+<button>Contact Us</button>
+
+// ✅ Good: Use translation
+<button>{t(locale, "header.cta")}</button>
+```
+
+### 2. Keep Keys Descriptive
+
+```typescript
+// ❌ Bad: Generic keys
+export default {
+  text1: "Hello",
+  text2: "World",
+};
+
+// ✅ Good: Descriptive keys
+export default {
+  greeting: "Hello",
+  title: "World",
+};
+```
+
+### 3. Organize by Feature
+
+```typescript
+// ✅ Good: Organized by feature
+export default {
+  "contact-us": {
+    title: "Contact Us",
+    subtitle: "Get in touch",
+    form: {
+      // ... form translations
+    },
+  },
+};
+```
+
+### 4. Keep Structures Synchronized
+
+Ensure `en/` and `es/` have the same structure:
+
+```typescript
+// en/header.ts
+export default {
+  solutions: "Solutions",
+  "who-we-are": "Who We Are",
+} as const;
+
+// es/header.ts
+export default {
+  solutions: "Soluciones",
+  "who-we-are": "Quiénes Somos",
+} as const;
+```
+
+### 5. Test Translations
+
+```typescript
+// src/i18n/t.test.ts
+import { t } from "./t";
+
+describe("i18n/t", () => {
+  test("should return English translation", () => {
+    expect(t("en", "header.cta")).toBe("Contact Us");
+  });
+
+  test("should return Spanish translation", () => {
+    expect(t("es", "header.cta")).toBe("Contáctanos");
+  });
+
+  test("should handle variables", () => {
+    expect(t("en", "greeting", { name: "John" })).toBe("Hello, John!");
+  });
+});
+```
+
+## Type Safety
+
+Translation keys are **type-checked** at compile time:
+
+```typescript
+// ✅ Valid key
+t("en", "header.cta");
+
+// ❌ TypeScript error: Invalid key
+t("en", "header.invalid");
+
+// ✅ Valid nested key
+t("en", "header.menu.open");
+
+// ❌ TypeScript error: Missing required variable
+t("en", "greeting"); // Error: Missing 'name' variable
+
+// ✅ Correct with variable
+t("en", "greeting", { name: "John" });
+```
+
+## Common Patterns
+
+### Dynamic Locale
+
+```typescript
+import { useEffect, useState } from "react";
+import type { Locale } from "@/i18n";
+
+function useLocale(): Locale {
+  const [locale, setLocale] = useState<Locale>("en");
+
+  useEffect(() => {
+    const path = window.location.pathname;
+    setLocale(path.startsWith("/es") ? "es" : "en");
+  }, []);
+
+  return locale;
+}
+```
+
+### Conditional Content
+
+```typescript
+function WelcomeMessage({ locale }: { locale: Locale }) {
+  return (
+    <div>
+      <h1>{t(locale, "welcome.title")}</h1>
+      {locale === "es" && (
+        <p>{t(locale, "welcome.spanish-specific-message")}</p>
+      )}
+    </div>
+  );
+}
+```
+
+## Troubleshooting
+
+### "Key not found" Error
+
+```typescript
+// Error: Translation key doesn't exist
+t("en", "nonexistent.key");
+// Returns: "nonexistent.key" (fallback)
+```
+
+**Solution**: Add the key to translation files.
+
+### Type Error: Invalid Key
+
+```typescript
+// TypeScript error: Key doesn't exist
+t("en", "invalid.key");
+```
+
+**Solution**: Check spelling or add the key to translation files.
+
+### Missing Variable
+
+```typescript
+// Error: Missing required variable
+t("en", "greeting"); // Expects { name: string }
+```
+
+**Solution**: Provide the variable:
+
+```typescript
+t("en", "greeting", { name: "John" });
+```
+
+### Inconsistent Structures
+
+```typescript
+// en/header.ts
+export default { cta: "Contact" };
+
+// es/header.ts
+export default { button: "Contacto" }; // ❌ Different structure
+```
+
+**Solution**: Keep structures identical:
+
+```typescript
+// es/header.ts
+export default { cta: "Contacto" }; // ✅ Same structure
+```
+
+## Reference
+
+See `docs/I18N.md` for complete internationalization guide.

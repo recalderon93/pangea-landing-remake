@@ -6,6 +6,7 @@ export default {
   "book-a-call": "BOOK A CALL",
   "learn-more": "Learn More",
   close: "Close",
+  menu: "Menu",
   "know-more": "Want to know more about our pricing?",
   url: {
     solutions: "/solutions",

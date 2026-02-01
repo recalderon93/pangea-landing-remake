@@ -49,7 +49,12 @@ const Header = ({ lang = "en", fillHeader = false }: Props) => {
         <nav
           className="hidden h-full grow items-center justify-center gap-8 lg:flex xl:gap-14"
           data-testid="desktop-navigation">
-          <button className={navStyles} onClick={toggleSolutions}>
+          <button
+            type="button"
+            className={navStyles}
+            onClick={toggleSolutions}
+            aria-label={t(lang, "header.solutions")}
+            aria-expanded={showSolutions}>
             {t(lang, "header.solutions")}
             <Chevron
               color={showHeaderFrame ? "brand" : "accent"}
@@ -68,6 +73,7 @@ const Header = ({ lang = "en", fillHeader = false }: Props) => {
             color={showHeaderFrame ? "brand" : "accent"}
             className="lg:hidden"
             onClick={toggleMobileMenu}
+            aria-label={t(lang, "header.menu")}
           />
           {currentPath !== Routes[lang].contactUs ? (
             <a
