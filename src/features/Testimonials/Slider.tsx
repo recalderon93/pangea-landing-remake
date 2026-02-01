@@ -43,7 +43,7 @@ const TestimonialsSlider = ({ locale, itemsRefs, containerRef }: Props) => {
               />
             </div>
           ))}
-          <div className="w-0 shrink-0 lg:w-[50vw] 2xl:max-w-[768px]" />
+          <div className="w-10 shrink-0" />
         </div>
       </div>
     </div>

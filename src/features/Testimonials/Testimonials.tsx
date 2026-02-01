@@ -1,8 +1,9 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, useMemo } from "react";
 import TestimonialsCaptions from "@features/Testimonials/Captions";
 import TestimonialsSlider from "@features/Testimonials/Slider";
 import StepIndicators from "@components/slider/StepIndicator";
 import type { Locale } from "@/i18n";
+import { testimonialsData, testimonialsDataEs } from "@/constants/testimonials";
 
 type Props = {
   locale: Locale;
@@ -12,6 +13,12 @@ const Testimonials = ({ locale }: Props) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const containerRef = useRef<HTMLDivElement>(null);
   const itemRefs = useRef<(HTMLDivElement | null)[]>([]);
+
+  const data = useMemo(() => {
+    return locale === "es" ? testimonialsDataEs : testimonialsData;
+  }, [locale]);
+
+  const totalItems = data.length;
 
   useEffect(() => {
     const container = containerRef.current;
@@ -24,8 +31,8 @@ const Testimonials = ({ locale }: Props) => {
       const itemWidth = itemRefs.current[0]?.offsetWidth || 300;
       const centeredIndex = Math.round(container.scrollLeft / itemWidth);
 
-      if (centeredIndex > 5) {
-        setCurrentIndex(5);
+      if (centeredIndex >= totalItems) {
+        setCurrentIndex(totalItems - 1);
       } else if (centeredIndex < 0) {
         setCurrentIndex(0);
       } else {
@@ -36,7 +43,7 @@ const Testimonials = ({ locale }: Props) => {
     container.addEventListener("scroll", detectCenteredItem, { passive: true });
 
     return () => container.removeEventListener("scroll", detectCenteredItem);
-  }, []);
+  }, [totalItems]);
 
   function goPrev() {
     if (!containerRef.current || !itemRefs.current[0]) return;
@@ -64,7 +71,7 @@ const Testimonials = ({ locale }: Props) => {
           goNext={goNext}
           goPrev={goPrev}
           selectedIndex={currentIndex}
-          totalItems={itemRefs.current.length}
+          totalItems={totalItems}
         />
         <TestimonialsSlider
           locale={locale}
@@ -78,7 +85,7 @@ const Testimonials = ({ locale }: Props) => {
             <StepIndicators
               currentIndex={currentIndex}
               onGoToItem={setCurrentIndex}
-              numberOfItems={5}
+              numberOfItems={totalItems}
               showControls
             />
           </div>
