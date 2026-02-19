@@ -76,22 +76,20 @@ const SolutionsSlider = ({ locale = "en" }: Props) => {
   );
 };
 
-const containerStyles = cva(
-  "no-scrollbar w-full px-4 py-6 pt-12 sm:pt-[68px] sm:px-6 md:px-10 lg:px-14",
-  {
-    variants: {
-      isScrollable: {
-        true: "no-scrollbar snap-x snap-mandatory overflow-x-auto scroll-smooth",
-        false: "flex justify-center overflow-hidden",
-      },
+const containerStyles = cva("no-scrollbar w-full py-6 pt-12 sm:pt-[68px]", {
+  variants: {
+    isScrollable: {
+      true: "no-scrollbar snap-x snap-mandatory overflow-x-auto scroll-smooth",
+      false:
+        "flex justify-center overflow-hidden px-4 sm:px-6 md:px-10 lg:px-14",
     },
   },
-);
+});
 
 const contentStyles = cva("flex w-max gap-4", {
   variants: {
     isScrollable: {
-      true: "",
+      true: "px-4 sm:px-6 md:px-10 lg:px-14",
       false: "justify-center",
     },
   },
