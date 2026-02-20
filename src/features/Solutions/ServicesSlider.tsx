@@ -28,7 +28,7 @@ const SolutionsSlider = ({ locale = "en" }: Props) => {
 
   return (
     <div className="relative">
-      <div className="flex items-center justify-between px-4 sm:px-6 md:px-10 lg:px-14">
+      <div className="flex flex-wrap items-center justify-between gap-4 px-4 sm:px-6 md:px-10 lg:px-14">
         <a
           href={Routes[locale].contactUs}
           className={buttonStyles({ variant: "brand" })}>

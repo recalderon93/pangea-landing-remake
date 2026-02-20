@@ -9,7 +9,7 @@ type Props = {
 const NavigationMenuFooter = ({ lang = "en" }: Props) => (
   <div
     role="presentation"
-    className="bg-pattern flex w-full flex-col items-start gap-8 rounded-2xl bg-teal-400 p-7 sm:flex-row sm:items-center sm:justify-between"
+    className="bg-pattern flex w-full shrink-0 flex-col items-start gap-8 rounded-2xl bg-teal-400 p-7 sm:flex-row sm:items-center sm:justify-between"
     onMouseDown={(e) => e.stopPropagation()}
     onClick={(e) => e.stopPropagation()}
     onKeyDown={(e) => e.stopPropagation()}>

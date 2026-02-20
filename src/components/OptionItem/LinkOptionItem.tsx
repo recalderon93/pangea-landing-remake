@@ -6,6 +6,7 @@ type Props = {
   title: string;
   href: string;
   onMouseEnter?: () => void;
+  onClick?: () => void;
   isSelected?: boolean;
   showArrow?: boolean;
   className?: string;
@@ -15,6 +16,7 @@ const LinkOptionItem = ({
   title,
   href,
   onMouseEnter,
+  onClick,
   isSelected = false,
   showArrow = false,
   className = "",
@@ -22,7 +24,8 @@ const LinkOptionItem = ({
   <a
     href={href}
     className={cn([wrapper({ isSelected }), className])}
-    onMouseEnter={onMouseEnter}>
+    onMouseEnter={onMouseEnter}
+    onClick={onClick}>
     <p key={title} className={text({ isSelected })}>
       {title}
     </p>

@@ -24,11 +24,12 @@ export const text = cva(
   },
 );
 
-export const arrow = cva("fill-white-100 size-7 transition-transform", {
+export const arrow = cva("size-7 transition-transform", {
   variants: {
     isOpen: {
-      true: "rotate-45 block",
-      false: "-rotate-45 hidden group-hover:block group-active:block",
+      true: "rotate-45 fill-white-100",
+      false:
+        "-rotate-45 fill-teal-700 group-hover:fill-white-100 group-active:fill-white-100",
     },
   },
 });

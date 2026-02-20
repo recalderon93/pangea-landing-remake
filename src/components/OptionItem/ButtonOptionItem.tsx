@@ -8,6 +8,8 @@ type Props = {
   isSelected?: boolean;
   showArrow?: boolean;
   isOpen?: boolean;
+  "aria-expanded"?: boolean;
+  "aria-controls"?: string;
 };
 
 const ButtonOptionItem = ({
@@ -17,11 +19,16 @@ const ButtonOptionItem = ({
   isSelected = false,
   isOpen = false,
   showArrow = false,
+  "aria-expanded": ariaExpanded,
+  "aria-controls": ariaControls,
 }: Props) => (
   <button
+    type="button"
     className={wrapper({ isSelected })}
     onMouseEnter={onMouseEnter}
-    onClick={onClick}>
+    onClick={onClick}
+    aria-expanded={ariaExpanded}
+    aria-controls={ariaControls}>
     <p key={title} className={text({ isSelected })}>
       {title}
     </p>

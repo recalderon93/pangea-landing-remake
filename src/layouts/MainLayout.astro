@@ -1,6 +1,10 @@
 ---
 import "@styles/global.css";
-import "@fontsource/poppins";
+import "@fontsource/poppins/latin-400.css";
+import "@fontsource/poppins/latin-500.css";
+import "@fontsource/poppins/latin-600.css";
+import "@fontsource/poppins/latin-700.css";
+import "@fontsource/poppins/latin-800.css";
 import type { Locale } from "@/i18n";
 import Header from "@features/Header/Header";
 import Footer from "@features/Footer/Footer.astro";
@@ -17,11 +21,16 @@ const { locale, title = "Pangea Landing", fillHeader = false } = Astro.props;
   <head>
     <meta charset="utf-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="viewport" content="width=device-width" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, viewport-fit=cover"
+    />
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
   </head>
-  <body class="relative flex flex-col">
+  <body
+    class="relative flex flex-col"
+    style="padding-bottom: env(safe-area-inset-bottom);">
     <Header client:load lang={locale} fillHeader={fillHeader} />
     <div class="flex-grow pb-10 2xl:mx-auto 2xl:w-[1536px]">
       <slot />

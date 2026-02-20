@@ -1,10 +1,10 @@
-import { useShowMobileMenu } from "@/store/header/store";
+import { useHeaderActions, useShowMobileMenu } from "@/store/header/store";
 import { t, type Locale } from "@/i18n";
 import useFreezeScrollbar from "@hooks/useFreezeScrollbar";
 import LinkOptionItem from "@components/OptionItem/LinkOptionItem";
 import ButtonOptionItem from "@components/OptionItem/ButtonOptionItem";
 import { getSolutionsByLocale } from "@/constants/services";
-import { useId, useState } from "react";
+import { useEffect, useId, useState } from "react";
 import NavigationMenuFooter from "./NavigationMenuFooter";
 import { Routes } from "@constants/routes";
 
@@ -14,19 +14,53 @@ type Props = {
 
 const MobileNavigationMenu = ({ lang = "en" }: Props) => {
   const show = useShowMobileMenu();
+  const { closeMobileMenu } = useHeaderActions();
   const [showSolutions, setShowSolutions] = useState(false);
 
   useFreezeScrollbar(show);
+
+  useEffect(() => {
+    if (!show) {
+      setShowSolutions(false);
+      return;
+    }
+
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") {
+        closeMobileMenu();
+      }
+    };
+
+    document.addEventListener("keydown", handleKeyDown);
+    return () => {
+      document.removeEventListener("keydown", handleKeyDown);
+    };
+  }, [closeMobileMenu, show]);
+
   const menuId = useId();
   const servicesItems = getSolutionsByLocale(lang);
 
   return (
     <div
-      className={`fixed top-0 left-0 z-40 flex h-screen w-full flex-col overflow-y-auto bg-gray-50 px-8 pt-18 pb-12 transition-all duration-300 sm:pt-26 md:px-10 md:pt-30 lg:hidden ${
-        show ? "block" : "hidden"
+      role="dialog"
+      aria-modal="true"
+      aria-hidden={!show}
+      aria-label={t(lang, "header.menu")}
+      className={`fixed inset-0 z-40 flex w-full flex-col overflow-y-auto bg-gray-50 px-8 pt-18 transition-all duration-300 sm:pt-26 md:px-10 md:pt-30 lg:hidden ${
+        show
+          ? "pointer-events-auto visible opacity-100"
+          : "pointer-events-none invisible opacity-0"
       }`}>
-      <div className="flex h-full min-h-[720px] flex-col">
-        <nav className="flex flex-1 flex-col pt-14">
+      {/* Full-bleed background that extends well past any safe-area edge */}
+      <div
+        aria-hidden="true"
+        className="pointer-events-none fixed inset-x-0 top-0 -z-10 bg-gray-50"
+        style={{ height: "150vh" }}
+      />
+      <div className="relative flex min-h-full flex-col pb-10">
+        <nav
+          aria-label={t(lang, "header.menu")}
+          className="flex flex-1 flex-col pt-14">
           <ButtonOptionItem
             title={t(lang, "header.solutions")}
             showArrow
@@ -44,6 +78,7 @@ const MobileNavigationMenu = ({ lang = "en" }: Props) => {
                   className={`flex w-full hover:bg-teal-700 ${index < servicesItems.length - 1 ? "border-shade-100 border-b-2" : ""}`}>
                   <a
                     href={service.href}
+                    onClick={closeMobileMenu}
                     className="paragraph-1 flex w-full flex-1 items-center p-4 font-medium text-teal-700 hover:text-white">
                     <span>{service.title}</span>
                   </a>
@@ -55,13 +90,17 @@ const MobileNavigationMenu = ({ lang = "en" }: Props) => {
             className={`${showSolutions ? "mt-6" : "mt-0"}`}
             title={t(lang, "header.who-we-are")}
             href={Routes[lang].whoWeAre}
+            onClick={closeMobileMenu}
           />
           <LinkOptionItem
             title={t(lang, "header.our-work")}
             href={Routes[lang].ourWork}
+            onClick={closeMobileMenu}
           />
         </nav>
-        <NavigationMenuFooter lang={lang} />
+        <div className="shrink-0 pt-8 pb-8">
+          <NavigationMenuFooter lang={lang} />
+        </div>
       </div>
     </div>
   );
