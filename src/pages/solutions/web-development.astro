@@ -7,7 +7,7 @@ import type { Solutions } from "@/types/solutions";
 import type { TileOption } from "@features/Solutions/TileSection.astro";
 import BulletPointsSection from "@features/Solutions/BulletPointsSection.astro";
 import TileSection from "@features/Solutions/TileSection.astro";
-import tileImage from "@/images/solutions-1.jpg";
+import tileImage from "@/images/service-2.png";
 import FAQsSection from "@features/FAQs/FAQsSolutionsSection";
 import SolutionsBanner from "@features/Solutions/SolutionsBanner.astro";
 import { Routes } from "@constants/routes";
@@ -64,6 +64,7 @@ const section2 = [...new Array(3)].map((_, i) => ({
       variant="image"
       title={t("en", "solutions.web-development.section-2.title")}
       image={tileImage.src}
+      imageClass="object-[50%_70%]"
       imageCaption={t(
         "en",
         "solutions.web-development.section-2.image-caption",

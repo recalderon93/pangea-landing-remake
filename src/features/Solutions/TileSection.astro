@@ -10,6 +10,7 @@ export interface TileOption {
 export interface Props {
   containerClass?: string;
   image?: string;
+  imageClass?: string;
   imageCaption?: string;
   title?: string;
   subtitle?: string;
@@ -21,6 +22,7 @@ export interface Props {
 const {
   containerClass,
   image,
+  imageClass,
   title,
   subtitle,
   caption,
@@ -59,11 +61,11 @@ const {
   </div>
   {
     image ? (
-      <div class="mt-18 h-[380px] w-full gap-6 rounded-3xl bg-gray-400">
+      <div class="mt-18 h-[547px] w-full gap-6 rounded-3xl bg-gray-400">
         <img
           src={image}
           alt=""
-          class="h-full w-full rounded-3xl object-cover"
+          class={cn("h-full w-full rounded-3xl object-cover", imageClass)}
         />
       </div>
     ) : null

@@ -4,6 +4,7 @@ type Props = {
   title: string;
   description: string;
   image: string;
+  href?: string;
   isSelected?: boolean;
   onClick?: () => void;
 };
@@ -12,21 +13,15 @@ const SolutionItem = ({
   description,
   image,
   title,
+  href,
   isSelected = false,
   onClick,
 }: Props) => (
-  <div
-    role="button"
-    tabIndex={0}
-    aria-pressed={isSelected}
+  <a
+    href={href}
+    aria-current={isSelected ? "page" : undefined}
     className="group elevation-2 bg-white-50 relative flex h-[560px] w-[320px] shrink-0 cursor-pointer snap-center flex-col justify-end overflow-hidden rounded-2xl lg:h-[672px] lg:w-[384px]"
-    onClick={onClick}
-    onKeyDown={(e) => {
-      if (e.key === "Enter" || e.key === " ") {
-        e.preventDefault();
-        onClick?.();
-      }
-    }}>
+    onClick={onClick}>
     <div className={captionWrapper({ isSelected })}>
       <h3 className={titleStyles({ isSelected: true })}>{title}</h3>
       <p className={captionStyles({ isSelected: true })}>{description}</p>
@@ -34,7 +29,7 @@ const SolutionItem = ({
     <div className="relative h-[65%] overflow-hidden">
       <img src={image} alt={title} className={imageStyles({ isSelected })} />
     </div>
-  </div>
+  </a>
 );
 
 const captionWrapper = cva(

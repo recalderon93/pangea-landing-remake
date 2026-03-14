@@ -9,13 +9,7 @@ type Props = {
   color?: "brand" | "accent";
 };
 
-const TestimonialUserBubble = ({
-  avatar,
-  username,
-  company,
-  role,
-  color,
-}: Props) => (
+const TestimonialUserBubble = ({ username, company, role, color }: Props) => (
   <div className={wrapperStyle({ color })}>
     <div className={iconWrapperStyle({ color })}>
       <UserIcon size={32} className={iconStyle({ color })} />

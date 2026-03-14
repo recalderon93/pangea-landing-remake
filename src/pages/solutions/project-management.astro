@@ -5,7 +5,7 @@ import Hero from "@features/Solutions/Hero.astro";
 import TileSection, {
   type TileOption,
 } from "@features/Solutions/TileSection.astro";
-import tileImage from "@/images/solutions-1.jpg";
+import tileImage from "@/images/service-1.png";
 import { t, type Locale } from "@/i18n";
 import BulletPointsSection from "@features/Solutions/BulletPointsSection.astro";
 import type { Solutions } from "@/types/solutions";
@@ -65,6 +65,7 @@ const section2 = [...new Array(3)].map((_, i) => ({
       variant="image"
       title={t("en", "solutions.project-management.section-2.title")}
       image={tileImage.src}
+      imageClass="object-[50%_35%]"
       imageCaption={t(
         "en",
         "solutions.project-management.section-2.image-caption",

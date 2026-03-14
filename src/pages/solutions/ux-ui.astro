@@ -2,7 +2,7 @@
 import "@styles/global.css";
 import MainLayout from "@layouts/MainLayout.astro";
 import Hero from "@features/Solutions/Hero.astro";
-import tileImage from "@/images/solutions-1.jpg";
+import tileImage from "@/images/service-3.png";
 import type { TileOption } from "@features/Solutions/TileSection.astro";
 import { t, type Locale } from "@/i18n";
 import type { Solutions } from "@/types/solutions";
@@ -64,6 +64,7 @@ const section2 = [...new Array(3)].map((_, i) => ({
       variant="image"
       title={t("en", "solutions.project-management.section-2.title")}
       image={tileImage.src}
+      imageClass="object-[50%_70%]"
       imageCaption={t(
         "en",
         "solutions.project-management.section-2.image-caption",

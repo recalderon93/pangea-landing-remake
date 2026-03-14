@@ -22,7 +22,7 @@ const { locale }: Props = Astro.props;
     </h3>
   </div>
 </div>
-<SolutionsSlider client:load />
+<SolutionsSlider client:load locale={locale} />
 <div class="flex w-full items-center justify-center px-12 pt-16">
   <div
     class="flex max-w-full shrink-0 grow-0 items-center justify-around rounded-lg bg-neutral-100 px-[44px] py-3 text-teal-500 sm:rounded-2xl sm:py-4">

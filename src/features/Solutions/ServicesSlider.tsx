@@ -57,6 +57,7 @@ const SolutionsSlider = ({ locale = "en" }: Props) => {
                 title={solution.title}
                 description={solution.description}
                 image={solution.image.src}
+                href={solution.href}
                 isSelected={i === selectedIndex}
                 onClick={() => setSelectedIndex(i)}
               />
