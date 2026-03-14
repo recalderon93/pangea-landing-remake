@@ -1,12 +1,20 @@
 ---
 import { t, type Locale } from "@/i18n";
 import SolutionsSlider from "./ServicesSlider";
+import { getSolutionsWithOptimizedImages } from "./getSolutionsWithOptimizedImages";
 
 interface Props {
   locale: Locale;
 }
 
 const { locale }: Props = Astro.props;
+
+// Slider cards: 320px-384px width, image area ~65% of 560-672px = 364-437px
+// Optimize for 2x retina: 768px width, WebP format
+const solutions = await getSolutionsWithOptimizedImages(locale, {
+  width: 768,
+  format: "webp",
+});
 ---
 
 <div class="flex flex-col gap-y-8 px-4 pt-10 pb-2 sm:px-6 md:px-10 lg:px-14">
@@ -22,7 +30,7 @@ const { locale }: Props = Astro.props;
     </h3>
   </div>
 </div>
-<SolutionsSlider client:load locale={locale} />
+<SolutionsSlider client:load locale={locale} solutions={solutions} />
 <div class="flex w-full items-center justify-center px-12 pt-16">
   <div
     class="flex max-w-full shrink-0 grow-0 items-center justify-around rounded-lg bg-neutral-100 px-[44px] py-3 text-teal-500 sm:rounded-2xl sm:py-4">

@@ -5,15 +5,23 @@ import StepIndicators from "@components/slider/StepIndicator";
 import useCarousel from "@hooks/useCarousel";
 import { t, type Locale } from "@/i18n";
 import { cva } from "class-variance-authority";
-import { getSolutionsByLocale } from "@/constants/services";
 import { Routes } from "@constants/routes";
+
+type SolutionItem = {
+  id: string;
+  href: string;
+  image: string;
+  title: string;
+  description: string;
+};
 
 type Props = {
   locale?: Locale;
+  solutions: SolutionItem[];
 };
 
-const SolutionsSlider = ({ locale = "en" }: Props) => {
-  const solutionsData = getSolutionsByLocale(locale || "en");
+const SolutionsSlider = ({ locale = "en", solutions }: Props) => {
+  const solutionsData = solutions;
   const {
     itemRefs,
     containerRef,
@@ -56,7 +64,7 @@ const SolutionsSlider = ({ locale = "en" }: Props) => {
               <SolutionItem
                 title={solution.title}
                 description={solution.description}
-                image={solution.image.src}
+                image={solution.image}
                 href={solution.href}
                 isSelected={i === selectedIndex}
                 onClick={() => setSelectedIndex(i)}
