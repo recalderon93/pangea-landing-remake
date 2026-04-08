@@ -57,14 +57,14 @@ const iconStyle = cva("", {
 });
 
 export const wrapperStyle = cva(
-  "h-12 rounded-[24px] elevation-2 w-60 flex items-center px-[6px] sm:w-78 ",
+  "h-12 rounded-[24px] elevation-2 w-60 flex items-center border px-[6px] backdrop-blur-xl backdrop-saturate-150 sm:w-78",
   {
     variants: {
       color: {
         brand:
-          "bg-[linear-gradient(102deg,rgba(251,251,251,0.2)_0%,rgba(251,251,251,0.05)_100%)]",
+          "border-white/35 bg-teal-600/55 shadow-[0_8px_32px_-4px_rgba(0,20,24,0.45),inset_0_1px_0_0_rgba(255,255,255,0.12)]",
         accent:
-          "bg-[linear-gradient(102deg,rgba(251,251,251,0.2)_0%,rgba(251,251,251,0.05)_100%)]",
+          "border-white/60 bg-white/88 shadow-[0_8px_28px_-6px_rgba(0,35,42,0.12),inset_0_1px_0_0_rgba(255,255,255,0.9)]",
       },
     },
   },

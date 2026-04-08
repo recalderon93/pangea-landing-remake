@@ -21,14 +21,14 @@ export const testimonialsData: TestimonialType[] = [
 
     testimonials: [
       {
-        content: "Hey team!!",
+        content: "Quick update, team.",
       },
       {
         content:
-          "The new app is fantastic!! The smooth interface has boosted our engagement. Great job!!!",
+          "The new app looks great - clean UI and a smoother flow. We're already seeing stronger engagement.",
       },
       {
-        content: "Perfect!",
+        content: "Awesome. Let's move forward.",
         isResponse: true,
       },
     ],
@@ -46,11 +46,11 @@ export const testimonialsData: TestimonialType[] = [
         isResponse: true,
       },
       {
-        content: "Hi, how are you?",
+        content: "Honestly, we're really happy with how everything turned out.",
       },
       {
         content:
-          "We're absolutely thrilled with the results! They've exceeded our expectations in every way.",
+          "The results exceeded our expectations - smooth process, clear communication, and strong delivery.",
       },
     ],
   },
@@ -64,14 +64,17 @@ export const testimonialsData: TestimonialType[] = [
     testimonials: [
       {
         content: "Can we push the next version this week?",
-        isResponse: true,
       },
       {
         content:
-          "Loving the latest UI tweaks – they really elevate the product.",
+          "Loving the latest UI tweaks — they really elevate the product.",
       },
       {
-        content: "This is shaping up to be our best release yet.",
+        content: "Absolutely. We'll align today and confirm the timeline.",
+        isResponse: true,
+      },
+      {
+        content: "This is shaping up to be our strongest release so far.",
       },
     ],
   },
@@ -84,34 +87,20 @@ export const testimonialsData: TestimonialType[] = [
       "https://images.unsplash.com/photo-1544723795-3fb6469f5b39?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=60",
     testimonials: [
       {
-        content: "This feature rollout was smooth and ahead of schedule!",
+        content: "This feature rollout was smooth and ahead of schedule.",
       },
       {
-        content: "Any updates on the feedback loop?",
+        content:
+          "We're really glad to hear that. From day one, we focused on quality and delivery.",
         isResponse: true,
       },
       {
-        content: "Thanks for staying on top of everything.",
-      },
-    ],
-  },
-  {
-    id: "5",
-    username: "Anika Roy",
-    role: "Product Manager",
-    company: "Zentry",
-    avatar:
-      "https://images.unsplash.com/photo-1544723795-3fb6469f5b39?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=60",
-    testimonials: [
-      {
-        content: "This feature rollout was smooth and ahead of schedule!",
-      },
-      {
         content: "Any updates on the feedback loop?",
-        isResponse: true,
       },
       {
-        content: "Thanks for staying on top of everything.",
+        content:
+          "Yes — we're consolidating the insights now and will share the next steps later today.",
+        isResponse: true,
       },
     ],
   },
@@ -129,14 +118,14 @@ export const testimonialsDataEs: TestimonialType[] = [
 
     testimonials: [
       {
-        content: "¡Hola equipo!",
+        content: "Equipo, les dejo una actualización rápida.",
       },
       {
         content:
-          "¡La nueva aplicación es fantástica! La interfaz fluida ha aumentado nuestro compromiso. ¡Gran trabajo!",
+          "La nueva app quedó excelente. La interfaz es más clara y ya estamos viendo mejor engagement.",
       },
       {
-        content: "¡Perfecto!",
+        content: "Perfecto, seguimos adelante.",
         isResponse: true,
       },
     ],
@@ -150,15 +139,15 @@ export const testimonialsDataEs: TestimonialType[] = [
       "https://images.unsplash.com/photo-1544723795-3fb6469f5b39?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=60",
     testimonials: [
       {
-        content: "¿Qué piensas de los resultados?",
+        content: "¿Qué te parecieron los resultados?",
         isResponse: true,
       },
       {
-        content: "Hola, ¿cómo estás?",
+        content: "La verdad, estamos muy contentos con cómo quedó todo.",
       },
       {
         content:
-          "¡Estamos absolutamente encantados con los resultados! Han superado nuestras expectativas en todos los sentidos.",
+          "Los resultados superaron nuestras expectativas — el proceso fue fluido, la comunicación clara y la entrega muy sólida.",
       },
     ],
   },
@@ -171,16 +160,19 @@ export const testimonialsDataEs: TestimonialType[] = [
       "https://images.unsplash.com/photo-1595152772835-219674b2a8a6?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=60",
     testimonials: [
       {
-        content: "¿Podemos lanzar la próxima versión esta semana?",
+        content: "¿Podemos avanzar con la próxima versión esta semana?",
+      },
+      {
+        content:
+          "Nos están encantando los últimos ajustes de UI — realmente elevan el producto.",
+      },
+      {
+        content:
+          "Claro. Hoy mismo nos alineamos y les confirmamos el timeline.",
         isResponse: true,
       },
       {
-        content:
-          "Me encantan los últimos ajustes de la interfaz de usuario: realmente elevan el producto.",
-      },
-      {
-        content:
-          "Esto se está convirtiendo en nuestro mejor lanzamiento hasta ahora.",
+        content: "Todo apunta a que será nuestro mejor release hasta ahora.",
       },
     ],
   },
@@ -194,35 +186,20 @@ export const testimonialsDataEs: TestimonialType[] = [
     testimonials: [
       {
         content:
-          "¡El despliegue de esta función fue fluido y adelantado al cronograma!",
+          "El despliegue de esta funcionalidad fue muy fluido y antes de lo previsto.",
       },
-      {
-        content: "¿Alguna actualización sobre el ciclo de retroalimentación?",
-        isResponse: true,
-      },
-      {
-        content: "Gracias por mantener todo bajo control.",
-      },
-    ],
-  },
-  {
-    id: "5",
-    username: "Anika Roy",
-    role: "Product Manager",
-    company: "Zentry",
-    avatar:
-      "https://images.unsplash.com/photo-1544723795-3fb6469f5b39?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=60",
-    testimonials: [
       {
         content:
-          "¡El despliegue de esta función fue fluido y adelantado al cronograma!",
-      },
-      {
-        content: "¿Alguna actualización sobre el ciclo de retroalimentación?",
+          "Nos alegra mucho escucharlo. Mantuvimos el foco en calidad y tiempos desde el inicio.",
         isResponse: true,
       },
       {
-        content: "Gracias por mantener todo bajo control.",
+        content: "¿Hay alguna novedad sobre el ciclo de feedback?",
+      },
+      {
+        content:
+          "Sí. Ya estamos consolidando los insights y compartimos los próximos pasos hoy mismo.",
+        isResponse: true,
       },
     ],
   },
