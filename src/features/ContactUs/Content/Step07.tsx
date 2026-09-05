@@ -49,7 +49,7 @@ const ContactUsFormStep07 = ({ locale, setCurrentStep }: FormStepProps) => {
           {t(locale, "contact-us.step-07.back")}
         </button>
         <button
-          className={buttonStyles({ variant: "accent-2" })}
+          className={buttonStyles({ variant: "brand" })}
           onClick={handleSubmit}>
           {t(locale, "contact-us.step-07.submit")}
         </button>

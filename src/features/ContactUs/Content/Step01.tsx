@@ -72,25 +72,30 @@ const ContactUsFormStep01 = ({ locale, setCurrentStep }: FormStepProps) => {
     <div className="mx-auto mt-10 mb-10 flex w-[280px] flex-col gap-6 md:w-[398px]">
       <TextInput
         {...fullName.field}
-        placeholder={t(locale, "contact-us.step-01.full-name-placeholder")}
+        label={t(locale, "contact-us.step-01.full-name-label")}
+        required
         errorMessage={fullName.fieldState.error?.message}
         containerClassName=" w-full"
       />
       <TextInput
         {...companyName.field}
-        placeholder={t(locale, "contact-us.step-01.company-name-placeholder")}
+        label={t(locale, "contact-us.step-01.company-name-label")}
         errorMessage={companyName.fieldState.error?.message}
       />
       <TextInput
         {...email.field}
-        placeholder={t(locale, "contact-us.step-01.email-placeholder")}
+        label={t(locale, "contact-us.step-01.email-label")}
+        type="email"
+        required
         errorMessage={email.fieldState.error?.message}
       />
       <SelectInput
         {...sector.field}
+        label={t(locale, "contact-us.step-01.sector-label")}
+        placeholder={t(locale, "contact-us.step-01.select-sector-placeholder")}
+        required
         errorMessage={sector.fieldState.error?.message}
         options={companySectors}
-        label={t(locale, "contact-us.step-01.select-sector-placeholder")}
       />
       <div className="mt-4 flex w-full justify-center gap-6">
         <button
@@ -99,7 +104,7 @@ const ContactUsFormStep01 = ({ locale, setCurrentStep }: FormStepProps) => {
           {t("en", "contact-us.back")}
         </button>
         <button
-          className={buttonStyles({ variant: "accent-2" })}
+          className={buttonStyles({ variant: "brand" })}
           onClick={handleSubmit}>
           {t("en", "contact-us.step-01.submit")}
         </button>

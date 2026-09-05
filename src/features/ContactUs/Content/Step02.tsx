@@ -80,7 +80,7 @@ const ContactUsFormStep02 = ({
         </button>
         <button
           disabled={!selectedReason}
-          className={cn(buttonStyles({ variant: "accent-2" }), "capitalize")}
+          className={cn(buttonStyles({ variant: "brand" }), "capitalize")}
           onClick={handleSubmit}>
           {t(
             locale,

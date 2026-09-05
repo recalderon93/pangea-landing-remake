@@ -5,30 +5,53 @@ import { cva } from "class-variance-authority";
 type TextInputProps = {
   errorMessage?: string;
   containerClassName?: string;
+  label?: string;
 } & InputHTMLAttributes<HTMLInputElement>;
 
 const TextInput = ({
   errorMessage,
   containerClassName,
+  label,
+  required,
+  id,
   ...props
 }: TextInputProps) => {
-  const id = useId();
+  const generatedId = useId();
+  const inputId = id ?? generatedId;
+  const errorId = `${generatedId}-error`;
+
   return (
     <div
       className={cn(
         "relative flex w-full min-w-66 flex-col gap-2 sm:min-w-86",
         containerClassName,
       )}>
+      {label ? (
+        <label
+          htmlFor={inputId}
+          className="text-sm leading-5 font-medium text-white sm:text-lg sm:leading-[26px]">
+          {label}
+          {required ? (
+            <span className="ml-0.5" aria-hidden="true">
+              *
+            </span>
+          ) : null}
+        </label>
+      ) : null}
       <input
         {...props}
-        aria-describedby={id}
+        id={inputId}
+        required={required}
+        aria-required={required}
+        aria-invalid={!!errorMessage}
+        aria-describedby={errorMessage ? errorId : undefined}
         className={cn(
           wrapper({ error: !!errorMessage }),
           props.className || "",
         )}
       />
       {errorMessage && (
-        <span id={id} className="text-base font-medium text-red-200">
+        <span id={errorId} className="text-base font-medium text-red-200">
           {errorMessage}
         </span>
       )}

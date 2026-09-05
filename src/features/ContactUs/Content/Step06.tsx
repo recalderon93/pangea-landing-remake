@@ -123,7 +123,7 @@ const ContactUsFormStep06 = ({ locale, setCurrentStep }: FormStepProps) => {
                 value: "on-site",
               },
             ]}
-            label={t(locale, "contact-us.step-06.fieldset-3.placeholder")}
+            placeholder={t(locale, "contact-us.step-06.fieldset-3.placeholder")}
           />
         </div>
       </div>
@@ -136,7 +136,7 @@ const ContactUsFormStep06 = ({ locale, setCurrentStep }: FormStepProps) => {
         </button>
         <button
           type="button"
-          className={buttonStyles({ variant: "accent-2" })}
+          className={buttonStyles({ variant: "brand" })}
           onClick={onSubmit}>
           {t(locale, "contact-us.step-06.submit")}
         </button>

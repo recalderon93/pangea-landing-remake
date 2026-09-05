@@ -5,6 +5,8 @@ import { cva } from "class-variance-authority";
 
 type Props = {
   label?: string;
+  placeholder?: string;
+  required?: boolean;
   options?: { value: string; label: string }[];
   onChange?: (value: string) => void;
   value?: string;
@@ -14,26 +16,46 @@ type Props = {
 
 const SelectInput = ({
   label,
+  placeholder,
+  required,
   errorMessage,
   options = [],
   onChange,
   value,
   className,
 }: Props) => {
-  const id = useId();
+  const generatedId = useId();
+  const errorId = `${generatedId}-error`;
   const handleChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
     onChange?.(event.target.value);
   };
 
   return (
     <div className="flex flex-col gap-2">
+      {label ? (
+        <label
+          htmlFor={generatedId}
+          className="text-sm leading-5 font-medium text-white sm:text-lg sm:leading-[26px]">
+          {label}
+          {required ? (
+            <span className="ml-0.5" aria-hidden="true">
+              *
+            </span>
+          ) : null}
+        </label>
+      ) : null}
       <div className="group relative w-full">
         <select
+          id={generatedId}
           value={value || ""}
+          required={required}
+          aria-required={required}
+          aria-invalid={!!errorMessage}
+          aria-describedby={errorMessage ? errorId : undefined}
           onChange={handleChange}
           className={cn(select({ error: !!errorMessage }), className)}>
           <option disabled value="" className="text-lg leading-8">
-            {label ?? "Select an option"}
+            {placeholder ?? "Select an option"}
           </option>
           {options.map((option) => (
             <option
@@ -55,7 +77,7 @@ const SelectInput = ({
         </div>
       </div>
       {errorMessage && (
-        <span id={id} className="text-base font-medium text-red-200">
+        <span id={errorId} className="text-base font-medium text-red-200">
           {errorMessage}
         </span>
       )}

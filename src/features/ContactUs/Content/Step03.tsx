@@ -89,7 +89,7 @@ const ContactUsFormStep03 = ({ locale, setCurrentStep }: FormStepProps) => {
         </button>
         <button
           disabled={!value}
-          className={buttonStyles({ variant: "accent-2" })}
+          className={buttonStyles({ variant: "brand" })}
           onClick={handleSubmit}>
           {t(locale, "contact-us.step-03.submit")}
         </button>

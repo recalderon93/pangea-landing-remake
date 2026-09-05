@@ -7,6 +7,10 @@ export default {
   back: "BACK",
   "step-01": {
     title: "1. Contact Information",
+    "full-name-label": "Full name",
+    "email-label": "Email address",
+    "company-name-label": "Company name (optional)",
+    "sector-label": "Sector",
     "full-name-placeholder": "Full name",
     "email-placeholder": "Email address",
     "company-name-placeholder": "Company name (Optional)",

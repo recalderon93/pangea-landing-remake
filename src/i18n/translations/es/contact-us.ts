@@ -7,6 +7,10 @@ export default {
   back: "VOLVER",
   "step-01": {
     title: "1. Información de contacto",
+    "full-name-label": "Nombre completo",
+    "email-label": "Correo electrónico",
+    "company-name-label": "Nombre de la empresa (opcional)",
+    "sector-label": "Sector",
     "full-name-placeholder": "Nombre completo",
     "email-placeholder": "Correo electrónico",
     "company-name-placeholder": "Nombre de la empresa (opcional)",
