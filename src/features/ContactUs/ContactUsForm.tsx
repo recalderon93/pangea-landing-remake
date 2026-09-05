@@ -36,16 +36,26 @@ const ContactUsForm = ({ locale }: Props) => {
 
   useEffect(() => {
     const urlParams = new URLSearchParams(window.location.search);
-    const emailParam = urlParams.get("email");
+    const emailFromUrl = urlParams.get("email");
+    const emailParam =
+      emailFromUrl ?? window.sessionStorage.getItem("contactUsEmail");
 
-    if (emailParam) {
-      // Set the email value in the form
-      methods.setValue("email", emailParam);
+    if (!emailParam) return;
 
-      // Move to step 1 (contact information step)
-      setFormStep(1);
+    if (emailFromUrl) {
+      window.sessionStorage.setItem("contactUsEmail", emailFromUrl);
+    } else {
+      window.sessionStorage.removeItem("contactUsEmail");
+    }
 
-      // Optional: Clean up the URL to remove the query parameter
+    // Set the email value in the form
+    methods.setValue("email", emailParam);
+
+    // Move to step 1 (contact information step)
+    setFormStep(1);
+
+    // Optional: Clean up the URL to remove the query parameter
+    if (emailFromUrl) {
       const url = new URL(window.location.href);
       url.searchParams.delete("email");
 
