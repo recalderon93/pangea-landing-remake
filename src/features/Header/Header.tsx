@@ -15,6 +15,7 @@ import {
 import MobileNavigationMenu from "./NavigationMenu";
 import useGetUrl from "@hooks/useGetUrl";
 import { Routes } from "@constants/routes";
+import { featureFlags } from "@constants/featureFlags";
 
 type Props = {
   lang?: Locale;
@@ -41,11 +42,12 @@ const Header = ({ lang = "en", fillHeader = false }: Props) => {
           isScrolled: showHeaderFrame,
           fillHeader,
         })}>
-        <div className="sm:w-46">
-          <a href={Routes[lang].home} aria-label="Pangea Logo">
-            <Logo color={color} />
-          </a>
-        </div>
+        <a
+          href={Routes[lang].home}
+          aria-label="Pangea Logo"
+          className="relative z-[60] inline-flex shrink-0">
+          <Logo color={color} />
+        </a>
         <nav
           className="hidden h-full grow items-center justify-center gap-8 xl:flex xl:gap-14"
           data-testid="desktop-navigation">
@@ -64,9 +66,11 @@ const Header = ({ lang = "en", fillHeader = false }: Props) => {
           <a href={Routes[lang].whoWeAre} className={navStyles}>
             {t(lang, "header.who-we-are")}
           </a>
-          <a href={Routes[lang].ourWork} className={navStyles}>
-            {t(lang, "header.our-work")}
-          </a>
+          {featureFlags.showOurWork ? (
+            <a href={Routes[lang].ourWork} className={navStyles}>
+              {t(lang, "header.our-work")}
+            </a>
+          ) : null}
         </nav>
         <div className="flex justify-end sm:w-44">
           <BurgerMenu

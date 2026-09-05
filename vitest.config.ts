@@ -14,6 +14,11 @@ const astroConfig = getViteConfig({
       ["**/*.spec.ts", "node"],
     ],
   },
+  server: {
+    allowedHosts: [
+      "https://startup-composite-cohen-addresses.trycloudflare.com/",
+    ],
+  },
 });
 
 export default astroConfig;

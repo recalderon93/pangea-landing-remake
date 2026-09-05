@@ -3,6 +3,7 @@ import Logo from "@components/icons/Logo.astro";
 import { t, type Locale } from "@/i18n";
 import type { SocialIconType } from "@/components/icons/socials/SocialIcons.astro";
 import SocialIcons from "@components/icons/socials/SocialIcons.astro";
+import { featureFlags } from "@constants/featureFlags";
 
 interface Props {
   lang?: Locale;
@@ -70,18 +71,21 @@ const socialLinks = [
         </div>
       ))
     }
-    <div class="flex flex-col gap-6">
-      <h2 class="h5 bold">{t(lang, "footer.social.title")}</h2>
-      <div class="flex gap-4">
-        {
-          socialLinks.map((link) => (
-            <a href={link.href}>
-              <SocialIcons type={link.social as SocialIconType} size={24} />
-            </a>
-          ))
-        }
-      </div>
-    </div>
+    {
+      /* Footer socials — restore: set featureFlags.showFooterSocials = true */
+      featureFlags.showFooterSocials && (
+        <div class="flex flex-col gap-6">
+          <h2 class="h5 bold">{t(lang, "footer.social.title")}</h2>
+          <div class="flex gap-4">
+            {socialLinks.map((link) => (
+              <a href={link.href}>
+                <SocialIcons type={link.social as SocialIconType} size={24} />
+              </a>
+            ))}
+          </div>
+        </div>
+      )
+    }
   </div>
   <div class="border-t-shade-100 border-t-[1px] py-2">
     <p class="text-shade-300 text-center">

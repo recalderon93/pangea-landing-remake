@@ -23,6 +23,7 @@ Welcome to the Pangea Landing Remake documentation! This folder contains compreh
 
 ### Reference
 
+- [Hidden Sections](./HIDDEN_SECTIONS.md) - Temporarily hidden home page sections and how to restore them
 - [Audit Report](./AUDIT_REPORT.md) - Comprehensive repository audit and findings
 - [AI Changelog](./AI_CHANGELOG.md) - AI-generated changes log
 

@@ -6,6 +6,12 @@ import Projects from "@features/Projects/Projects.astro";
 import FAQs from "@features/FAQs/FAQs.astro";
 import Testimonials from "@features/Testimonials/Testimonials";
 import UnlockPotentialBanner from "@features/Banners/UnlockPotentialBanner.astro";
+import { featureFlags } from "@constants/featureFlags";
+import { Routes } from "@constants/routes";
+
+if (!featureFlags.showOurWork) {
+  return Astro.redirect(Routes.es.home);
+}
 ---
 
 <MainLayout locale="es" fillHeader>

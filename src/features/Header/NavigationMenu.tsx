@@ -7,6 +7,7 @@ import { getSolutionsByLocale } from "@/constants/services";
 import { useEffect, useId, useState } from "react";
 import NavigationMenuFooter from "./NavigationMenuFooter";
 import { Routes } from "@constants/routes";
+import { featureFlags } from "@constants/featureFlags";
 
 type Props = {
   lang?: Locale;
@@ -92,11 +93,13 @@ const MobileNavigationMenu = ({ lang = "en" }: Props) => {
             href={Routes[lang].whoWeAre}
             onClick={closeMobileMenu}
           />
-          <LinkOptionItem
-            title={t(lang, "header.our-work")}
-            href={Routes[lang].ourWork}
-            onClick={closeMobileMenu}
-          />
+          {featureFlags.showOurWork ? (
+            <LinkOptionItem
+              title={t(lang, "header.our-work")}
+              href={Routes[lang].ourWork}
+              onClick={closeMobileMenu}
+            />
+          ) : null}
         </nav>
         <div className="shrink-0 pt-8 pb-8">
           <NavigationMenuFooter lang={lang} />

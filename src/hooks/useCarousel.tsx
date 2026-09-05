@@ -1,79 +1,139 @@
-import { useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 
 type Props = {
   numberOfItems?: number;
 };
 
+function clampIndex(index: number, length: number) {
+  if (length <= 0) return 0;
+  return Math.max(0, Math.min(index, length - 1));
+}
+
+function getScrollPaddingLeft(container: HTMLDivElement) {
+  const styles = window.getComputedStyle(container);
+  return Number.parseFloat(styles.scrollPaddingLeft || styles.paddingLeft) || 0;
+}
+
+function isScrolledToEnd(container: HTMLDivElement) {
+  const maxScroll = container.scrollWidth - container.clientWidth;
+  return maxScroll > 1 && container.scrollLeft >= maxScroll - 8;
+}
+
+function getStartAlignedIndex(
+  container: HTMLDivElement,
+  items: (HTMLDivElement | null)[],
+  numberOfItems: number,
+) {
+  if (isScrolledToEnd(container)) {
+    return Math.max(numberOfItems - 1, 0);
+  }
+
+  const origin =
+    container.getBoundingClientRect().left + getScrollPaddingLeft(container);
+  let closestIndex = 0;
+  let closestDistance = Infinity;
+
+  items.forEach((item, index) => {
+    if (!item) return;
+
+    const distance = Math.abs(item.getBoundingClientRect().left - origin);
+    if (distance < closestDistance) {
+      closestDistance = distance;
+      closestIndex = index;
+    }
+  });
+
+  return closestIndex;
+}
+
+function scrollItemIntoView(container: HTMLDivElement, item: HTMLDivElement) {
+  const containerRect = container.getBoundingClientRect();
+  const itemRect = item.getBoundingClientRect();
+  const delta =
+    itemRect.left - containerRect.left - getScrollPaddingLeft(container);
+
+  container.scrollTo({
+    left: container.scrollLeft + delta,
+    behavior: "smooth",
+  });
+}
+
 export default function useCarousel({ numberOfItems = 0 }: Props) {
   const containerRef = useRef<HTMLDivElement>(null);
   const itemRefs = useRef<(HTMLDivElement | null)[]>([]);
-  const [selectedIndex, setSelectedIndex] = useState(0);
-  // const [isScrollable, setIsScrollable] = useState(false);
+  const selectedIndexRef = useRef(0);
+  const isProgrammaticScroll = useRef(false);
+  const programmaticTimeout = useRef<ReturnType<typeof window.setTimeout>>(0);
+  const [selectedIndex, setSelectedIndexState] = useState(0);
 
-  // useEffect(() => {
-  //   const container = containerRef.current;
-  //   const content = itemRefs.current[selectedIndex];
+  const goToIndex = useCallback(
+    (index: number) => {
+      const nextIndex = clampIndex(index, numberOfItems);
+      selectedIndexRef.current = nextIndex;
+      setSelectedIndexState(nextIndex);
 
-  //   if (container && content) {
-  //     content.scrollIntoView({
-  //       behavior: "smooth",
-  //       inline: "center",
-  //       block: "nearest",
-  //     });
-  //   }
-  // }, [selectedIndex]);
+      const container = containerRef.current;
+      const item = itemRefs.current[nextIndex];
+      if (!container || !item) return;
+
+      isProgrammaticScroll.current = true;
+      window.clearTimeout(programmaticTimeout.current);
+      scrollItemIntoView(container, item);
+      programmaticTimeout.current = window.setTimeout(() => {
+        isProgrammaticScroll.current = false;
+      }, 800);
+    },
+    [numberOfItems],
+  );
 
   useEffect(() => {
     const container = containerRef.current;
-    const content = itemRefs.current[selectedIndex];
+    if (!container) return;
 
-    if (container && content) {
-      const containerRect = container.getBoundingClientRect();
-      const contentRect = content.getBoundingClientRect();
-      const offset = contentRect.left - containerRect.left;
-      const centerOffset =
-        offset - container.clientWidth / 2 + content.clientWidth / 2;
+    let frame = 0;
 
-      container.scrollTo({
-        left: container.scrollLeft + centerOffset,
-        behavior: "smooth",
+    const syncIndexFromScroll = () => {
+      if (isProgrammaticScroll.current) return;
+
+      cancelAnimationFrame(frame);
+      frame = requestAnimationFrame(() => {
+        const nextIndex = getStartAlignedIndex(
+          container,
+          itemRefs.current,
+          numberOfItems,
+        );
+        if (nextIndex === selectedIndexRef.current) return;
+
+        selectedIndexRef.current = nextIndex;
+        setSelectedIndexState(nextIndex);
       });
-    }
-  }, [selectedIndex]);
+    };
 
-  // useEffect(() => {
-  //   if (!containerRef.current) return;
+    const endProgrammaticScroll = () => {
+      isProgrammaticScroll.current = false;
+    };
 
-  //   const observer = new ResizeObserver(() => {
-  //     const container = containerRef.current!;
-  //     const totalContentWidth = itemRefs.current.reduce(
-  //       (acc, el) => acc + (el?.offsetWidth ?? 0),
-  //       0,
-  //     );
-  //     // setIsScrollable(totalContentWidth > container.clientWidth);
-  //   });
+    container.addEventListener("scroll", syncIndexFromScroll, {
+      passive: true,
+    });
+    container.addEventListener("scrollend", endProgrammaticScroll);
 
-  //   observer.observe(containerRef.current);
-  //   return () => observer.disconnect();
-  // }, []);
+    return () => {
+      cancelAnimationFrame(frame);
+      window.clearTimeout(programmaticTimeout.current);
+      container.removeEventListener("scroll", syncIndexFromScroll);
+      container.removeEventListener("scrollend", endProgrammaticScroll);
+    };
+  }, [numberOfItems]);
 
-  const goNext = () => {
-    if (selectedIndex < numberOfItems - 1) {
-      setSelectedIndex((i) => i + 1);
-    }
-  };
-
-  const goPrev = () => {
-    if (selectedIndex > 0) {
-      setSelectedIndex((i) => i - 1);
-    }
-  };
+  const goNext = () => goToIndex(selectedIndexRef.current + 1);
+  const goPrev = () => goToIndex(selectedIndexRef.current - 1);
 
   return {
     containerRef,
     itemRefs,
     selectedIndex,
-    setSelectedIndex,
+    setSelectedIndex: goToIndex,
     isScrollable: true,
     goNext,
     goPrev,

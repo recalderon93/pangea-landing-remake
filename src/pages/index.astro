@@ -9,13 +9,17 @@ import Projects from "@features/Projects/Projects.astro";
 import Solutions from "@features/Solutions/Solutions.astro";
 import Testimonials from "@features/Testimonials/Testimonials";
 import UnlockPotentialBanner from "@features/Banners/UnlockPotentialBanner.astro";
+import { featureFlags } from "@constants/featureFlags";
 ---
 
 <MainLayout locale="en">
   <Hero locale="en" />
   <Solutions locale="en" />
   <DrivenBy locale="en" />
-  <Projects locale="en" />
+  {
+    /* Our Digital Masterpieces — restore: set featureFlags.showDigitalMasterpieces = true */
+    featureFlags.showDigitalMasterpieces && <Projects locale="en" />
+  }
   <GreatSolutionBanner locale="en" />
   <FAQs locale="en" />
   <Testimonials client:load locale="en" />

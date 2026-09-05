@@ -20,7 +20,7 @@ const SolutionItem = ({
   <a
     href={href}
     aria-current={isSelected ? "page" : undefined}
-    className="group elevation-2 bg-white-50 relative flex h-[560px] w-[320px] shrink-0 cursor-pointer snap-center flex-col justify-end overflow-hidden rounded-2xl lg:h-[672px] lg:w-[384px]"
+    className="group elevation-2 bg-white-50 relative flex h-[560px] w-[320px] shrink-0 cursor-pointer flex-col justify-end overflow-hidden rounded-2xl lg:h-[672px] lg:w-[384px]"
     onClick={onClick}>
     <div className={captionWrapper({ isSelected })}>
       <h3 className={titleStyles({ isSelected: true })}>{title}</h3>

@@ -58,6 +58,7 @@ const SolutionsSlider = ({ locale = "en", solutions }: Props) => {
           {solutionsData.map((solution, i) => (
             <div
               key={solution.id}
+              className="snap-start"
               ref={(el) => {
                 itemRefs.current[i] = el;
               }}>
@@ -76,9 +77,7 @@ const SolutionsSlider = ({ locale = "en", solutions }: Props) => {
       <StepIndicators
         showControls={isScrollable}
         currentIndex={selectedIndex}
-        onGoToItem={(setIndex: number) => {
-          setSelectedIndex(setIndex);
-        }}
+        onGoToItem={setSelectedIndex}
         numberOfItems={solutionsData.length}
       />
     </div>
@@ -88,7 +87,7 @@ const SolutionsSlider = ({ locale = "en", solutions }: Props) => {
 const containerStyles = cva("no-scrollbar w-full py-6 pt-12 sm:pt-[68px]", {
   variants: {
     isScrollable: {
-      true: "no-scrollbar snap-x snap-mandatory overflow-x-auto scroll-smooth",
+      true: "no-scrollbar snap-x snap-mandatory overflow-x-auto scroll-smooth scroll-px-4 sm:scroll-px-6 md:scroll-px-10 lg:scroll-px-14",
       false:
         "flex justify-center overflow-hidden px-4 sm:px-6 md:px-10 lg:px-14",
     },

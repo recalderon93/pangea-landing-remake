@@ -25,6 +25,11 @@ export default defineConfig({
     },
   },
 
+  server: {
+    // Allow Cloudflare quick tunnels (npx cloudflared tunnel --url http://localhost:4321)
+    allowedHosts: [".trycloudflare.com"],
+  },
+
   integrations: [react()],
   i18n: {
     locales: ["es", "en"],
