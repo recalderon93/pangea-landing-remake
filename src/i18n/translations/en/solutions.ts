@@ -9,9 +9,9 @@ export default {
   close: "Close",
   "project-management": {
     hero: {
-      title: "Agile Project\nManagement",
+      title: "Project\nManagement",
       "caption-1":
-        "We turn ideas into results — with fast execution, clear communication, and expert delivery.",
+        "We turn complex requirements into production software without development delays. We accelerate your delivery with real-time data visibility and predictable execution.",
       "caption-2": {
         "part-1": "Smart processes. Real outcomes.\n",
         "part-2": "We simplify complexity and ",

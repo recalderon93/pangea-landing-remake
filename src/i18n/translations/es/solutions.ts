@@ -9,9 +9,9 @@ export default {
   close: "Cerrar",
   "project-management": {
     hero: {
-      title: "Gestión Ágil\nde Proyectos",
+      title: "Gestión\nde Proyectos",
       "caption-1":
-        "Convertimos tus ideas en resultados — con ejecución rápida, comunicación clara y entrega experta.",
+        "Transformamos requerimientos complejos en software en producción sin retrasos de desarrollo. Aceleramos tus entregas con visibilidad de datos en tiempo real y ejecución predecible.",
       "caption-2": {
         "part-1": "Proceso inteligentes. Resultados reales.\n",
         "part-2": "Simplificamos lo complejo y ",

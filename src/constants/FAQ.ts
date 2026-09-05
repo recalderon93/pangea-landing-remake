@@ -4,7 +4,7 @@ export const FAQListEN = [
   {
     question: "What digital solutions does Pangea Teck offer?",
     answer:
-      "We design, build, and manage digital solutions that help teams move faster.\n\nOur services include:\n• Web & App Development\n• UX & UI Design\n• QA & Software Testing\n• AI Chatbots & Automated Messaging\n• Agile Project Management\n\nWhether you're launching an MVP or scaling a mature platform, we deliver end-to-end support to bring your product to life.",
+      "We design, build, and manage digital solutions that help teams move faster.\n\nOur services include:\n• Web & App Development\n• UX & UI Design\n• QA & Software Testing\n• AI Chatbots & Automated Messaging\n• Project Management\n\nWhether you're launching an MVP or scaling a mature platform, we deliver end-to-end support to bring your product to life.",
   },
   {
     question: "How does your process work?",
@@ -42,7 +42,7 @@ export const FAQListES = [
   {
     question: "¿Qué soluciones digitales ofrece Pangea Teck?",
     answer:
-      "Diseñamos, desarrollamos y gestionamos soluciones digitales que ayudan a los equipos a avanzar más rápido.\n\nNuestros servicios incluyen:\n• Desarrollo Web y de Apps\n• Diseño UX & UI\n• QA y Testing de Software\n• Chatbots con IA y Automatización de Mensajes\n• Project Management Ágil\n\nYa sea que estés lanzando un MVP o escalando un producto más maduro, ofrecemos soporte de principio a fin para hacer realidad tu producto.",
+      "Diseñamos, desarrollamos y gestionamos soluciones digitales que ayudan a los equipos a avanzar más rápido.\n\nNuestros servicios incluyen:\n• Desarrollo Web y de Apps\n• Diseño UX & UI\n• QA y Testing de Software\n• Chatbots con IA y Automatización de Mensajes\n• Gestión de Proyectos\n\nYa sea que estés lanzando un MVP o escalando un producto más maduro, ofrecemos soporte de principio a fin para hacer realidad tu producto.",
   },
   {
     question: "¿Cómo funciona su proceso de trabajo?",

@@ -9,17 +9,17 @@ const NavButtons = ({ nextHref, previousHref }: Props) => (
   <div className="flex items-center justify-between gap-2">
     <a
       href={previousHref ?? "#"}
-      className="flex size-10 items-center justify-center rounded-full border-[3px] border-[#EAEDEC80] md:size-16 md:border-[4px]">
+      className="flex size-10 items-center justify-center rounded-full border-[3px] border-white-50 md:size-16 md:border-[4px]">
       <div className="pr-[2px] md:pr-[4px]">
         <Chevron
           direction="left"
-          className="stroke-[#EAEDEC80] md:hidden"
+          className="stroke-white-50 md:hidden"
           width={20}
           height={10}
         />
         <Chevron
           direction="left"
-          className="hidden stroke-[#EAEDEC80] md:block"
+          className="hidden stroke-white-50 md:block"
           width={28}
           height={14}
         />
@@ -27,17 +27,17 @@ const NavButtons = ({ nextHref, previousHref }: Props) => (
     </a>
     <a
       href={nextHref ?? "#"}
-      className="flex size-10 items-center justify-center rounded-full border-[3px] border-[#EAEDEC80] md:size-16 md:border-[4px]">
+      className="flex size-10 items-center justify-center rounded-full border-[3px] border-white-50 md:size-16 md:border-[4px]">
       <div className="pl-[2px] md:pl-[4px]">
         <Chevron
           direction="right"
-          className="stroke-[#EAEDEC80] md:hidden"
+          className="stroke-white-50 md:hidden"
           width={20}
           height={10}
         />
         <Chevron
           direction="right"
-          className="hidden stroke-[#EAEDEC80] md:block"
+          className="hidden stroke-white-50 md:block"
           width={28}
           height={14}
         />

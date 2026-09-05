@@ -1,6 +1,6 @@
 export default {
   "project-management": {
-    title: "What you need to know about our agile management service",
+    title: "What you need to know about our project management service",
     1: {
       q: "Do I get a dedicated project manager?",
       a: "Yes. You’ll have a certified project manager dedicated to your team, ensuring constant communication, smooth coordination, and full ownership of delivery.",

@@ -1,6 +1,6 @@
 export default {
   "project-management": {
-    title: "¿Que necesitas saber sobre nuestro servicio de gestión ágil?",
+    title: "¿Que necesitas saber sobre nuestro servicio de gestión de proyectos?",
     1: {
       q: "¿Tendré un project manager dedicado?",
       a: "Sí. Tendrás un PM certificado que será parte activa de tu equipo y se encargará del día a día operativo.",
