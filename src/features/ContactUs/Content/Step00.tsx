@@ -4,7 +4,7 @@ import HeroTextInput from "@features/Hero/HeroTextInput";
 import { useController, useFormContext } from "react-hook-form";
 
 const FormInitialStep = ({ locale, setCurrentStep }: FormStepProps) => {
-  const { control, trigger, getValues } = useFormContext();
+  const { control, trigger } = useFormContext();
 
   const {
     field,
@@ -17,8 +17,6 @@ const FormInitialStep = ({ locale, setCurrentStep }: FormStepProps) => {
   async function handleSubmit() {
     const isValidated = await trigger("email");
     if (isValidated) {
-      const values = getValues();
-      console.log(values);
       setCurrentStep?.(1);
     }
   }
@@ -39,7 +37,7 @@ const FormInitialStep = ({ locale, setCurrentStep }: FormStepProps) => {
       <div className="flex w-full justify-center pt-12 md:mb-10">
         <HeroTextInput
           variant="accent"
-          buttonTitle="GO"
+          buttonTitle={t(locale, "hero.cta")}
           placeholder={t(locale, "hero.text-input-placeholder")}
           autoComplete="email"
           onButtonClick={handleSubmit}

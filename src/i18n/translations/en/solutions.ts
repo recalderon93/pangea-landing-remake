@@ -7,6 +7,8 @@ export default {
     cta: "GET STARTED",
   },
   close: "Close",
+  previous: "Previous solution",
+  next: "Next solution",
   "project-management": {
     hero: {
       title: "Project\nManagement",

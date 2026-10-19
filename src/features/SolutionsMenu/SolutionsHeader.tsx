@@ -11,6 +11,7 @@ const SolutionsHeader = ({ lang = "en", onClose }: Props) => {
       {/* <Logo color="brand" /> */}
 
       <button
+        type="button"
         className="h5 text-shade-200 hover:text-shade-400 active:text-shade-400 cursor-pointer p-2"
         onClick={onClose}>
         {t(lang, "header.close")}

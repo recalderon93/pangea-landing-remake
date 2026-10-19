@@ -16,7 +16,7 @@ const ContactUsFormStep05 = ({ locale, setCurrentStep }: FormStepProps) => {
 
   const contactReason = watch("contactReason");
 
-  const { onSubmit } = useHandleContactUsSubmit(5, setCurrentStep);
+  const { onSubmit } = useHandleContactUsSubmit(5, setCurrentStep, locale);
 
   const goBack = () => {
     setCurrentStep?.(4);
@@ -27,21 +27,23 @@ const ContactUsFormStep05 = ({ locale, setCurrentStep }: FormStepProps) => {
       return t(locale, "contact-us.step-05.submit");
     }
     return t(locale, "contact-us.step-05.next");
-  }, []);
+  }, [contactReason, locale]);
 
   return (
-    <div className="mt-10 mb-10 flex w-[280px] flex-col gap-9 md:w-[682px]">
+    <div className="mt-10 mb-10 flex w-full max-w-[682px] flex-col gap-9">
       <p className="max-w-[500px] text-center text-lg leading-[26px] text-white md:text-start">
         {t(locale, "contact-us.step-05.question")}
       </p>
       <TextAreaInput errorMessage={fieldState.error?.message} {...field} />
-      <div className="grid-span-2 col-span-2 mt-4 flex w-full justify-center gap-6">
+      <div className="mt-4 flex w-full justify-center gap-6">
         <button
+          type="button"
           className={buttonStyles({ variant: "accent" })}
           onClick={goBack}>
           {t(locale, "contact-us.back")}
         </button>
         <button
+          type="button"
           className={buttonStyles({ variant: "brand" })}
           onClick={onSubmit}>
           {submitTitle}

@@ -69,7 +69,7 @@ const ContactUsFormStep01 = ({ locale, setCurrentStep }: FormStepProps) => {
   ];
 
   return (
-    <div className="mx-auto mt-10 mb-10 flex w-[280px] flex-col gap-6 md:w-[398px]">
+    <div className="mx-auto mt-10 mb-10 flex w-full max-w-[398px] flex-col gap-6">
       <TextInput
         {...fullName.field}
         label={t(locale, "contact-us.step-01.full-name-label")}
@@ -99,14 +99,16 @@ const ContactUsFormStep01 = ({ locale, setCurrentStep }: FormStepProps) => {
       />
       <div className="mt-4 flex w-full justify-center gap-6">
         <button
+          type="button"
           className={buttonStyles({ variant: "accent" })}
-          onClick={handleSubmit}>
-          {t("en", "contact-us.back")}
+          onClick={() => setCurrentStep?.(0)}>
+          {t(locale, "contact-us.back")}
         </button>
         <button
+          type="button"
           className={buttonStyles({ variant: "brand" })}
           onClick={handleSubmit}>
-          {t("en", "contact-us.step-01.submit")}
+          {t(locale, "contact-us.step-01.submit")}
         </button>
       </div>
     </div>

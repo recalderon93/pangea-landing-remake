@@ -92,8 +92,8 @@ const Header = ({ lang = "en", fillHeader = false }: Props) => {
         </div>
       </header>
       <div id="sentinel" className="absolute h-1 w-full"></div>
-      <SolutionsMenu onClose={toggleSolutions} />
-      <MobileNavigationMenu />
+      <SolutionsMenu lang={lang} onClose={toggleSolutions} />
+      <MobileNavigationMenu lang={lang} />
     </>
   );
 };

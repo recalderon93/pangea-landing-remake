@@ -46,11 +46,11 @@ const ContactUsFormStep04 = ({ locale, setCurrentStep }: FormStepProps) => {
   ];
 
   return (
-    <div className="mt-10 mb-10 flex w-[280px] flex-col gap-6 md:w-[682px] lg:grid lg:grid-cols-2">
+    <div className="mt-10 mb-10 flex w-full max-w-[682px] flex-col gap-6 lg:grid lg:grid-cols-2">
       {options.map((option) => (
         <RadioInput
           key={option.value}
-          name={option.value}
+          name="timeline"
           checked={value === option.value}
           label={option.label}
           onChange={onChange}
@@ -65,13 +65,15 @@ const ContactUsFormStep04 = ({ locale, setCurrentStep }: FormStepProps) => {
         </span>
       ) : null}
 
-      <div className="grid-span-2 col-span-2 mt-4 flex w-full justify-center gap-6">
+      <div className="col-span-2 mt-4 flex w-full justify-center gap-6">
         <button
+          type="button"
           className={buttonStyles({ variant: "accent" })}
           onClick={goBack}>
           {t(locale, "contact-us.back")}
         </button>
         <button
+          type="button"
           disabled={!value}
           className={buttonStyles({ variant: "brand" })}
           onClick={handleSubmit}>

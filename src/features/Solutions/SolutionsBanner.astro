@@ -1,6 +1,7 @@
 ---
 import { buttonStyles } from "@styles/button";
 import { t, type Locale } from "@/i18n";
+import { Routes } from "@constants/routes";
 
 interface Props {
   locale?: Locale;
@@ -26,8 +27,10 @@ const { locale = "en" } = Astro.props as Props;
         {t(locale, "solutions.banner.title-2")}
       </strong>
     </h2>
-    <button class={buttonStyles({ variant: "accent" })}>
+    <a
+      href={Routes[locale].contactUs}
+      class={buttonStyles({ variant: "accent" })}>
       {t(locale, "solutions.banner.cta")}
-    </button>
+    </a>
   </div>
 </div>
