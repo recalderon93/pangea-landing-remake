@@ -66,7 +66,7 @@ export default {
     hero: {
       title: "Web & App\nDevelopment",
       "caption-1":
-        "We design and build digital products that perform — websites, web apps, mobile apps, and more.",
+        "Top-tier software engineering optimized for your budget. We build fast, scalable digital products that maximize conversion with exceptional efficiency.",
       "caption-2": {
         "part-1": "Smart development. ",
         "part-2": "Real results.\n",
@@ -120,7 +120,7 @@ export default {
     hero: {
       title: "QA & Software\nTesting",
       "caption-1":
-        "We help you launch with confidence through rigorous, human-led testing that finds issues before your users do.",
+        "Launch with total peace of mind. We integrate expert engineers into your workflow to catch issues early, boost quality, and protect your budget.",
       "caption-2": {
         "part-1": "Less guesswork. More peace of mind.\n",
         "part-2":
@@ -171,9 +171,9 @@ export default {
   },
   "ux-ui": {
     hero: {
-      title: "UX & UI\nDesign Service",
+      title: "UX & UI\nDesign",
       "caption-1":
-        "We craft intuitive, seamless experiences that feel simple to use — because great design is invisible, but impactful.",
+        "Intuitive, human-centric digital experiences. We design every interaction to boost your product's value while protecting your budget.",
       "caption-2": {
         "part-1": "User-focused. Impact-driven.\n",
         "part-2":
@@ -225,7 +225,7 @@ export default {
     hero: {
       title: "AI Chatbots &\nAutomated Messaging",
       "caption-1":
-        "We build intelligent chatbots that handle support, book appointments, and respond instantly — 24/7.",
+        "24/7 support that protects your budget. We automate customer care and messaging across channels to save your team time and maximize operational efficiency.",
       "caption-2": {
         "part-1": "Fast answers. Better\nservice. Less workload.\n",
         "part-2":
