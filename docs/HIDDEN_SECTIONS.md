@@ -4,11 +4,11 @@ Some home-page sections and navigation items are temporarily hidden while conten
 
 ## Feature flags
 
-| Flag | Default | What it controls |
-| --- | --- | --- |
-| `showDigitalMasterpieces` | `false` | Home page "Our Digital Masterpieces" (`Projects`) section |
-| `showOurWork` | `false` | `/our-work` + `/es/nuestro-trabajo` pages and header nav link |
-| `showFooterSocials` | `false` | Footer "Socials" column |
+| Flag                      | Default | What it controls                                              |
+| ------------------------- | ------- | ------------------------------------------------------------- |
+| `showDigitalMasterpieces` | `false` | Home page "Our Digital Masterpieces" (`Projects`) section     |
+| `showOurWork`             | `false` | `/our-work` + `/es/nuestro-trabajo` pages and header nav link |
+| `showFooterSocials`       | `false` | Footer "Socials" column                                       |
 
 Set any flag to `true` to restore that item.
 

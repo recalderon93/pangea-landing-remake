@@ -63,7 +63,9 @@ export default function useCarousel({ numberOfItems = 0 }: Props) {
   const itemRefs = useRef<(HTMLDivElement | null)[]>([]);
   const selectedIndexRef = useRef(0);
   const isProgrammaticScroll = useRef(false);
-  const programmaticTimeout = useRef<ReturnType<typeof window.setTimeout>>(0);
+  const programmaticTimeout = useRef<ReturnType<typeof setTimeout> | undefined>(
+    undefined,
+  );
   const [selectedIndex, setSelectedIndexState] = useState(0);
 
   const goToIndex = useCallback(
@@ -77,9 +79,9 @@ export default function useCarousel({ numberOfItems = 0 }: Props) {
       if (!container || !item) return;
 
       isProgrammaticScroll.current = true;
-      window.clearTimeout(programmaticTimeout.current);
+      clearTimeout(programmaticTimeout.current);
       scrollItemIntoView(container, item);
-      programmaticTimeout.current = window.setTimeout(() => {
+      programmaticTimeout.current = setTimeout(() => {
         isProgrammaticScroll.current = false;
       }, 800);
     },
@@ -120,7 +122,7 @@ export default function useCarousel({ numberOfItems = 0 }: Props) {
 
     return () => {
       cancelAnimationFrame(frame);
-      window.clearTimeout(programmaticTimeout.current);
+      clearTimeout(programmaticTimeout.current);
       container.removeEventListener("scroll", syncIndexFromScroll);
       container.removeEventListener("scrollend", endProgrammaticScroll);
     };
