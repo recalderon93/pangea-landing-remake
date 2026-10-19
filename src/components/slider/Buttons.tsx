@@ -23,14 +23,18 @@ const SliderButtons = ({
   const chevronColor = color === "brand" ? "accent" : "brand";
 
   return (
-    <div className="min-width-22 flex gap-2">
+    <div className="flex min-w-22 gap-2">
       <button
+        type="button"
+        aria-label="Previous"
         disabled={previousDisabled}
         onClick={onGoPrevious}
         className={buttonVariants({ color, direction: "left" })}>
         <Chevron direction="left" width={20} height={11} color={chevronColor} />
       </button>
       <button
+        type="button"
+        aria-label="Next"
         disabled={nextDisabled}
         onClick={onGoNext}
         className={buttonVariants({ color, direction: "right" })}>

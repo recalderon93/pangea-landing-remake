@@ -3,6 +3,8 @@ import type { ContactUsFormType } from "@features/ContactUs/validations";
 import { submitToNetlify } from "@features/ContactUs/formHelpers";
 import { useCallback, useEffect, useState } from "react";
 import type { ContactUsFormStepsType } from "@/types/forms";
+import type { Locale } from "@/i18n";
+import { Routes } from "@constants/routes";
 
 /**
  * # useHandleContactUsSubmit
@@ -12,6 +14,7 @@ import type { ContactUsFormStepsType } from "@/types/forms";
 export default function useHandleContactUsSubmit(
   currentStep?: ContactUsFormStepsType,
   setCurrentStep?: (step: ContactUsFormStepsType) => void,
+  locale: Locale = "en",
 ) {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const { handleSubmit, watch, trigger } = useFormContext<ContactUsFormType>();
@@ -36,10 +39,17 @@ export default function useHandleContactUsSubmit(
 
     handleSubmit(async (data) => {
       setIsSubmitting(true);
-      await submitToNetlify("contact-us", data, "/contact-us/thank-you");
+      await submitToNetlify("contact-us", data, Routes[locale].success);
       setIsSubmitting(false);
     })();
-  }, [currentStep]);
+  }, [
+    contactReason,
+    currentStep,
+    handleSubmit,
+    locale,
+    setCurrentStep,
+    trigger,
+  ]);
 
   useEffect(() => {
     return () => setIsSubmitting(false);

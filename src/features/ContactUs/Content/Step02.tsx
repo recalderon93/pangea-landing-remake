@@ -40,9 +40,9 @@ const ContactUsFormStep02 = ({
   const selectedReason = watch("contactReason");
 
   return (
-    <div className="mt-10 mb-10 flex w-[280px] flex-col gap-6 md:w-[682px]">
+    <div className="mt-10 mb-10 flex w-full max-w-[682px] flex-col gap-6">
       <RadioInput
-        name="build-something"
+        name="contactReason"
         checked={selectedReason === "build-something"}
         label={t(locale, "contact-us.step-02.options.a")}
         onChange={onChange}
@@ -50,7 +50,7 @@ const ContactUsFormStep02 = ({
         id="build-something"
       />
       <RadioInput
-        name="hire-talent"
+        name="contactReason"
         checked={selectedReason === "hire-talent"}
         label={t(locale, "contact-us.step-02.options.b")}
         onChange={onChange}
@@ -58,7 +58,7 @@ const ContactUsFormStep02 = ({
         id="hire-talent"
       />
       <RadioInput
-        name="not-sure"
+        name="contactReason"
         checked={selectedReason === "not-sure"}
         label={t(locale, "contact-us.step-02.options.c")}
         value="not-sure"
@@ -74,11 +74,13 @@ const ContactUsFormStep02 = ({
 
       <div className="mt-4 flex w-full justify-center gap-6">
         <button
+          type="button"
           className={cn(buttonStyles({ variant: "accent" }), "capitalize")}
           onClick={goBack}>
           {t(locale, "contact-us.back")}
         </button>
         <button
+          type="button"
           disabled={!selectedReason}
           className={cn(buttonStyles({ variant: "brand" }), "capitalize")}
           onClick={handleSubmit}>

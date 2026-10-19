@@ -54,20 +54,22 @@ const ContactUsFormStep06 = ({ locale, setCurrentStep }: FormStepProps) => {
     },
   ];
 
-  const { onSubmit } = useHandleContactUsSubmit(6, setCurrentStep);
+  const { onSubmit } = useHandleContactUsSubmit(6, setCurrentStep, locale);
 
   return (
-    <div className="mt-10 mb-10 flex w-[280px] flex-col gap-6 md:w-[682px]">
-      <fieldset className="lg: flex grid-cols-2 flex-col gap-6 lg:grid">
+    <div className="mt-10 mb-10 flex w-full max-w-[682px] flex-col gap-6">
+      <fieldset className="flex grid-cols-2 flex-col gap-6 lg:grid">
         <legend>
-          <p className="pb-4 text-lg leading-[26px] text-white">Duration:</p>
+          <p className="pb-4 text-lg leading-[26px] text-white">
+            {t(locale, "contact-us.step-06.fieldset-1.legend")}
+          </p>
         </legend>
         <div className="flex flex-col gap-6">
           {durationOptions.slice(0, 2).map((option) => (
             <RadioInput
               key={option.value}
               id={option.value}
-              name={option.value}
+              name="duration"
               label={option.label}
               value={option.value}
               checked={durationControl.field.value === option.value}
@@ -80,7 +82,7 @@ const ContactUsFormStep06 = ({ locale, setCurrentStep }: FormStepProps) => {
             <RadioInput
               key={option.value}
               id={option.value}
-              name={option.value}
+              name="duration"
               label={option.label}
               value={option.value}
               checked={durationControl.field.value === option.value}
@@ -92,13 +94,15 @@ const ContactUsFormStep06 = ({ locale, setCurrentStep }: FormStepProps) => {
       <div className="flex flex-col gap-6 lg:grid lg:grid-cols-2">
         <fieldset className="flex flex-col gap-6">
           <legend>
-            <p className="pb-4 text-lg leading-[26px] text-white">Team fit:</p>
+            <p className="pb-4 text-lg leading-[26px] text-white">
+              {t(locale, "contact-us.step-06.fieldset-2.legend")}
+            </p>
           </legend>
           {teamFitOptions.map((option) => (
             <RadioInput
               key={option.value}
               id={option.value}
-              name={option.value}
+              name="teamFit"
               label={option.label}
               value={option.value}
               checked={teamFitControl.field.value === option.value}
@@ -108,7 +112,7 @@ const ContactUsFormStep06 = ({ locale, setCurrentStep }: FormStepProps) => {
         </fieldset>
         <div className="flex flex-col">
           <p className="pb-4 text-lg leading-[26px] text-white">
-            Location (optional):
+            {t(locale, "contact-us.step-06.fieldset-3.legend")}
           </p>
           <SelectInput
             {...locationControl.field}

@@ -21,9 +21,10 @@ const FounderItem = ({
 }: Props) => (
   <>
     <button
-      className="cursor-pointer overflow-hidden rounded-3xl shadow-xs active:shadow-none lg:hidden"
+      type="button"
+      className="w-full max-w-[366px] cursor-pointer overflow-hidden rounded-3xl shadow-xs active:shadow-none lg:hidden"
       onClick={onClick}>
-      <div className="bg-shade-200 h-[366px] w-[366px]">
+      <div className="bg-shade-200 aspect-square w-full max-w-[366px]">
         <img
           src={image}
           alt={`${name}${t(locale, "who-we-are.founders.img-alt")}`}

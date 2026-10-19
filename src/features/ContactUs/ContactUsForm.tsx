@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useState } from "react";
 import FormWrapper from "./FormWrapper";
 import { type Locale } from "@/i18n";
 import { cva } from "class-variance-authority";
@@ -7,7 +7,10 @@ import { type ContactUsFormStepsType } from "@/types/forms";
 import useContactUsFormTitle from "./hooks/useContactUsFormTitle";
 import ContactUsFormContent from "./Content/Content";
 import { FormProvider, useForm } from "react-hook-form";
-import { ContactUsFormValidator, type ContactUsFormType } from "./validations";
+import {
+  getContactUsFormValidator,
+  type ContactUsFormType,
+} from "./validations";
 
 type Props = {
   locale: Locale;
@@ -15,23 +18,16 @@ type Props = {
 
 const ContactUsForm = ({ locale }: Props) => {
   const methods = useForm<ContactUsFormType>({
-    resolver: zodResolver(ContactUsFormValidator),
+    resolver: zodResolver(getContactUsFormValidator(locale)),
   });
 
   const [formStep, setFormStep] = useState<ContactUsFormStepsType>(0);
   const [totalSteps, setTotalSteps] = useState<number>(5);
 
-  const formCurrentStep = useMemo(() => {
-    // if (totalSteps === 6 && formStep === 6) {
-    //   return 7;
-    // }
-    return formStep;
-  }, [formStep, totalSteps]);
-
   const formTitle = useContactUsFormTitle(
     locale,
     formStep,
-    totalSteps === 7 ? "hire-talent" : "build-something",
+    totalSteps === 6 ? "build-something" : "hire-talent",
   );
 
   useEffect(() => {
@@ -74,13 +70,13 @@ const ContactUsForm = ({ locale }: Props) => {
         })}>
         {formTitle ? (
           <div className="">
-            <h1 className="w-[280px] text-center text-xl leading-[1.2] text-white md:w-[682px] md:text-[32px]">
+            <h1 className="w-full max-w-[682px] px-4 text-center text-xl leading-[1.2] text-white md:text-[32px]">
               {formTitle}
             </h1>
           </div>
         ) : null}
         <ContactUsFormContent
-          formCurrentStep={formCurrentStep}
+          formCurrentStep={formStep}
           locale={locale}
           setFormCurrentStep={setFormStep}
           setFormTotalSteps={setTotalSteps}

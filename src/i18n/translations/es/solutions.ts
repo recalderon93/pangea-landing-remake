@@ -7,6 +7,8 @@ export default {
     cta: "¡EMPIEZA YA!",
   },
   close: "Cerrar",
+  previous: "Solución anterior",
+  next: "Siguiente solución",
   "project-management": {
     hero: {
       title: "Gestión\nde Proyectos",

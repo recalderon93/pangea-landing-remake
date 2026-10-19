@@ -18,7 +18,7 @@ export const Routes: Record<Locale, Record<string, string>> = {
     whoWeAre: "/es/quienes-somos",
     ourWork: "/es/nuestro-trabajo",
     contactUs: "/es/contactanos",
-    success: "/contactanos/gracias",
+    success: "/es/contactanos/gracias",
     chatbot: "/es/servicios/chatbot",
     projectManagement: "/es/servicios/gestion-de-proyectos",
     webDevelopment: "/es/servicios/desarrollo-web",
